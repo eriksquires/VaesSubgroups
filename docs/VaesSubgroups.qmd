@@ -1,7 +1,7 @@
 ---
 title: "Analysis of ME/CFS Patient Clusters in Vaes Data Reveals Distinct Subgroups"
 author: "Erik Squires"
-date: "September 8, 2025"
+date: "September 13, 2025"
 bibliography: references.bib
 csl: nature.csl
 citeproc: true
@@ -271,25 +271,14 @@ Our secondary analysis shows that the many heterogeneous Vaes clusters can be or
 
 ## Appendix A: Cluster Summary Data
 
-We use the Vaes cluster data[@vaes2023_excel] for our analysis. From this Excel file we manually:
-
--   Remove lines above cluster IDs
--   Remove row with number of participants
--   Remove frequency rows (- f), leaving only severity (- s)
--   Remove frequency and severity suffixes from symptom names
--   Remove standard deviation columns
--   Shorten cluster identifiers to "C" and their number
--   Replace "mean" with the new short cluster ID
--   Save the resulting file as vaes_clusters_severity.csv
-
-From this file we used R to:
+We use the Vaes cluster data[@vaes2023_excel] for our analysis. We use R for significant cleaning and reformatting. After removing everything but the mean severity of the symptoms in the 13 clusters we:
 
 -   Group each cluster by symptom domain and calculate geometric means for each symptom domain within each cluster.
 -   Rotate the table
 -   Add a new column, "all_mean" which is the arithmetic mean of all symptoms within each cluster.
 -   Save this file as cluster_grouped_tidy.csv
 
-This last file is what we then used for our analysis, and the plots. We present the final data used below. Values were rounded and abbreviations used for formatting.
+This file is what we then used for our analysis, and the plots. We present the final data used below. Values were rounded and abbreviations used for formatting.
 
 ::: {#tbl-t2 tbl-cap="Cluster Summary Data with Geometric Means by Symptom Domain" tbl-pos="h"}
 ```{r cluster_summary, include=TRUE}
