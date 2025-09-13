@@ -37,8 +37,14 @@ execute:
 library(tidyverse)
 library(gt)
 library(patchwork)
+
+#
+# Honestly hrbrthemes::theme_ipsum can be difficult to get working in some 
+# environments. Much easier to switch ggplot to use theme_minimal() instead.
+#
 library(hrbrthemes)
 library(extrafont)
+library(showtext); showtext_auto()
 
 input_file <- here::here("data", "cluster_grouped_tidy.csv")
 
@@ -68,7 +74,7 @@ geo_plot_vs_pem <- function(yvar, ylabel) {
     labs(title = paste(ylabel, "vs PEM"),
          x = "PEM",
          y = ylabel) +
-    theme_ipsum() + 
+    theme_ipsum(base_family = "Arial") +  # Or switch to theme_minimal()
     xlim(0, 3.5) + ylim(0, 3.5)
 }
 
@@ -181,7 +187,7 @@ While the groups maintain integrity, the parallelism observed in the charts abov
 Pain and neurocognitive domains show that while the low intensity group remains offset, symptom domain amplification is increased. As PEM increases to 3, C7 comes very close to the high intensity line. 
 
 ::: {#fig-pain fig-cap="Pain and Neurocognitive vs. PEM" fig-pos="h"}
-```{r neuro_e_symptoms, include=TRUE}
+```{r neuro_c_symptoms, include=TRUE}
 #| fig-width: 10
 #| fig-height: 5
 #| out-width: 100%
