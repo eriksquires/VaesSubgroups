@@ -1,12 +1,30 @@
+# Purpose:  Reads Vaes (2023) ME/CFS cluster symptom data from Excel,
+# cleans it up, and writes a CSV file with severity data only.
+#
+# Author: Erik K. Squires (c) 2025
+# 
+
 library(readxl)
 library(dplyr)
 library(stringr)
 
-# Read the Excel file
-excel_file <- "12967_2023_3946_MOESM3_ESM.xlsx"
+# File names
+excel_file  <- here::here("data", "12967_2023_3946_MOESM3_ESM.xlsx")
+output_file <- here::here("data", "vaes_clusters_severity.csv")
+
+# Create a "data" folder in this project if it does not exist
+if (!dir.exists(here::here("data"))) {
+  dir.create(here::here("data"))
+}
+
+# Download the Excel file if it does not exist
+if (!file.exists(excel_file)) {
+  vaes_data_url <- "https://static-content.springer.com/esm/art%3A10.1186%2Fs12967-023-03946-6/MediaObjects/12967_2023_3946_MOESM3_ESM.xlsx"
+  download.file(vaes_data_url, excel_file, mode = "wb")
+}
 
 # Read the entire file without headers to examine structure
-raw_data <- read_excel(here::here("data", excel_file), sheet = 1, col_names = FALSE)
+raw_data <- read_excel(excel_file, sheet = 1, col_names = FALSE)
 
 # Extract cluster IDs from row 3
 cluster_row <- raw_data[3, ]
