@@ -23,7 +23,7 @@ if (!file.exists(excel_file)) {
   download.file(vaes_data_url, excel_file, mode = "wb")
 }
 
-# Read the entire file without headers to examine structure
+# Read the Excel file
 raw_data <- read_excel(excel_file, sheet = 1, col_names = FALSE)
 
 # Extract cluster IDs from row 3
@@ -32,8 +32,8 @@ cluster_ids <- c()
 for (i in 1:ncol(cluster_row)) {
   val <- cluster_row[[1, i]]
   if (!is.na(val) && !is.null(val)) {
-    # Convert to short format: Cluster2 -> 2
-    cluster_num <- str_extract(as.character(val), "\\d+")
+    # Convert to short format: Cluster2 -> C2
+    cluster_num <- str_replace(as.character(val), "luster", "") # Shorten string
     if (!is.na(cluster_num)) {
       cluster_ids <- c(cluster_ids, cluster_num)
     }
@@ -60,9 +60,6 @@ for (i in seq_along(mean_cols)) {
     new_colnames <- c(new_colnames, cluster_ids[i])
   }
 }
-
-# Add type column
-new_colnames <- c(new_colnames, "type")
 
 print("New column names:")
 print(new_colnames)
@@ -105,13 +102,9 @@ for (col in numeric_cols) {
   data_clean[[col]] <- round(as.numeric(data_clean[[col]]), 4)
 }
 
-# Add type column (all severity data)
-data_clean$type <- "s"
-
 print("Final processed data:")
 print(head(data_clean, 10))
 
-# Write to CSV with quotes only where needed (like the original)
-write.csv(data_clean, "vaes_clusters_severity_new.csv", row.names = FALSE)
-
-print("File written to vaes_clusters_severity.csv")
+# Write to CSV
+write.csv(data_clean, output_file, row.names = FALSE)
+print(paste0("File written to ", output_file))
