@@ -11,12 +11,14 @@ library(gtools)
 library(hrbrthemes)
 
 geo_pos <- function(v) exp(mean(log(v[v > 0]), na.rm = TRUE))
+# geo_pos <- function(v) mean(v)
+
 
 # Read and Rotate Data ####
 input_file <- here::here("data", "vaes_clusters_severity.csv")
 
 if (!file.exists(input_file)) {
-  stop(paste("Input file", input_file, "not found. Please run convert_vaes_excel_to_csv.R first."))
+  stop(paste("Input file", input_file, "not found. Please run process_excel.R first."))
 }
 
 vcs <- read_csv(input_file) %>%
@@ -35,6 +37,11 @@ vcs <- vcs %>% select(-Symptomgroup)
 # Rotate vcs
 vcs_long <- vcs %>%
   pivot_longer(cols = -Symptoms, names_to = "cluster", values_to = "Severity")
+
+all_clusters <- vcs_long %>%
+  distinct(cluster) %>%
+  arrange(cluster) %>%
+  pull(cluster)
 
 # Convert cluster to an ordered factor using mixed sort
 vcs_long$cluster <- factor(vcs_long$cluster, 
@@ -61,8 +68,9 @@ vcs_tidy <- vcs_grouped %>%
 
 
 # From visual inspection of charts, below, we identify members of each group ####
-high_symptom_clusters <- c("C37", "C28", "C40", "C31", "C9", "C26", "C36", "C19")
-low_symptom_clusters <- c( "C2", "C11", "C4", "C24", "C7")
+high_symptom_clusters <- mixedsort( c("C37", "C28", "C40", "C31", "C9", "C26", "C36", "C19"))
+# low_symptom_clusters <- c( "C2", "C11", "C4", "C24", "C7")
+low_symptom_clusters <- mixedsort(setdiff(all_clusters, high_symptom_clusters))
 
 
 vcs_tidy <- vcs_tidy %>%
@@ -70,7 +78,8 @@ vcs_tidy <- vcs_tidy %>%
     cluster %in% high_symptom_clusters ~ "high",
     cluster %in% low_symptom_clusters ~ "low",
     TRUE ~ "out"
-  )) 
+  )) %>%
+  select(cluster, intensity_group, everything())
 
 # write_rds(vcs_tidy, here::here("data", "cluster_grouped_tidy.rds"))
 write_csv(vcs_tidy, here::here("data", "cluster_grouped_tidy.csv"))

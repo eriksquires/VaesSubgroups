@@ -77,12 +77,11 @@ colnames(data_rows) <- new_colnames
 # Remove rows where first column is NA (empty rows)
 data_clean <- data_rows[!is.na(data_rows[[1]]), ]
 
-print("First few rows of cleaned data:")
-print(head(data_clean))
-
 # Keep only severity rows (those ending with "- s")
 # Look at the original symptom column in raw data
-original_symptoms <- raw_data[[2]][data_start_row:nrow(raw_data)]
+original_symptoms <- data_clean[[2]][1:nrow(data_clean)]
+
+
 severity_pattern <- ".*-\\s*s$"
 
 # Find rows that match severity pattern
@@ -97,7 +96,7 @@ data_clean <- data_clean[severity_row_indices, ]
 data_clean$Symptoms <- str_replace(data_clean$Symptoms, "\\s*-\\s*s$", "")
 
 # Round numeric columns to 4 decimal places to match target
-numeric_cols <- 3:(ncol(data_clean)-1)  # Skip first 2 and last column
+numeric_cols <- 3:(ncol(data_clean))  # Skip first 2 and last column
 for (col in numeric_cols) {
   data_clean[[col]] <- round(as.numeric(data_clean[[col]]), 4)
 }

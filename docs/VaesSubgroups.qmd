@@ -37,19 +37,15 @@ execute:
 library(tidyverse)
 library(gt)
 library(patchwork)
-
-#
-# Honestly hrbrthemes::theme_ipsum can be difficult to get working in some 
-# environments. Much easier to switch ggplot to use theme_minimal() instead.
-#
-library(hrbrthemes)
-library(extrafont)
+library(gtools)
 library(showtext); showtext_auto()
+
+
 
 input_file <- here::here("data", "cluster_grouped_tidy.csv")
 
 if (!file.exists(input_file)) {
-  stop(paste("Input file", input_file, "not found. Please run summarize_vaes_csv_by_symptom.R first."))
+  stop(paste("Input file", input_file, "not found. Please run summarize_vaes_csv_by_symptom_domain.R first."))
 }
 
 vcs_tidy <- read_csv(input_file) %>%
@@ -74,8 +70,8 @@ geo_plot_vs_pem <- function(yvar, ylabel) {
     labs(title = paste(ylabel, "vs PEM"),
          x = "PEM",
          y = ylabel) +
-    theme_ipsum(base_family = "Arial") +  # Or switch to theme_minimal()
-    xlim(0, 3.5) + ylim(0, 3.5)
+    theme_minimal(base_family = "sans") +  # Or switch to theme_minimal()
+    xlim(0, 4.0) + ylim(0, 4.0)
 }
 
 ```
@@ -88,13 +84,13 @@ Email: esquires.research\@proton.me
 
 # Abstract {.unnumbered}
 
-**Background:** Vaes et al. (2023)[@vaes2023] identified 13 symptom clusters in a large cohort of ME/CFS patients. Symptom intensity appears broadly correlated with post-exertional malaise (PEM) severity, with variation across clusters that seems largely heterogeneous. While a variety of phenotype groups have been proposed by others, no broadly accepted organizing principle has emerged.
+**Background:** Vaes et al. (2023)[@vaes2023] identified 13 symptom clusters in a large cohort of ME/CFS patients. Symptom intensity is broadly correlated with post-exertional malaise (PEM) severity, with variation across clusters that seems heterogeneous. Despite this research, no broadly accepted organizing principle has emerged from this paper or other attempts at phenotyping ME/CFS.
 
 **Objective:** To identify and characterize potential subgroups defined by symptom domain severity relative to PEM within the original Vaes symptom clusters.
 
 **Methods:** We analyzed the Vaes cluster summary data [@vaes2023_excel], calculated geometric means for each symptom domain within each cluster, and plotted these means against PEM severity to identify patterns and subgroups.
 
-**Results:** We identified two groups of patient clusters with distinct symptom-domain profiles. Separating the 13 clusters into these subgroups reduced symptom heterogeneity within each. The first group showed a consistent amplification pattern across all symptom domains as PEM increased, whereas the second group exhibited selective amplification: pain and neurocognitive symptoms escalated more rapidly with PEM, while immune and sleep symptoms remained relatively flat. This subgroup's profile resembles that of fibromyalgia.
+**Results:** We identified two groups of patient clusters with distinct symptom-domain profiles. Separating the 13 clusters into these subgroups reduced heterogeneity within each. The first group showed a consistent amplification pattern across all symptom domains as PEM increased, whereas the second group exhibited selective amplification: pain and neurocognitive symptoms escalated more rapidly with PEM, while immune and sleep symptoms remained relatively flat. This subgroup's profile resembles that of fibromyalgia.
 
 **Keywords:** Myalgic Encephalomyelitis, ME/CFS, patient clustering, fibromyalgia, post-exertional malaise, PEM
 
@@ -111,11 +107,11 @@ Email: esquires.research\@proton.me
 
 # Introduction
 
-Dr. Anouk W. Vaes and collaborators at CIRO performed one of the largest systematic surveys of ME/CFS symptom patterns, applying clustering methods to patient-reported outcomes to identify recurring constellations of symptoms [@vaes2023]. They used symptom surveys based on the DePaul Symptom Questionnaire version 2 (DSQ-2) from 337 patients to identify a total of 45 patient clusters of which 13 were of size $\geq$ 10. We used the publicly available data of their final 13 clusters for analysis.[@vaes2023_excel]
+Dr. Anouk W. Vaes and her collaborators at CIRO performed one of the largest systematic surveys of ME/CFS symptom patterns, applying clustering methods to patient-reported outcomes to identify recurring constellations of symptoms [@vaes2023]. They used symptom surveys based on the DePaul Symptom Questionnaire version 2 (DSQ-2) from 337 patients to identify a total of 45 patient clusters of which 13 were of size $\geq$ 10. We used the publicly available data of their final 13 clusters for analysis.[@vaes2023_excel]
 
 While Vaes described each cluster, and noted some differences among symptom severity, an overall organizing principle was not proposed. Other methods have been used to group ME/CFS phenotypes, including by severity alone, or a combination of severity and symptoms but no consensus has emerged on how to best group patients.
 
-Our analysis suggests that the Vaes ME/CFS clusters can be organized into two overarching families defined by their relationship to PEM. This reorganization reduces the apparent complexity of the cluster map and highlights a fibro-like subgroup within ME/CFS that has not been explicitly recognized in prior work.
+Our analysis suggests that the Vaes ME/CFS clusters can be organized into two overarching families defined by their relationship to PEM. This reduces the complexity of the cluster symptom intensities and highlights a fibromyalgia-like subgroup within ME/CFS that has not been explicitly recognized in prior work.
 
 Our use of the terms “high” and “low intensity” does not reproduce the clusters described by Vaes or others but reflects a new organization based on how symptom domains scale with PEM. Vaes used the DePaul symptom groupings which we keep as-is.
 
@@ -123,9 +119,9 @@ Our use of the terms “high” and “low intensity” does not reproduce the c
 
 The strong weight of PEM symptoms makes the Vaes dataset tricky to interpret if you only look at raw intensity. We compared overall symptom levels to PEM severity and grouped clusters by how those two measures relate.
 
-In the following sections we'll start by showing how the groups are most similar, then how they differ. We keep the DSQ-2 categories used in Vaes' paper but add an "all" category to gauge overall symptom severity.
+In the following sections we will start by showing how the groups are most similar, then how they differ. We add an "all" category to gauge overall symptom severity to the original symptom domains.
 
-**Notes:** The DSQ-2 uses a single symptom for fatigue. Also, for the "Overall" chart we used the arithmetical mean instead of geometrical mean for the Y axis. All other graphs in this study use geometric means exclusively.
+**Notes:** The DSQ-2 uses a single symptom for fatigue. Also, for the "Overall" chart we used the arithmetic mean instead of geometric mean for the Y axis. All other graphs in this study use geometric means exclusively.
 
 ## Similarities
 
@@ -149,7 +145,7 @@ p
 
 \FloatBarrier
 
-While fatigue (above) shows complete overlap in our groups the next charts (below) show how they stand out. In the first chart (top left) we compare the average of all symptoms to PEM. In this chart one can easily discern two tiers of clusters.  One has a higher overall symptom burden at any given PEM level compared to the other and this relationship is where we derive the names for our groups: high and low intensity.
+While fatigue ([@fig-fatigue]) shows complete overlap in our groups the next charts ([@fig-symptoms]) show how they stand out. In the first chart (top left) we compare the average of all symptoms to PEM. In this chart one can easily discern two tiers of clusters. One has a higher overall symptom burden at any given PEM level compared to the other and this relationship is where we derive the names for our groups: high and low intensity.
 
 Autonomic, Neuroendocrine and Other also follow a similar pattern: Parallel but lower than the high intensity group.
 
@@ -176,15 +172,31 @@ p
 
 \FloatBarrier
 
-**Groupings:** From visual inspection of the charts above we group clusters C9, C19, C26, C28, C31, C36, C37, C40 as high intensity, C2, C4, C7, C11, C24 as low intensity. We'll keep these groupings for all plots that follow.
+```{r groups, include=TRUE}
 
-The last chart (Other vs. PEM) shows a markedly lower offset and is perhaps the most visibly obvious difference between the two groups.  The two symptoms in "other" are sensitivity to mold and vibration. 
+high_intensity <- vcs_tidy %>%
+  filter(intensity_group == "high") %>%
+  pull(cluster)
+
+high_intensity <- mixedsort(high_intensity)
+
+low_intensity <- vcs_tidy %>%
+  filter(intensity_group == "low") %>%
+  pull(cluster)
+
+low_intensity <- mixedsort(low_intensity)
+
+```
+
+**Groupings:** From visual inspection of the charts above we group clusters `r high_intensity` as high intensity, `r low_intensity` as low intensity. We'll keep these groupings for all plots that follow.
+
+The last chart (Other vs. PEM) shows a markedly lower offset and is perhaps the most visibly obvious difference between the two groups. The two symptoms in 'other' are sensitivity to mold and vibration.
 
 While the groups maintain integrity, the parallelism observed in the charts above does not hold in the next charts and suggests a more complex physiological cause for the differences.
 
 ## Increasing Amplification vs. PEM
 
-Pain and neurocognitive domains show that while the low intensity group remains offset, symptom domain amplification is increased. As PEM increases to 3, C7 comes very close to the high intensity line. 
+Pain and neurocognitive domains show that while the low intensity group remains offset, symptom domain amplification is increased. As PEM increases to 3, C7 comes very close to the high intensity line.
 
 ::: {#fig-pain fig-cap="Pain and Neurocognitive vs. PEM" fig-pos="h"}
 ```{r neuro_c_symptoms, include=TRUE}
@@ -210,7 +222,7 @@ The two charts above, while not severe enough to claim this is fibromyalgia with
 
 ## Different Correlations to PEM
 
-In all of the previous charts we've shown that both groups maintain a strong but distinct relationship to PEM.  By contrast, the immune and sleep domains show little to no correlation with PEM severity in the low intensity group. Notably, despite this lack of correlation, sleep disturbance can be pronounced in the low intensity group.
+In all of the previous charts we've shown that both groups maintain a strong but distinct relationship to PEM. By contrast, the immune and sleep domains show little to no correlation with PEM severity in the low intensity group. Notably, despite this lack of correlation, sleep disturbance can be pronounced in the low intensity group.
 
 ::: {#fig-distinct fig-cap="Immune and Sleep vs. PEM" fig-pos="h"}
 ```{r immune_symptoms, include=TRUE}
@@ -233,37 +245,37 @@ p
 
 # Summary of Differences
 
-**High Intensity:** Has a consistent amplification pattern: as PEM increases, all other symptom domains rise together. 
+**High Intensity:** Has a consistent amplification pattern: as PEM increases, all other symptom domains rise together.
 
-**Low Intensity:** Presents a more selective profile. Pain, neurocognitive, and neuroendocrine symptoms escalate more rapidly with PEM, while sleep and immune symptoms show little or no correlation. The elevated neurocognitive and pain symptoms, together with variable sleep symptom intensity make the low-intensity group more suggestive of fibromyalgia than the high-intensity group.  Also, the low intensity group is notably nestled in the middle of the overall PEM range which could allow it to hide among the other clusters if not actively searched for.
+**Low Intensity:** Presents a more selective profile. Pain, neurocognitive, and neuroendocrine symptoms escalate more rapidly with PEM, while sleep and immune symptoms show little or no correlation. The elevated neurocognitive and pain symptoms, together with variable sleep symptom intensity makes the low-intensity group more suggestive of fibromyalgia than the high-intensity group. Additionally, the low intensity group is notably nestled in the middle of the overall PEM range which could allow it to hide among the other clusters if not actively searched for.
 
 We summarize these differences in the table below.\bigskip
 
 ::: {#tbl-t1 tbl-cap="Summary of Group Differences" tbl-pos="h"}
-| Feature              | High group  | Low group                     |
-|----------------------|-------------|-------------------------------|
-| Overall vs. PEM      | Higher      | Lower - esp. "other"          |
-| Fatigue              | Same        | Same                          |
-| PEM range            | \~1.3 – 3.4 | Narrower \~2.2 – 2.9          |
-| Neurocognitive       | Tracks PEM  | Elevated amplification        |
-| Pain                 | Tracks PEM  | Elevated amplification        |
-| Immune               | Tracks PEM  | Flat at \~1                   |
-| Sleep                | Tracks PEM  | \~1.4 – 2.5, but uncorrelated |
+| Feature         | High group  | Low group                     |
+|-----------------|-------------|-------------------------------|
+| Overall vs. PEM | Higher      | Lower - esp. "other"          |
+| Fatigue         | Same        | Same                          |
+| PEM range       | \~1.3 – 3.4 | Narrower \~2.2 – 2.9          |
+| Neurocognitive  | Tracks PEM  | Elevated amplification        |
+| Pain            | Tracks PEM  | Elevated amplification        |
+| Immune          | Tracks PEM  | Flat at \~1                   |
+| Sleep           | Tracks PEM  | \~1.4 – 2.5, but uncorrelated |
 :::
 
 \bigskip
 
-**Symptom Severity:** In terms of overall symptom range the two groups largely overlap. The high intensity group, by symptom intensity alone, could be considered a superset of the low intensity group.  It is the differing relationships to PEM and the selective amplification of certain symptom domains in the low intensity group that set the two groups apart.
+**Symptom Severity:** In terms of overall symptom range the two groups largely overlap. The high intensity group, by symptom intensity alone, could be considered a superset of the low intensity group. It is the differing relationships to PEM and the selective amplification of certain symptom domains in the low intensity group that set the two groups apart.
 
 # Discussion
 
-We have shown that the Vaes clusters can be organized into two subgroups defined by symptom domains relative to PEM, and that these subgroups remain consistent across most symptom domains. 
+We have shown that the Vaes clusters can be organized into two subgroups defined by symptom domains relative to PEM, and that these subgroups remain consistent across most symptom domains.
 
 ME/CFS is widely recognized as a heterogeneous condition with complex symptom presentations. Grouping the Vaes clusters by their relationship to PEM simplifies this complexity at the domain and cluster levels, but it only partially reduces heterogeneity at the individual-symptom level and may not translate directly to grouping individual patients. Vaes[@vaes2023] provided cluster-specific summaries of standout symptoms; some of those align with our domain-based charts while others show a different emphasis, underscoring the challenge of reconciling symptom-level observations with domain-level analyses.
 
-Although these patterns may guide future phenotyping, several cautions are warranted. This is a secondary analysis of patient clusters defined by symptom domains, with small subgroup sizes (8 and 5 clusters). The original clustering methods of Vaes et al. may have obscured or exaggerated some relationships we show here. Moreover, visual inspection of the plots may suggest directional trends where none truly exist.
+Although these patterns may guide future phenotyping, several cautions are warranted. This is a secondary analysis of patient clusters defined by symptom domains with small subgroup sizes (8 and 5 clusters). The original clustering methods of Vaes et al. may have obscured or exaggerated some relationships we show here. Moreover, visual inspection of the plots may suggest directional trends where none truly exist.
 
-Despite these limitations we believe at least two further steps should be taken.  Using the original patient scores could validate, refine or repudiate these subgroups and possibly produce a short list of differentiating symptoms.  If this proves useful then examining biological markers across these subgroups could help to reveal underlying pathophysiological differences.
+Despite these limitations, we believe at least two further steps should be taken. Using the original patient scores could validate, refine, or repudiate these subgroups and possibly produce a short list of differentiating symptoms. If this proves useful then examining biological markers across these subgroups could help to reveal underlying pathophysiological differences.
 
 # Conclusion
 
@@ -277,14 +289,14 @@ Our secondary analysis shows that the many heterogeneous Vaes clusters can be or
 
 ## Appendix A: Cluster Summary Data
 
-We use the Vaes cluster data[@vaes2023_excel] for our analysis. We use R for significant cleaning and reformatting. After removing everything but the mean severity of the symptoms in the 13 clusters we:
+We use the Vaes cluster spreadsheet[@vaes2023_excel] exclusively as our data source. We use R for significant cleaning and transformation from Excel to CSV. After removing everything but the mean severity of the symptoms in the 13 clusters we:
 
 -   Group each cluster by symptom domain and calculate geometric means for each symptom domain within each cluster.
 -   Rotate the table
 -   Add a new column, "all_mean" which is the arithmetic mean of all symptoms within each cluster.
 -   Save this file as cluster_grouped_tidy.csv
 
-This file is what we then used for our analysis, and the plots. We present the final data used below. Values were rounded and abbreviations used for formatting.
+This file is what we then used for our analysis, and the plots. We present the final data used below. Values were rounded and abbreviations used for formatting. See the [Code Availability](#sec-code) section for links to the code used to generate this file.
 
 ::: {#tbl-t2 tbl-cap="Cluster Summary Data with Geometric Means by Symptom Domain" tbl-pos="h"}
 ```{r cluster_summary, include=TRUE}
@@ -306,9 +318,9 @@ gt(rounded_vcs_tidy) %>%
 
 {{< pagebreak >}}
 
-# Code Availability {.unnumbered}
-All data manipulation and analysis scripts are available at
-<https://github.com/eriksquires/VaesSubgroups>
+# Code Availability {#sec-code .unnumbered}
+
+All data manipulation and analysis scripts are available at <https://github.com/eriksquires/VaesSubgroups>
 
 # References {.unnumbered}
 
@@ -339,4 +351,4 @@ This work received no external funding.
 
 # Ethics Statement {.unnumbered}
 
-This study reanalyzed publicly available trial reports and published symptom cluster data (Vaes 2023). No new patient data were collected.
+This study reanalyzed publicly available reports and published symptom cluster data (Vaes 2023). No new patient data were collected.
