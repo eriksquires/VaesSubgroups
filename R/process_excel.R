@@ -1,6 +1,10 @@
 # Purpose:  Reads Vaes (2023) ME/CFS cluster symptom data from Excel,
 # cleans it up, and writes a CSV file with severity data only.
 #
+# The full Vaes (2023) publication is available at:
+#
+# https://translational-medicine.biomedcentral.com/articles/10.1186/s12967-023-03946-6
+#
 # Author: Erik K. Squires (c) 2025
 # 
 

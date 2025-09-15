@@ -106,7 +106,7 @@ geo_plot_vs_pem <- function(yvar, ylabel) {
                        labels = c("high" = "High", "low" = "Low")) +
     guides(color = guide_legend(override.aes = list(shape = c(16, 17))),
            shape = "none") +
-    geom_smooth(aes(color = intensity_group, group = intensity_group), method = "lm", se = FALSE) +
+    geom_smooth(aes(color = intensity_group, group = intensity_group), method = "lm", se = TRUE) +
     labs(title = paste(ylabel, "vs PEM"),
          x = "PEM",
          y = ylabel) +
@@ -114,14 +114,15 @@ geo_plot_vs_pem <- function(yvar, ylabel) {
     xlim(0, 3.5) + ylim(0, 3.5)
 }
 
-# geo_plot_vs_pem('all_mean', "All Arithmetic Mean")
-# geo_plot_vs_pem('Sleep', 'Sleep Geometric Mean')
-# geo_plot_vs_pem('neurocognitive', 'Neurocognitive Geometric Mean')
-# geo_plot_vs_pem('neuroendocrine', 'Neuroendocrine Geometric Mean')
-# geo_plot_vs_pem('pain', 'Pain Geometric Mean')
-# geo_plot_vs_pem('Immune', 'Immune')
-# geo_plot_vs_pem('fatigue', 'Fatigue')
-# geo_plot_vs_pem('other', 'Other')
+geo_plot_vs_pem('all_mean', "All Arithmetic Mean")
+geo_plot_vs_pem('Sleep', 'Sleep Geometric Mean')
+geo_plot_vs_pem('neurocognitive', 'Neurocognitive Geometric Mean')
+geo_plot_vs_pem('neuroendocrine', 'Neuroendocrine Geometric Mean')
+geo_plot_vs_pem('pain', 'Pain Geometric Mean')
+geo_plot_vs_pem('Immune', 'Immune')
+geo_plot_vs_pem('fatigue', 'Fatigue')
+geo_plot_vs_pem('other', 'Other')
+geo_plot_vs_pem('autonomic', 'Autonomic')
 
 #
 #

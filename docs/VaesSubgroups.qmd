@@ -66,7 +66,7 @@ geo_plot_vs_pem <- function(yvar, ylabel) {
                        labels = c("high" = "High", "low" = "Low")) +
     guides(color = guide_legend(override.aes = list(shape = c(16, 17))),
            shape = "none") +
-    geom_smooth(aes(color = intensity_group, group = intensity_group), method = "lm", se = FALSE) +
+    geom_smooth(aes(color = intensity_group, group = intensity_group), method = "lm", se = TRUE) +
     labs(title = paste(ylabel, "vs PEM"),
          x = "PEM",
          y = ylabel) +
@@ -191,6 +191,8 @@ low_intensity <- mixedsort(low_intensity)
 **Groupings:** From visual inspection of the charts above we group clusters `r high_intensity` as high intensity, `r low_intensity` as low intensity. We'll keep these groupings for all plots that follow.
 
 The last chart (Other vs. PEM) shows a markedly lower offset and is perhaps the most visibly obvious difference between the two groups. The two symptoms in 'other' are sensitivity to mold and vibration.
+
+\FloatBarrier
 
 While the groups maintain integrity, the parallelism observed in the charts above does not hold in the next charts and suggests a more complex physiological cause for the differences.
 
