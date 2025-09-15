@@ -40,8 +40,6 @@ library(patchwork)
 library(gtools)
 library(showtext); showtext_auto()
 
-
-
 input_file <- here::here("data", "cluster_grouped_tidy.csv")
 
 if (!file.exists(input_file)) {
@@ -51,6 +49,20 @@ if (!file.exists(input_file)) {
 vcs_tidy <- read_csv(input_file) %>%
   mutate(intensity_group = as.factor(str_trim(intensity_group))) %>%
   droplevels()
+
+cluster_sizes <-  read_csv(here::here("data", "vaes_cluster_sizes.csv"))
+
+group_sizes <- vcs_tidy %>%
+  left_join(cluster_sizes, by = "cluster") %>%
+  group_by(intensity_group) %>%
+  summarize(total_size = sum(size), .groups = 'drop')
+
+# Calculate the ratio of the high and low intensity groups
+high_size <- group_sizes %>% filter(intensity_group == "high") %>% pull(total_size)
+low_size <- group_sizes %>% filter(intensity_group == "low") %>% pull(total_size)
+size_ratio <- high_size / low_size
+low_pct <- round((low_size / (high_size + low_size)) * 100, 1)
+high_pct <- 100 - low_pct
 
 geo_plot_vs_pem <- function(yvar, ylabel) {
   # Not strictly needed, but makes reading and debugging nicer
@@ -111,21 +123,25 @@ Dr. Anouk W. Vaes and her collaborators at CIRO performed one of the largest sys
 
 While Vaes described each cluster, and noted some differences among symptom severity, an overall organizing principle was not proposed. Other methods have been used to group ME/CFS phenotypes, including by severity alone, or a combination of severity and symptoms but no consensus has emerged on how to best group patients.
 
-Our analysis suggests that the Vaes ME/CFS clusters can be organized into two overarching families defined by their relationship to PEM. This reduces the complexity of the cluster symptom intensities and highlights a fibromyalgia-like subgroup within ME/CFS that has not been explicitly recognized in prior work.
+Our analysis suggests that the Vaes ME/CFS clusters can be organized into two overarching families defined by their relationship to PEM. This reduces the complexity of the cluster symptom intensities and highlights a fibromyalgia-like subgroup within the Vaes clusters that has not been explicitly recognized in prior work.
 
-Our use of the terms “high” and “low intensity” does not reproduce the clusters described by Vaes or others but reflects a new organization based on how symptom domains scale with PEM. Vaes used the DePaul symptom groupings which we keep as-is.
+According to Vaes[@vaes2023]:
 
-# Symptom Domains vs. PEM
+> Almost 90% of the participants fulfilled the Fukuda case definition, compared to 80%, 59% and 39% fulfilling the IOM, CCC and ME-ICC case definitions, respectively. More than a quarter of the participants met the criteria for all four different case definitions, whilst 5% of the participants met none of the abovementioned \[sp.\] case definitions,...
 
-The strong weight of PEM symptoms makes the Vaes dataset tricky to interpret if you only look at raw intensity. We compared overall symptom levels to PEM severity and grouped clusters by how those two measures relate.
+This means the patients in the Vaes study were diagnosed with broad and different criteria which, when taken together with our analysis, provides one of the first opportunities to quantitatively separate classic ME/CFS and fibromyalgia-like patients from a single, uniformly collected cohort.
 
-In the following sections we will start by showing how the groups are most similar, then how they differ. We add an "all" category to gauge overall symptom severity to the original symptom domains.
+# Visual Analysis of Symptom Domains vs. PEM
 
-**Notes:** The DSQ-2 uses a single symptom for fatigue. Also, for the "Overall" chart we used the arithmetic mean instead of geometric mean for the Y axis. All other graphs in this study use geometric means exclusively.
+The strong weight of PEM symptoms makes the Vaes dataset tricky to interpret if you only look at raw intensity, so instead we compared overall symptom levels to PEM severity.  From this comparison we identified two groups of clusters that maintain their integrity across most symptom domains.
+
+We will start by showing how the groups are most similar, then how they differ. We add an "all" category to gauge overall symptom severity to the original symptom domains. Our use of the terms “high” and “low intensity” does not reproduce the clusters described by Vaes or others but reflects a new organization based on how symptom domains scale with PEM. Vaes used the DePaul symptom groupings which we keep as-is.
+
+**Notes:** The DSQ-2 uses a single symptom for fatigue. Also, for the "Overall" chart we used the arithmetic mean instead of geometric mean for the Y axis. All other graphs in this study use geometric means exclusively.  Shaded bands represent the 95% confidence interval of the linear models when used. 
 
 ## Similarities
 
-In terms of fatigue, the two groups overlap completely, as ME/CFS patient clusters are expected to.
+In terms of fatigue, the two groups overlap completely, as ME/CFS patient clusters are expected to. See [@fig-fatigue], below.  While the lines have a similar slope and offset we note the R² value is significantly weaker in the low intensity group (0.54 vs. 0.86). 
 
 ::: {#fig-fatigue fig-cap="Fatigue vs. PEM" fig-pos="h"}
 ```{r fatigue, include=TRUE}
@@ -145,7 +161,7 @@ p
 
 \FloatBarrier
 
-While fatigue ([@fig-fatigue]) shows complete overlap in our groups the next charts ([@fig-symptoms]) show how they stand out. In the first chart (top left) we compare the average of all symptoms to PEM. In this chart one can easily discern two tiers of clusters. One has a higher overall symptom burden at any given PEM level compared to the other and this relationship is where we derive the names for our groups: high and low intensity.
+While fatigue shows complete overlap in our groups the next charts ([@fig-symptoms]) show how they stand out. In the first chart (top left) we compare the average of all symptoms to PEM. In this chart one can easily discern two tiers of clusters. One has a higher overall symptom burden at any given PEM level compared to the other and this relationship is where we derive the names for our groups: high and low intensity.
 
 Autonomic, Neuroendocrine and Other also follow a similar pattern: Parallel but lower than the high intensity group.
 
@@ -188,7 +204,7 @@ low_intensity <- mixedsort(low_intensity)
 
 ```
 
-**Groupings:** From visual inspection of the charts above we group clusters `r high_intensity` as high intensity, `r low_intensity` as low intensity. We'll keep these groupings for all plots that follow.
+**Groupings:** From visual inspection of the charts above we group clusters `r high_intensity` as high intensity, `r low_intensity` as low intensity. We'll keep these groupings for all plots that follow. The high and low groups are approximately `r high_pct`% and `r low_pct`% of the total cohort, respectively.
 
 The last chart (Other vs. PEM) shows a markedly lower offset and is perhaps the most visibly obvious difference between the two groups. The two symptoms in 'other' are sensitivity to mold and vibration.
 
@@ -245,7 +261,7 @@ p
 
 \FloatBarrier
 
-# Summary of Differences
+## Summary of Differences
 
 **High Intensity:** Has a consistent amplification pattern: as PEM increases, all other symptom domains rise together.
 
@@ -257,7 +273,7 @@ We summarize these differences in the table below.\bigskip
 | Feature         | High group  | Low group                     |
 |-----------------|-------------|-------------------------------|
 | Overall vs. PEM | Higher      | Lower - esp. "other"          |
-| Fatigue         | Same        | Same                          |
+| Fatigue         | R² - 0.86   | Weaker R² - 0.54              |
 | PEM range       | \~1.3 – 3.4 | Narrower \~2.2 – 2.9          |
 | Neurocognitive  | Tracks PEM  | Elevated amplification        |
 | Pain            | Tracks PEM  | Elevated amplification        |
@@ -269,11 +285,86 @@ We summarize these differences in the table below.\bigskip
 
 **Symptom Severity:** In terms of overall symptom range the two groups largely overlap. The high intensity group, by symptom intensity alone, could be considered a superset of the low intensity group. It is the differing relationships to PEM and the selective amplification of certain symptom domains in the low intensity group that set the two groups apart.
 
+# Regression Analysis
+
+In the preceding section we used visual analysis to identify two subgroups of ME/CFS patient clusters defined by their symptom domain profiles relative to PEM severity. Here we focus on quantifying the value of these groups.
+
+## R² by Group
+
+We compare the regression coefficient (R²) of the symptom domains in three levels:
+
+-   Combined (all clusters)
+-   High intensity group
+-   Low intensity group
+
+We will show that R² is consistently strengthened by removing the low intensity group, and we'll also show that the high intensity group maintains a stronger correlation to PEM across most symptom domains. \FloatBarrier
+
+::: {#tbl-t2 tbl-cap="R² by Domain" fig-pos="h"}
+```{r r2_domain, include=TRUE}
+input_file <- here::here("data","r2_by_domain_combined_high_low.csv")
+if (!file.exists(input_file)) {
+  stop(paste("Input file", input_file, "not found. Please run r2_by_domain.R first."))
+}
+
+res <- read_csv(input_file) %>%
+  rename(Domain = domain) %>%
+  mutate(Domain = str_to_title(Domain)) %>%
+  arrange(Domain)
+
+# Capitalize first letter in Domain
+gt(res) %>% 
+  tab_options(latex.tbl.pos = "h")
+```
+:::
+
+@tbl-t2 shows that for almost every symptom domain, the high intensity group has a higher R² than the combined group, which in turn has a higher R² than the low intensity group. This is consistent with our visual analysis and supports the existence of two distinct subgroups within the Vaes clusters.
+
+In some cases, like neurocognitive, neuroendocrine, and Other the combined R² is significantly weaker than either of the subgroups.
+
+\FloatBarrier
+
+## Leave-one-out Analysis
+
+We discovered our two groups by visual analysis, but we can rediscover the set using leave-one-out analysis. In this analysis we go through each domain and examine what happens when we remove one cluster at a time. The goal is to identify whether removing a cluster improves R² or makes it worse.
+
+We summarize the mean R² differences, in order of greatest improvement, in @tbl-t3. We see that removing any of the low intensity clusters improves R².
+
+::: {#tbl-t3 tbl-cap="Leave-one-out Analysis" fig-pos="h"}
+```{r loo_analysis, include=TRUE}
+input_file <- here::here("data","loo_delta_r2_by_cluster.csv")
+if (!file.exists(input_file)) {
+  stop(paste("Input file", input_file, "not found. Please run leave_one_out.R first."))
+}
+
+res_loo <- read_csv(input_file) %>%
+  mutate(mean_dR2 = round(mean_dR2, 4)) %>%
+  select(Cluster = cluster, `Domains Improved` = domains_improved, mean_dR2) %>%
+  arrange(desc(mean_dR2)) %>%
+  head(6)
+
+res_loo <- left_join(res_loo, vcs_tidy, by = c("Cluster" = "cluster")) %>%
+  select(Cluster, Group = intensity_group, `Domains Improved`, mean_dR2) %>%
+  rename(`Mean ΔR²` = mean_dR2)
+
+
+gt(res_loo)
+  
+```
+:::
+
+Of the top 6 clusters only C31 is not part of the low intensity group.
+
+The **R² by Group** and **Leave-one-out Analysis** strongly support the existence of two distinct subgroups within the Vaes clusters.
+
+\FloatBarrier
+
 # Discussion
 
 We have shown that the Vaes clusters can be organized into two subgroups defined by symptom domains relative to PEM, and that these subgroups remain consistent across most symptom domains.
 
 ME/CFS is widely recognized as a heterogeneous condition with complex symptom presentations. Grouping the Vaes clusters by their relationship to PEM simplifies this complexity at the domain and cluster levels, but it only partially reduces heterogeneity at the individual-symptom level and may not translate directly to grouping individual patients. Vaes[@vaes2023] provided cluster-specific summaries of standout symptoms; some of those align with our domain-based charts while others show a different emphasis, underscoring the challenge of reconciling symptom-level observations with domain-level analyses.
+
+The wide net cast by Vaes in terms of diagnostic criteria may have helped to reveal these two subgroups. The high intensity group aligns more closely with classic ME/CFS presentations, while the low intensity group, with its fibromyalgia-like profile, suggests a different or overlapping pathophysiology. This is consistent with prior observations that fibromyalgia and ME/CFS often co-occur and may share underlying mechanisms.
 
 Although these patterns may guide future phenotyping, several cautions are warranted. This is a secondary analysis of patient clusters defined by symptom domains with small subgroup sizes (8 and 5 clusters). The original clustering methods of Vaes et al. may have obscured or exaggerated some relationships we show here. Moreover, visual inspection of the plots may suggest directional trends where none truly exist.
 
@@ -300,7 +391,7 @@ We use the Vaes cluster spreadsheet[@vaes2023_excel] exclusively as our data sou
 
 This file is what we then used for our analysis, and the plots. We present the final data used below. Values were rounded and abbreviations used for formatting. See the [Code Availability](#sec-code) section for links to the code used to generate this file.
 
-::: {#tbl-t2 tbl-cap="Cluster Summary Data with Geometric Means by Symptom Domain" tbl-pos="h"}
+::: {tbl-cap="Cluster Summary Data with Geometric Means by Symptom Domain" tbl-pos="h"}
 ```{r cluster_summary, include=TRUE}
 
 

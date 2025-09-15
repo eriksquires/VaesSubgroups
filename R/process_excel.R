@@ -47,7 +47,25 @@ for (i in 1:ncol(cluster_row)) {
 print("Extracted cluster numbers:")
 print(cluster_ids)
 
-# Identify mean and stdev columns from row 5
+# Get cluster sizes ####
+cluster_sizes <- as.character(raw_data[4, ]) 
+
+# Remove NA from cluster sizes
+cluster_sizes <- cluster_sizes[!is.na(cluster_sizes) & cluster_sizes != ""]
+
+# Remove first entry in cluster_sizes
+cluster_sizes <- cluster_sizes[-1]
+
+# Combine cluster_ids and cluster sizes into a new DF
+cluster_info <- data.frame(
+  cluster = cluster_ids,
+  size = as.numeric(cluster_sizes[seq_along(cluster_ids)])
+)
+
+write.csv(cluster_info, here::here("data", "vaes_cluster_sizes.csv"), row.names = FALSE)
+
+
+# Identify mean and stdev columns from row 5 ####
 header_row <- as.character(raw_data[5, ])
 mean_cols <- which(header_row == "Mean")
 stdev_cols <- which(header_row == "stdev")
