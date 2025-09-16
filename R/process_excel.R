@@ -3,7 +3,7 @@
 #
 # The full Vaes (2023) publication is available at:
 #
-# https://translational-medicine.biomedcentral.com/articles/10.1186/s12967-023-03946-6
+# https://doi.org/10.1186/s12967-023-03946-6
 #
 # Author: Erik K. Squires (c) 2025
 # 
