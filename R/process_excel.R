@@ -1,12 +1,15 @@
 # Purpose:  Reads Vaes (2023) ME/CFS cluster symptom data from Excel,
 # cleans it up, and writes a CSV file with severity data only.
 #
-# The full Vaes (2023) publication is available at:
-#
-# https://doi.org/10.1186/s12967-023-03946-6
-#
 # Author: Erik K. Squires (c) 2025
 # 
+#
+# Data source:
+#   Symptom-based clusters in people with ME/CFS: an illustration of clinical variety in a cross-sectional cohort
+# by: 
+#   Vaes, A.W., Van Herck, M., Deng, Q. et al
+#   https://doi.org/10.1186/s12967-023-03946-6
+#
 
 library(readxl)
 library(dplyr)
