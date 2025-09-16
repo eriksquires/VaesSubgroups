@@ -408,6 +408,10 @@ gt(rounded_vcs_tidy) %>%
 
 \FloatBarrier
 
+# Code Availability {#sec-code .unnumbered}
+
+All data manipulation and analysis scripts are available at <https://github.com/eriksquires/VaesSubgroups>
+
 # References {.unnumbered}
 
 ::: {#refs}
