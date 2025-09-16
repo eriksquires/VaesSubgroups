@@ -391,7 +391,7 @@ We use the Vaes cluster spreadsheet[@vaes2023_excel] exclusively as our data sou
 
 This file is what we then used for our analysis, and the plots. We present the final data used below. Values were rounded and abbreviations used for formatting. See the [Code Availability](#sec-code) section for links to the code used to generate this file.
 
-::: {tbl-cap="Cluster Summary Data with Geometric Means by Symptom Domain" tbl-pos="h"}
+::: {#tbl-t4 tbl-cap="Cluster Summary Data with Geometric Means by Symptom Domain" tbl-pos="h"}
 ```{r cluster_summary, include=TRUE}
 
 
