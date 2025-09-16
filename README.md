@@ -11,7 +11,7 @@ Before you can generate the PDF you'll need to run (in order):
 
 I then use Rstudio to render VaesSubgroups.qmd.
 
-Data comes from the Vaes (2023) paper on ME/CFS patient clusters, and is downloaded, if needed, by process_excel.R. 
+This repo includes no data.  The source data comes from a spreadsheet provided for the [Vaes paper on ME/CFS patient clusters](https://translational-medicine.biomedcentral.com/articles/10.1186/s12967-023-03946-6) , and is downloaded, if needed, by **process_excel.R.**
 
 # Abstract
 
