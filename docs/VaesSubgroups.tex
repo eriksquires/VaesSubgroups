@@ -310,30 +310,33 @@ collected cohort.
 vs.~PEM}\label{visual-analysis-of-symptom-domains-vs.-pem}
 
 The strong weight of PEM symptoms makes the Vaes dataset tricky to
-interpret if you only look at raw intensity, so instead we compared
+interpret if you only look at raw-intensity, so instead we compared
 overall symptom levels to PEM severity. From this comparison we
 identified two groups of clusters that maintain their integrity across
 most symptom domains.
 
 We will start by showing how the groups are most similar, then how they
 differ. We add an ``all'' category to gauge overall symptom severity to
-the original symptom domains. Our use of the terms ``high'' and ``low
-intensity'' does not reproduce the clusters described by Vaes or others
-but reflects a new organization based on how symptom domains scale with
-PEM. Vaes used the DePaul symptom groupings which we keep as-is.
+the original symptom domains. Our use of the terms ``high-intensity''
+and ``low-intensity'' does not reproduce the clusters described by Vaes
+or others but reflects a new organization based on how symptom domains
+scale with PEM. Vaes used the DePaul symptom groupings which we keep
+as-is.
 
 \textbf{Notes:} The DSQ-2 uses a single symptom for fatigue. Also, for
 the ``Overall'' chart we used the arithmetic mean instead of geometric
 mean for the Y axis. All other graphs in this study use geometric means
 exclusively. Shaded bands represent the 95\% confidence interval of the
-linear models when used.
+linear models when used. While this section focuses on visual
+inspection, we provide regression analysis in
+\hyperref[sec-regression]{Appendix B}.
 
 \subsection{Similarities}\label{similarities}
 
 In terms of fatigue, the two groups overlap completely, as ME/CFS
 patient clusters are expected to. See Figure~\ref{fig-fatigue}, below.
 While the lines have a similar slope and offset we note the R² value is
-significantly weaker in the low intensity group (0.54 vs.~0.86).
+significantly weaker in the low-intensity group (0.54 vs.~0.86).
 
 \begin{figure}[h]
 
@@ -354,13 +357,13 @@ While fatigue shows complete overlap in our groups the next charts
 (top left) we compare the average of all symptoms to PEM. In this chart
 one can easily discern two tiers of clusters. One has a higher overall
 symptom burden at any given PEM level compared to the other and this
-relationship is where we derive the names for our groups: high and low
-intensity.
+relationship is where we derive the names for our groups: high and
+low-intensity.
 
 Autonomic, Neuroendocrine and Other also follow a similar pattern:
-Parallel but lower than the high intensity group.
+Parallel but lower than the high-intensity group.
 
-We note that the limited range of PEM severity in the low intensity
+We note that the limited range of PEM severity in the low-intensity
 group (\textasciitilde2.2 to 2.9) may have otherwise caused it to remain
 undetected.
 
@@ -379,8 +382,8 @@ undetected.
 \FloatBarrier
 
 \textbf{Groupings:} From visual inspection of the charts above we group
-clusters C9, C19, C26, C28, C31, C36, C37, C40 as high intensity, C2,
-C4, C7, C11, C24 as low intensity. We'll keep these groupings for all
+clusters C9, C19, C26, C28, C31, C36, C37, C40 as high-intensity, C2,
+C4, C7, C11, C24 as low-intensity. We'll keep these groupings for all
 plots that follow. The high and low groups are approximately 54.5\% and
 45.5\% of the total cohort, respectively.
 
@@ -397,9 +400,9 @@ complex physiological cause for the differences.
 \subsection{Increasing Amplification
 vs.~PEM}\label{increasing-amplification-vs.-pem}
 
-Pain and neurocognitive domains show that while the low intensity group
+Pain and neurocognitive domains show that while the low-intensity group
 remains offset, symptom domain amplification is increased. As PEM
-increases to 3, C7 comes very close to the high intensity line.
+increases to 3, C7 comes very close to the high-intensity line.
 
 \begin{figure}[h]
 
@@ -423,9 +426,9 @@ PEM}\label{different-correlations-to-pem}
 
 In all of the previous charts we've shown that both groups maintain a
 strong but distinct relationship to PEM. By contrast, the immune and
-sleep domains show little to no correlation with PEM severity in the low
-intensity group. Notably, despite this lack of correlation, sleep
-disturbance can be pronounced in the low intensity group.
+sleep domains show little to no correlation with PEM severity in the
+low-intensity group. Notably, despite this lack of correlation, sleep
+disturbance can be pronounced in the low-intensity group.
 
 \begin{figure}[h]
 
@@ -443,16 +446,16 @@ disturbance can be pronounced in the low intensity group.
 
 \subsection{Summary of Differences}\label{summary-of-differences}
 
-\textbf{High Intensity:} Has a consistent amplification pattern: as PEM
+\textbf{High-intensity:} Has a consistent amplification pattern: as PEM
 increases, all other symptom domains rise together.
 
-\textbf{Low Intensity:} Presents a more selective profile. Pain,
+\textbf{Low-intensity:} Presents a more selective profile. Pain,
 neurocognitive, and neuroendocrine symptoms escalate more rapidly with
 PEM, while sleep and immune symptoms show little or no correlation. The
 elevated neurocognitive and pain symptoms, together with variable sleep
 symptom intensity makes the low-intensity group more suggestive of
-fibromyalgia than the high-intensity group. Additionally, the low
-intensity group is notably nestled in the middle of the overall PEM
+fibromyalgia than the high-intensity group. Additionally, the
+low-intensity group is notably nestled in the middle of the overall PEM
 range which could allow it to hide among the other clusters if not
 actively searched for.
 
@@ -483,120 +486,90 @@ Sleep & Tracks PEM & \textasciitilde1.4 -- 2.5, but uncorrelated \\
 \bigskip
 
 \textbf{Symptom Severity:} In terms of overall symptom range the two
-groups largely overlap. The high intensity group, by symptom intensity
-alone, could be considered a superset of the low intensity group. It is
+groups largely overlap. The high-intensity group, by symptom intensity
+alone, could be considered a superset of the low-intensity group. It is
 the differing relationships to PEM and the selective amplification of
-certain symptom domains in the low intensity group that set the two
+certain symptom domains in the low-intensity group that set the two
 groups apart.
 
-\section{Regression Analysis}\label{regression-analysis}
+\section{Fibromyalgia--Overlap
+Subgroup}\label{fibromyalgiaoverlap-subgroup}
 
-In the preceding section we used visual analysis to identify two
-subgroups of ME/CFS patient clusters defined by their symptom domain
-profiles relative to PEM severity. Here we focus on quantifying the
-value of these groups.
+We believe that our low-intensity subgroup is what low-grade
+fibromyalgia would look like. Within this group, pain and neurocognitive
+symptoms trend upward and then the clusters stop where they would cross
+the high-intensity group trend lines. This is visible above in
+Figure~\ref{fig-pain}. This truncation could be due to diagnostic
+criteria which would reclassify these individuals as fibromyalgia after
+crossing the high-intensity lines.
 
-\subsection{R² by Group}\label{ruxb2-by-group}
+This would align with published DSQ-2 studies showing that ME/CFS
+patients who meet fibromyalgia criteria exhibit amplified pain and more
+severe post-exertional malaise compared with ME/CFS
+alone\textsuperscript{3--5} and would also explain why our subgroup
+occupies such a narrow range of PEM scores compared to the overall
+cohort.
 
-We compare the regression coefficient (R²) of the symptom domains in
-three levels:
+\bigskip
 
-\begin{itemize}
-\tightlist
-\item
-  Combined (all clusters)
-\item
-  High intensity group
-\item
-  Low intensity group
-\end{itemize}
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.3836}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2055}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2055}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2055}}@{}}
+\caption{ME/CFS vs.~Fibro}\label{tbl-t3}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Domain (DSQ / DSQ-PEM items)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+ME/CFS (no FM)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+ME/CFS + FM
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+FM (alone)
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Domain (DSQ / DSQ-PEM items)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+ME/CFS (no FM)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+ME/CFS + FM
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+FM (alone)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Post-Exertional Malaise (PEM) & Core feature; DSQ captures frequency \&
+severity well & \textbf{Higher} PEM frequency/severity than ME/CFS alone
+(incl.~``General'' and ``Muscle'' PEM factors) & Not a defining
+criterion of FM; DSQ-PEM shows variable/typically lower PEM signal vs
+ME/CFS cohorts \\
+Pain & Common, variable; not primary diagnostic driver & \textbf{Higher
+overall pain burden}; amplifies illness severity & \textbf{Defining};
+widespread musculoskeletal pain central to diagnosis \\
+Neurocognitive & Frequent (attention, memory, processing speed) & Often
+\textbf{worse} with FM comorbidity & Present in many FM cohorts; DSQ-SF
+cognitive items used in FM studies \\
+Sleep & Non-restorative sleep common & Often \textbf{worse} with FM
+comorbidity & Common in FM, often prominent \\
+Autonomic / Immune / Neuroendo & Captured across DSQ domains;
+heterogeneous patterns documented & Can be \textbf{more burdensome} with
+FM comorbidity & Less emphasized in FM criteria; may appear but not
+core \\
+\end{longtable}
 
-We will show that R² is consistently strengthened by removing the low
-intensity group, and we'll also show that the high intensity group
-maintains a stronger correlation to PEM across most symptom domains.
-\FloatBarrier
+\bigskip
 
-\begin{table}
-
-\caption{\label{tbl-t2}R² by Domain}
-
-\centering{
-
-\fontsize{12.0pt}{14.4pt}\selectfont
-\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrr}
-\toprule
-Domain & R2\_combined & R2\_high & R2\_low \\ 
-\midrule\addlinespace[2.5pt]
-All\_mean & 0.91 & 1.00 & 0.84 \\ 
-Autonomic & 0.79 & 0.96 & 0.62 \\ 
-Fatigue & 0.84 & 0.86 & 0.54 \\ 
-Immune & 0.78 & 0.96 & 0.11 \\ 
-Neurocognitive & 0.85 & 0.92 & 0.93 \\ 
-Neuroendocrine & 0.73 & 0.96 & 0.75 \\ 
-Other & 0.52 & 0.92 & 0.96 \\ 
-Pain & 0.81 & 0.95 & 0.95 \\ 
-Sleep & 0.53 & 0.81 & 0.05 \\ 
-\bottomrule
-\end{tabular*}
-
-}
-
-\end{table}%
-
-Table~\ref{tbl-t2} shows that for almost every symptom domain, the high
-intensity group has a higher R² than the combined group, which in turn
-has a higher R² than the low intensity group. This is consistent with
-our visual analysis and supports the existence of two distinct subgroups
-within the Vaes clusters.
-
-In some cases, like neurocognitive, neuroendocrine, and Other the
-combined R² is significantly weaker than either of the subgroups.
-
-\FloatBarrier
-
-\subsection{Leave-one-out Analysis}\label{leave-one-out-analysis}
-
-We discovered our two groups by visual analysis, but we can rediscover
-the set using leave-one-out analysis. In this analysis we go through
-each domain and examine what happens when we remove one cluster at a
-time. The goal is to identify whether removing a cluster improves R² or
-makes it worse.
-
-We summarize the mean R² differences, in order of greatest improvement,
-in Table~\ref{tbl-t3}. We see that removing any of the low intensity
-clusters improves R².
-
-\begin{table}
-
-\caption{\label{tbl-t3}Leave-one-out Analysis}
-
-\centering{
-
-\fontsize{12.0pt}{14.4pt}\selectfont
-\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcrr}
-\toprule
-Cluster & Group & Domains Improved & Mean ΔR² \\ 
-\midrule\addlinespace[2.5pt]
-C2 & low & 9 & 0.0379 \\ 
-C11 & low & 9 & 0.0271 \\ 
-C4 & low & 8 & 0.0191 \\ 
-C31 & high & 7 & 0.0163 \\ 
-C7 & low & 5 & 0.0129 \\ 
-C24 & low & 8 & 0.0126 \\ 
-\bottomrule
-\end{tabular*}
-
-}
-
-\end{table}%
-
-Of the top 6 clusters only C31 is not part of the low intensity group.
-
-The \textbf{R² by Group} and \textbf{Leave-one-out Analysis} strongly
-support the existence of two distinct subgroups within the Vaes
-clusters.
-
-\FloatBarrier
+In conclusion, current pain and neurocognitive thresholds for a
+fibromyalgia diagnosis may be too focused on symptom severity to capture
+the nuances shown in our subgroup analysis. Properly separating the two
+groups may require a more complex approach that relies less on absolute
+pain scores and more on the ratio of symptom domain scores to PEM.
 
 \section{Discussion}\label{discussion}
 
@@ -615,12 +588,11 @@ show a different emphasis, underscoring the challenge of reconciling
 symptom-level observations with domain-level analyses.
 
 The wide net cast by Vaes in terms of diagnostic criteria may have
-helped to reveal these two subgroups. The high intensity group aligns
-more closely with classic ME/CFS presentations, while the low intensity
-group, with its fibromyalgia-like profile, suggests a different or
-overlapping pathophysiology. This is consistent with prior observations
-that fibromyalgia and ME/CFS often co-occur and may share underlying
-mechanisms.
+helped to reveal these two subgroups. The high-intensity group aligns
+more closely with classic ME/CFS presentations, while the low-intensity
+group, with its fibromyalgia-like profile, suggests a different
+pathophysiology. This may be a unique subgroup or in fact ``low-grade''
+fibromyalgia.
 
 Although these patterns may guide future phenotyping, several cautions
 are warranted. This is a secondary analysis of patient clusters defined
@@ -713,6 +685,116 @@ C40 & 1.21 & 1.76 & 2.80 & 0.74 & 0.52 & 0.95 & 0.82 & 1.19 & 0.67 \\
 
 \FloatBarrier
 
+\subsection*{Appendix B: Regression Analysis}\label{sec-regression}
+\addcontentsline{toc}{subsection}{Appendix B: Regression Analysis}
+
+In the preceding section we used visual analysis to identify two
+subgroups of ME/CFS patient clusters defined by their symptom domain
+profiles relative to PEM severity. Here we focus on quantifying the
+value of these groups.
+
+\textbf{R² by Group}
+
+We compare the regression coefficient (R²) of the symptom domains in
+three levels:
+
+\begin{itemize}
+\tightlist
+\item
+  Combined (all clusters)
+\item
+  High-intensity group
+\item
+  Low-intensity group
+\end{itemize}
+
+We will show that R² is consistently strengthened by removing the
+low-intensity group, and we'll also show that the high-intensity group
+maintains a stronger correlation to PEM across most symptom domains.
+\FloatBarrier
+
+\begin{table}
+
+\caption{\label{tbl-t2}R² by Domain}
+
+\centering{
+
+\fontsize{12.0pt}{14.4pt}\selectfont
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrr}
+\toprule
+Domain & R2\_combined & R2\_high & R2\_low \\ 
+\midrule\addlinespace[2.5pt]
+All\_mean & 0.91 & 1.00 & 0.84 \\ 
+Autonomic & 0.79 & 0.96 & 0.62 \\ 
+Fatigue & 0.84 & 0.86 & 0.54 \\ 
+Immune & 0.78 & 0.96 & 0.11 \\ 
+Neurocognitive & 0.85 & 0.92 & 0.93 \\ 
+Neuroendocrine & 0.73 & 0.96 & 0.75 \\ 
+Other & 0.52 & 0.92 & 0.96 \\ 
+Pain & 0.81 & 0.95 & 0.95 \\ 
+Sleep & 0.53 & 0.81 & 0.05 \\ 
+\bottomrule
+\end{tabular*}
+
+}
+
+\end{table}%
+
+Table~\ref{tbl-t2} shows that for almost every symptom domain, the
+high-intensity group has a higher R² than the combined group, which in
+turn has a higher R² than the low-intensity group. This is consistent
+with our visual analysis and supports the existence of two distinct
+subgroups within the Vaes clusters.
+
+In some cases, like neurocognitive, neuroendocrine, and Other the
+combined R² is significantly weaker than either of the subgroups.
+
+\FloatBarrier
+
+\textbf{Leave-one-out Analysis}
+
+We discovered our two groups by visual analysis, but we can rediscover
+the set using leave-one-out analysis. In this analysis we go through
+each domain and examine what happens when we remove one cluster at a
+time. The goal is to identify whether removing a cluster improves R² or
+makes it worse.
+
+We summarize the mean R² differences, in order of greatest improvement,
+in Table~\ref{tbl-t3}. We see that removing any of the low-intensity
+clusters improves R².
+
+\begin{table}
+
+\caption{\label{tbl-t3}Leave-one-out Analysis}
+
+\centering{
+
+\fontsize{12.0pt}{14.4pt}\selectfont
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcrr}
+\toprule
+Cluster & Group & Domains Improved & Mean ΔR² \\ 
+\midrule\addlinespace[2.5pt]
+C2 & low & 9 & 0.0379 \\ 
+C11 & low & 9 & 0.0271 \\ 
+C4 & low & 8 & 0.0191 \\ 
+C31 & high & 7 & 0.0163 \\ 
+C7 & low & 5 & 0.0129 \\ 
+C24 & low & 8 & 0.0126 \\ 
+\bottomrule
+\end{tabular*}
+
+}
+
+\end{table}%
+
+Of the top 6 clusters only C31 is not part of the low-intensity group.
+
+The \textbf{R² by Group} and \textbf{Leave-one-out Analysis} strongly
+support the existence of two distinct subgroups within the Vaes
+clusters.
+
+\FloatBarrier
+
 \section*{Code Availability}\label{sec-code}
 \addcontentsline{toc}{section}{Code Availability}
 
@@ -739,6 +821,28 @@ cross-sectional cohort}. \emph{Journal of Translational Medicine}
 dataset (excel): Additional file 3: Table S1 :
 12967\_2023\_3946\_MOESM3\_ESM.xlsx}. Journal of Translational Medicine,
 Springer Nature (2023).}
+
+\bibitem[\citeproctext]{ref-jason2015dsq2}
+\CSLLeftMargin{3. }%
+\CSLRightInline{Jason, L. A. \emph{et al.}
+\href{https://doi.org/10.1080/21641846.2014.978110}{The DePaul symptom
+questionnaire-2: A validation study}. \emph{Fatigue: Biomedicine, Health
+\& Behavior} \textbf{3}, 1--13 (2015).}
+
+\bibitem[\citeproctext]{ref-mcmanimen2017pem}
+\CSLLeftMargin{4. }%
+\CSLRightInline{McManimen, S. L., Jason, L. A. \& Williams, Y. J.
+\href{https://doi.org/10.1080/21641846.2017.1281323}{Post-exertional
+malaise in patients with myalgic encephalomyelitis/chronic fatigue
+syndrome with comorbid fibromyalgia}. \emph{Fatigue: Biomedicine, Health
+\& Behavior} \textbf{5}, 102--117 (2017).}
+
+\bibitem[\citeproctext]{ref-nature2023fm}
+\CSLLeftMargin{5. }%
+\CSLRightInline{Almenar-Pérez, E. \& al., et.
+\href{https://doi.org/10.1038/s41598-023-28955-9}{MicroRNA profiles
+distinguish fibromyalgia, ME/CFS, and ME/CFS with fibromyalgia}.
+\emph{Scientific Reports} \textbf{13}, 28955 (2023).}
 
 \end{CSLReferences}
 
