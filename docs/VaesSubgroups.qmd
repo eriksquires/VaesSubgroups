@@ -133,15 +133,15 @@ This means the patients in the Vaes study were diagnosed with broad and differen
 
 # Visual Analysis of Symptom Domains vs. PEM
 
-The strong weight of PEM symptoms makes the Vaes dataset tricky to interpret if you only look at raw intensity, so instead we compared overall symptom levels to PEM severity.  From this comparison we identified two groups of clusters that maintain their integrity across most symptom domains.
+The strong weight of PEM symptoms makes the Vaes dataset tricky to interpret if you only look at raw intensity, so instead we compared overall symptom levels to PEM severity. From this comparison we identified two groups of clusters that maintain their integrity across most symptom domains.
 
 We will start by showing how the groups are most similar, then how they differ. We add an "all" category to gauge overall symptom severity to the original symptom domains. Our use of the terms “high” and “low intensity” does not reproduce the clusters described by Vaes or others but reflects a new organization based on how symptom domains scale with PEM. Vaes used the DePaul symptom groupings which we keep as-is.
 
-**Notes:** The DSQ-2 uses a single symptom for fatigue. Also, for the "Overall" chart we used the arithmetic mean instead of geometric mean for the Y axis. All other graphs in this study use geometric means exclusively.  Shaded bands represent the 95% confidence interval of the linear models when used. 
+**Notes:** The DSQ-2 uses a single symptom for fatigue. Also, for the "Overall" chart we used the arithmetic mean instead of geometric mean for the Y axis. All other graphs in this study use geometric means exclusively. Shaded bands represent the 95% confidence interval of the linear models when used.
 
 ## Similarities
 
-In terms of fatigue, the two groups overlap completely, as ME/CFS patient clusters are expected to. See [@fig-fatigue], below.  While the lines have a similar slope and offset we note the R² value is significantly weaker in the low intensity group (0.54 vs. 0.86). 
+In terms of fatigue, the two groups overlap completely, as ME/CFS patient clusters are expected to. See [@fig-fatigue], below. While the lines have a similar slope and offset we note the R² value is significantly weaker in the low intensity group (0.54 vs. 0.86).
 
 ::: {#fig-fatigue fig-cap="Fatigue vs. PEM" fig-pos="h"}
 ```{r fatigue, include=TRUE}
@@ -407,13 +407,6 @@ gt(rounded_vcs_tidy) %>%
 :::
 
 \FloatBarrier
-\clearpage
-
-{{< pagebreak >}}
-
-# Code Availability {#sec-code .unnumbered}
-
-All data manipulation and analysis scripts are available at <https://github.com/eriksquires/VaesSubgroups>
 
 # References {.unnumbered}
 

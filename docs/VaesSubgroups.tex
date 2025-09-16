@@ -1,0 +1,825 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{2}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+ % allow citations to break across lines
+ \let\@cite@ofmt\@firstofone
+ % avoid brackets around text for \cite:
+ \def\@biblabel#1{}
+ \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+   \setlength{\leftmargin}{\cslhangindent}
+   \setlength{\itemindent}{-1\cslhangindent}
+  \fi
+  % set entry spacing
+  \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{longtable}
+\usepackage{colortbl}
+\usepackage{array}
+\usepackage{anyfontsize}
+\usepackage{multirow}
+\raggedright
+\usepackage{tocloft}
+\usepackage{float}
+\usepackage{placeins}
+\usepackage{needspace}
+\setlength\LTpre{0pt}
+\setlength\LTpost{0pt}
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Analysis of ME/CFS Patient Clusters in Vaes Data Reveals Distinct Subgroups},
+  pdfauthor={Erik Squires},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Analysis of ME/CFS Patient Clusters in Vaes Data Reveals Distinct
+Subgroups}
+\author{Erik Squires}
+\date{2025-09-13}
+\begin{document}
+\maketitle
+
+
+Affiliation: Independent Researcher
+
+ORCID: 0009-0000-3843-4953
+
+Email: esquires.research@proton.me
+
+\section*{Abstract}\label{abstract}
+\addcontentsline{toc}{section}{Abstract}
+
+\textbf{Background:} Vaes et al.~(2023)\textsuperscript{1} identified 13
+symptom clusters in a large cohort of ME/CFS patients. Symptom intensity
+is broadly correlated with post-exertional malaise (PEM) severity, with
+variation across clusters that seems heterogeneous. Despite this
+research, no broadly accepted organizing principle has emerged from this
+paper or other attempts at phenotyping ME/CFS.
+
+\textbf{Objective:} To identify and characterize potential subgroups
+defined by symptom domain severity relative to PEM within the original
+Vaes symptom clusters.
+
+\textbf{Methods:} We analyzed the Vaes cluster summary
+data\textsuperscript{2}, calculated geometric means for each symptom
+domain within each cluster, and plotted these means against PEM severity
+to identify patterns and subgroups.
+
+\textbf{Results:} We identified two groups of patient clusters with
+distinct symptom-domain profiles. Separating the 13 clusters into these
+subgroups reduced heterogeneity within each. The first group showed a
+consistent amplification pattern across all symptom domains as PEM
+increased, whereas the second group exhibited selective amplification:
+pain and neurocognitive symptoms escalated more rapidly with PEM, while
+immune and sleep symptoms remained relatively flat. This subgroup's
+profile resembles that of fibromyalgia.
+
+\textbf{Keywords:} Myalgic Encephalomyelitis, ME/CFS, patient
+clustering, fibromyalgia, post-exertional malaise, PEM
+
+\newpage{}
+
+\tableofcontents
+
+\newpage{}
+
+\listoffigures
+\listoftables
+
+\newpage{}
+
+\section{Introduction}\label{introduction}
+
+Dr.~Anouk W. Vaes and her collaborators at CIRO performed one of the
+largest systematic surveys of ME/CFS symptom patterns, applying
+clustering methods to patient-reported outcomes to identify recurring
+constellations of symptoms\textsuperscript{1}. They used symptom surveys
+based on the DePaul Symptom Questionnaire version 2 (DSQ-2) from 337
+patients to identify a total of 45 patient clusters of which 13 were of
+size \(\geq\) 10. We used the publicly available data of their final 13
+clusters for analysis.\textsuperscript{2}
+
+While Vaes described each cluster, and noted some differences among
+symptom severity, an overall organizing principle was not proposed.
+Other methods have been used to group ME/CFS phenotypes, including by
+severity alone, or a combination of severity and symptoms but no
+consensus has emerged on how to best group patients.
+
+Our analysis suggests that the Vaes ME/CFS clusters can be organized
+into two overarching families defined by their relationship to PEM. This
+reduces the complexity of the cluster symptom intensities and highlights
+a fibromyalgia-like subgroup within the Vaes clusters that has not been
+explicitly recognized in prior work.
+
+According to Vaes\textsuperscript{1}:
+
+\begin{quote}
+Almost 90\% of the participants fulfilled the Fukuda case definition,
+compared to 80\%, 59\% and 39\% fulfilling the IOM, CCC and ME-ICC case
+definitions, respectively. More than a quarter of the participants met
+the criteria for all four different case definitions, whilst 5\% of the
+participants met none of the abovementioned {[}sp.{]} case
+definitions,\ldots{}
+\end{quote}
+
+This means the patients in the Vaes study were diagnosed with broad and
+different criteria which, when taken together with our analysis,
+provides one of the first opportunities to quantitatively separate
+classic ME/CFS and fibromyalgia-like patients from a single, uniformly
+collected cohort.
+
+\section{Visual Analysis of Symptom Domains
+vs.~PEM}\label{visual-analysis-of-symptom-domains-vs.-pem}
+
+The strong weight of PEM symptoms makes the Vaes dataset tricky to
+interpret if you only look at raw intensity, so instead we compared
+overall symptom levels to PEM severity. From this comparison we
+identified two groups of clusters that maintain their integrity across
+most symptom domains.
+
+We will start by showing how the groups are most similar, then how they
+differ. We add an ``all'' category to gauge overall symptom severity to
+the original symptom domains. Our use of the terms ``high'' and ``low
+intensity'' does not reproduce the clusters described by Vaes or others
+but reflects a new organization based on how symptom domains scale with
+PEM. Vaes used the DePaul symptom groupings which we keep as-is.
+
+\textbf{Notes:} The DSQ-2 uses a single symptom for fatigue. Also, for
+the ``Overall'' chart we used the arithmetic mean instead of geometric
+mean for the Y axis. All other graphs in this study use geometric means
+exclusively. Shaded bands represent the 95\% confidence interval of the
+linear models when used.
+
+\subsection{Similarities}\label{similarities}
+
+In terms of fatigue, the two groups overlap completely, as ME/CFS
+patient clusters are expected to. See Figure~\ref{fig-fatigue}, below.
+While the lines have a similar slope and offset we note the R² value is
+significantly weaker in the low intensity group (0.54 vs.~0.86).
+
+\begin{figure}[h]
+
+\centering{
+
+\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio]{VaesSubgroups_files/figure-pdf/fatigue-1.pdf}
+
+}
+
+\caption{\label{fig-fatigue}Fatigue vs.~PEM}
+
+\end{figure}%
+
+\FloatBarrier
+
+While fatigue shows complete overlap in our groups the next charts
+(Figure~\ref{fig-symptoms}) show how they stand out. In the first chart
+(top left) we compare the average of all symptoms to PEM. In this chart
+one can easily discern two tiers of clusters. One has a higher overall
+symptom burden at any given PEM level compared to the other and this
+relationship is where we derive the names for our groups: high and low
+intensity.
+
+Autonomic, Neuroendocrine and Other also follow a similar pattern:
+Parallel but lower than the high intensity group.
+
+We note that the limited range of PEM severity in the low intensity
+group (\textasciitilde2.2 to 2.9) may have otherwise caused it to remain
+undetected.
+
+\begin{figure}[h]
+
+\centering{
+
+\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio]{VaesSubgroups_files/figure-pdf/all_symptoms-1.pdf}
+
+}
+
+\caption{\label{fig-symptoms}Similar Symptom Domains vs.~PEM}
+
+\end{figure}%
+
+\FloatBarrier
+
+\textbf{Groupings:} From visual inspection of the charts above we group
+clusters C9, C19, C26, C28, C31, C36, C37, C40 as high intensity, C2,
+C4, C7, C11, C24 as low intensity. We'll keep these groupings for all
+plots that follow. The high and low groups are approximately 54.5\% and
+45.5\% of the total cohort, respectively.
+
+The last chart (Other vs.~PEM) shows a markedly lower offset and is
+perhaps the most visibly obvious difference between the two groups. The
+two symptoms in `other' are sensitivity to mold and vibration.
+
+\FloatBarrier
+
+While the groups maintain integrity, the parallelism observed in the
+charts above does not hold in the next charts and suggests a more
+complex physiological cause for the differences.
+
+\subsection{Increasing Amplification
+vs.~PEM}\label{increasing-amplification-vs.-pem}
+
+Pain and neurocognitive domains show that while the low intensity group
+remains offset, symptom domain amplification is increased. As PEM
+increases to 3, C7 comes very close to the high intensity line.
+
+\begin{figure}[h]
+
+\centering{
+
+\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio]{VaesSubgroups_files/figure-pdf/neuro_c_symptoms-1.pdf}
+
+}
+
+\caption{\label{fig-pain}Pain and Neurocognitive vs.~PEM}
+
+\end{figure}%
+
+\FloatBarrier
+
+The two charts above, while not severe enough to claim this is
+fibromyalgia with PEM, begin to suggest it.
+
+\subsection{Different Correlations to
+PEM}\label{different-correlations-to-pem}
+
+In all of the previous charts we've shown that both groups maintain a
+strong but distinct relationship to PEM. By contrast, the immune and
+sleep domains show little to no correlation with PEM severity in the low
+intensity group. Notably, despite this lack of correlation, sleep
+disturbance can be pronounced in the low intensity group.
+
+\begin{figure}[h]
+
+\centering{
+
+\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio]{VaesSubgroups_files/figure-pdf/immune_symptoms-1.pdf}
+
+}
+
+\caption{\label{fig-distinct}Immune and Sleep vs.~PEM}
+
+\end{figure}%
+
+\FloatBarrier
+
+\subsection{Summary of Differences}\label{summary-of-differences}
+
+\textbf{High Intensity:} Has a consistent amplification pattern: as PEM
+increases, all other symptom domains rise together.
+
+\textbf{Low Intensity:} Presents a more selective profile. Pain,
+neurocognitive, and neuroendocrine symptoms escalate more rapidly with
+PEM, while sleep and immune symptoms show little or no correlation. The
+elevated neurocognitive and pain symptoms, together with variable sleep
+symptom intensity makes the low-intensity group more suggestive of
+fibromyalgia than the high-intensity group. Additionally, the low
+intensity group is notably nestled in the middle of the overall PEM
+range which could allow it to hide among the other clusters if not
+actively searched for.
+
+We summarize these differences in the table below.\bigskip
+
+\begin{longtable}[]{@{}lll@{}}
+\caption{Summary of Group Differences}\label{tbl-t1}\tabularnewline
+\toprule\noalign{}
+Feature & High group & Low group \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+Feature & High group & Low group \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Overall vs.~PEM & Higher & Lower - esp.~``other'' \\
+Fatigue & R² - 0.86 & Weaker R² - 0.54 \\
+PEM range & \textasciitilde1.3 -- 3.4 & Narrower \textasciitilde2.2 --
+2.9 \\
+Neurocognitive & Tracks PEM & Elevated amplification \\
+Pain & Tracks PEM & Elevated amplification \\
+Immune & Tracks PEM & Flat at \textasciitilde1 \\
+Sleep & Tracks PEM & \textasciitilde1.4 -- 2.5, but uncorrelated \\
+\end{longtable}
+
+\bigskip
+
+\textbf{Symptom Severity:} In terms of overall symptom range the two
+groups largely overlap. The high intensity group, by symptom intensity
+alone, could be considered a superset of the low intensity group. It is
+the differing relationships to PEM and the selective amplification of
+certain symptom domains in the low intensity group that set the two
+groups apart.
+
+\section{Regression Analysis}\label{regression-analysis}
+
+In the preceding section we used visual analysis to identify two
+subgroups of ME/CFS patient clusters defined by their symptom domain
+profiles relative to PEM severity. Here we focus on quantifying the
+value of these groups.
+
+\subsection{R² by Group}\label{ruxb2-by-group}
+
+We compare the regression coefficient (R²) of the symptom domains in
+three levels:
+
+\begin{itemize}
+\tightlist
+\item
+  Combined (all clusters)
+\item
+  High intensity group
+\item
+  Low intensity group
+\end{itemize}
+
+We will show that R² is consistently strengthened by removing the low
+intensity group, and we'll also show that the high intensity group
+maintains a stronger correlation to PEM across most symptom domains.
+\FloatBarrier
+
+\begin{table}
+
+\caption{\label{tbl-t2}R² by Domain}
+
+\centering{
+
+\fontsize{12.0pt}{14.4pt}\selectfont
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrr}
+\toprule
+Domain & R2\_combined & R2\_high & R2\_low \\ 
+\midrule\addlinespace[2.5pt]
+All\_mean & 0.91 & 1.00 & 0.84 \\ 
+Autonomic & 0.79 & 0.96 & 0.62 \\ 
+Fatigue & 0.84 & 0.86 & 0.54 \\ 
+Immune & 0.78 & 0.96 & 0.11 \\ 
+Neurocognitive & 0.85 & 0.92 & 0.93 \\ 
+Neuroendocrine & 0.73 & 0.96 & 0.75 \\ 
+Other & 0.52 & 0.92 & 0.96 \\ 
+Pain & 0.81 & 0.95 & 0.95 \\ 
+Sleep & 0.53 & 0.81 & 0.05 \\ 
+\bottomrule
+\end{tabular*}
+
+}
+
+\end{table}%
+
+Table~\ref{tbl-t2} shows that for almost every symptom domain, the high
+intensity group has a higher R² than the combined group, which in turn
+has a higher R² than the low intensity group. This is consistent with
+our visual analysis and supports the existence of two distinct subgroups
+within the Vaes clusters.
+
+In some cases, like neurocognitive, neuroendocrine, and Other the
+combined R² is significantly weaker than either of the subgroups.
+
+\FloatBarrier
+
+\subsection{Leave-one-out Analysis}\label{leave-one-out-analysis}
+
+We discovered our two groups by visual analysis, but we can rediscover
+the set using leave-one-out analysis. In this analysis we go through
+each domain and examine what happens when we remove one cluster at a
+time. The goal is to identify whether removing a cluster improves R² or
+makes it worse.
+
+We summarize the mean R² differences, in order of greatest improvement,
+in Table~\ref{tbl-t3}. We see that removing any of the low intensity
+clusters improves R².
+
+\begin{table}
+
+\caption{\label{tbl-t3}Leave-one-out Analysis}
+
+\centering{
+
+\fontsize{12.0pt}{14.4pt}\selectfont
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcrr}
+\toprule
+Cluster & Group & Domains Improved & Mean ΔR² \\ 
+\midrule\addlinespace[2.5pt]
+C2 & low & 9 & 0.0379 \\ 
+C11 & low & 9 & 0.0271 \\ 
+C4 & low & 8 & 0.0191 \\ 
+C31 & high & 7 & 0.0163 \\ 
+C7 & low & 5 & 0.0129 \\ 
+C24 & low & 8 & 0.0126 \\ 
+\bottomrule
+\end{tabular*}
+
+}
+
+\end{table}%
+
+Of the top 6 clusters only C31 is not part of the low intensity group.
+
+The \textbf{R² by Group} and \textbf{Leave-one-out Analysis} strongly
+support the existence of two distinct subgroups within the Vaes
+clusters.
+
+\FloatBarrier
+
+\section{Discussion}\label{discussion}
+
+We have shown that the Vaes clusters can be organized into two subgroups
+defined by symptom domains relative to PEM, and that these subgroups
+remain consistent across most symptom domains.
+
+ME/CFS is widely recognized as a heterogeneous condition with complex
+symptom presentations. Grouping the Vaes clusters by their relationship
+to PEM simplifies this complexity at the domain and cluster levels, but
+it only partially reduces heterogeneity at the individual-symptom level
+and may not translate directly to grouping individual patients.
+Vaes\textsuperscript{1} provided cluster-specific summaries of standout
+symptoms; some of those align with our domain-based charts while others
+show a different emphasis, underscoring the challenge of reconciling
+symptom-level observations with domain-level analyses.
+
+The wide net cast by Vaes in terms of diagnostic criteria may have
+helped to reveal these two subgroups. The high intensity group aligns
+more closely with classic ME/CFS presentations, while the low intensity
+group, with its fibromyalgia-like profile, suggests a different or
+overlapping pathophysiology. This is consistent with prior observations
+that fibromyalgia and ME/CFS often co-occur and may share underlying
+mechanisms.
+
+Although these patterns may guide future phenotyping, several cautions
+are warranted. This is a secondary analysis of patient clusters defined
+by symptom domains with small subgroup sizes (8 and 5 clusters). The
+original clustering methods of Vaes et al.~may have obscured or
+exaggerated some relationships we show here. Moreover, visual inspection
+of the plots may suggest directional trends where none truly exist.
+
+Despite these limitations, we believe at least two further steps should
+be taken. Using the original patient scores could validate, refine, or
+repudiate these subgroups and possibly produce a short list of
+differentiating symptoms. If this proves useful then examining
+biological markers across these subgroups could help to reveal
+underlying pathophysiological differences.
+
+\section{Conclusion}\label{conclusion}
+
+Our secondary analysis shows that the many heterogeneous Vaes clusters
+can be organized into two broader structures defined by overall symptom
+intensity relative to PEM severity. These two groups remain coherent
+across symptom domains and display distinct, largely linear
+relationships with PEM. Although exploratory and limited to
+cluster-level data, these findings offer a reproducible framework that
+may help clarify apparent heterogeneity in ME/CFS.
+
+\clearpage
+
+\section{Appendices}\label{appendices}
+
+\FloatBarrier
+
+\subsection{Appendix A: Cluster Summary
+Data}\label{appendix-a-cluster-summary-data}
+
+We use the Vaes cluster spreadsheet\textsuperscript{2} exclusively as
+our data source. We use R for significant cleaning and transformation
+from Excel to CSV. After removing everything but the mean severity of
+the symptoms in the 13 clusters we:
+
+\begin{itemize}
+\tightlist
+\item
+  Group each cluster by symptom domain and calculate geometric means for
+  each symptom domain within each cluster.
+\item
+  Rotate the table
+\item
+  Add a new column, ``all\_mean'' which is the arithmetic mean of all
+  symptoms within each cluster.
+\item
+  Save this file as cluster\_grouped\_tidy.csv
+\end{itemize}
+
+This file is what we then used for our analysis, and the plots. We
+present the final data used below. Values were rounded and abbreviations
+used for formatting. See the \hyperref[sec-code]{Code Availability}
+section for links to the code used to generate this file.
+
+\begin{table}
+\fontsize{12.0pt}{14.4pt}\selectfont
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrrrrrrr}
+\toprule
+cluster & all\_mean & PEM & fatigue & Auto & Immune & NC & NE & pain & other \\ 
+\midrule\addlinespace[2.5pt]
+C2 & 1.21 & 2.30 & 2.79 & 0.76 & 0.53 & 1.15 & 0.67 & 0.95 & 0.27 \\ 
+C4 & 1.55 & 2.40 & 3.13 & 1.24 & 0.87 & 1.66 & 0.96 & 1.19 & 0.46 \\ 
+C7 & 1.92 & 2.85 & 3.20 & 1.48 & 1.03 & 2.32 & 1.05 & 1.94 & 0.86 \\ 
+C9 & 2.06 & 2.64 & 2.85 & 2.16 & 1.40 & 2.24 & 1.52 & 1.71 & 1.55 \\ 
+C11 & 1.42 & 2.23 & 2.94 & 1.02 & 1.08 & 1.11 & 0.64 & 1.00 & 0.33 \\ 
+C19 & 1.37 & 1.97 & 2.53 & 1.12 & 0.57 & 1.81 & 0.61 & 1.06 & 0.60 \\ 
+C24 & 1.63 & 2.50 & 2.95 & 1.44 & 0.82 & 1.52 & 0.86 & 1.53 & 0.56 \\ 
+C26 & 2.14 & 2.80 & 3.28 & 1.87 & 1.76 & 2.06 & 1.52 & 2.34 & 1.77 \\ 
+C28 & 1.03 & 1.62 & 2.50 & 0.83 & 0.56 & 0.78 & 0.60 & 0.88 & 0.30 \\ 
+C31 & 1.47 & 2.15 & 2.73 & 1.31 & 0.77 & 1.31 & 1.04 & 1.54 & 1.41 \\ 
+C36 & 2.74 & 3.35 & 3.50 & 2.59 & 2.30 & 3.08 & 2.04 & 2.73 & 2.04 \\ 
+C37 & 0.67 & 1.30 & 2.39 & 0.41 & 0.16 & 0.43 & 0.39 & 0.51 & 0.19 \\ 
+C40 & 1.21 & 1.76 & 2.80 & 0.74 & 0.52 & 0.95 & 0.82 & 1.19 & 0.67 \\ 
+\bottomrule
+\end{tabular*}
+\end{table}
+
+\FloatBarrier
+
+\subsection{Appendix B: CRP Strata in
+ME/CFS}\label{appendix-b-crp-strata-in-mecfs}
+
+In light of our two groups we include this uniquely useful study as
+potentially relevant evidence as well as perhaps a guide for further
+research.
+
+Groeger et al.~(2013)\textsuperscript{\textbf{groeger2013?}} measured
+the effects of Bifidobacterium infantis 35624 on plasma CRP, TNF-α, and
+IL-6 in psoriasis, ulcerative colitis, and CFS/ME. The CFS/ME group
+exhibited a striking multi-modal CRP distribution: one subgroup
+spreading from control levels to 2.0 mg/L, a second at 4.0 mg/L, and a
+third around 20 mg/L. This layered pattern supports the possibilities of
+subgroups with distinct levels of CRP elevation. There is also,
+arguably, a split between the 4.0 mg/L group and another just above it
+at about 5.0 mg/L
+
+The curious bi- or tri-modal CRP distribution captured by Groeger
+currently lacks explanation in the ME/CFS literature.
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{images/groeger_crp_stratification.png}}
+
+}
+
+\caption{CRP Stratification}
+
+\end{figure}%
+
+Reproduced from Groeger et al., \emph{Gut Microbes} 2013,
+doi:10.4161/gmic.25487, under CC-BY license.
+
+We were unable to quickly find any other study where individual patient
+CRP levels were presented this way as opposed to simpler statistical
+summaries.
+
+The Groeger study only showed improvement in plasma CRP in the top tier
+non-placebo group (above 10 mg/L) of patients but did not report on
+symptom responses. The curious stratification and treatment response
+suggests routinely reporting the plasma CRP levels of inidividual ME/CFS
+patients could, together with symptom mapping, further illustrate the
+disease.
+
+\newpage{}
+
+\section*{Code Availability}\label{sec-code}
+\addcontentsline{toc}{section}{Code Availability}
+
+All data manipulation and analysis scripts are available at
+\url{https://github.com/eriksquires/VaesSubgroups}
+
+\section*{References}\label{references}
+\addcontentsline{toc}{section}{References}
+
+\phantomsection\label{refs}
+\begin{CSLReferences}{0}{0}
+\bibitem[\citeproctext]{ref-vaes2023}
+\CSLLeftMargin{1. }%
+\CSLRightInline{Vaes, A. W. \emph{et al.}
+\href{https://doi.org/10.1186/s12967-023-03946-6}{Symptom-based clusters
+in people with ME/CFS: An illustration of clinical variety in a
+cross-sectional cohort}. \emph{Journal of Translational Medicine}
+\textbf{21}, 112 (2023).}
+
+\bibitem[\citeproctext]{ref-vaes2023_excel}
+\CSLLeftMargin{2. }%
+\CSLRightInline{Vaes, A. W. \& collaborators.
+\href{https://static-content.springer.com/esm/art\%3A10.1186\%2Fs12967-023-03946-6/MediaObjects/12967_2023_3946_MOESM3_ESM.xlsx}{Supplementary
+dataset (excel): Additional file 3: Table S1 :
+12967\_2023\_3946\_MOESM3\_ESM.xlsx}. Journal of Translational Medicine,
+Springer Nature (2023).}
+
+\end{CSLReferences}
+
+\newpage{}
+
+\newpage{}
+
+\section*{Acknowledgements}\label{acknowledgements}
+\addcontentsline{toc}{section}{Acknowledgements}
+
+This paper could not exist without the foundational work of Dr.~Anouk W.
+Vaes and her colleagues at CIRO, whose clustering
+study\textsuperscript{1} and publicly available cluster summary
+data\textsuperscript{2} provided the basis for our analysis. We are
+deeply grateful for their contribution to the field.
+
+Dr.~Vaes had no role in the writing of this paper, and all errors or
+misinterpretations are the responsibility of the author.
+
+\section*{Author Contributions}\label{author-contributions}
+\addcontentsline{toc}{section}{Author Contributions}
+
+Erik K. Squires conceived the study, performed the analysis, and wrote
+the manuscript. This work presents an original investigative method and
+resulting framework which were both developed and first reported by the
+author in this preprint.
+
+\section*{Competing Interests}\label{competing-interests}
+\addcontentsline{toc}{section}{Competing Interests}
+
+The author declares no competing interests.
+
+\section*{Funding}\label{funding}
+\addcontentsline{toc}{section}{Funding}
+
+This work received no external funding.
+
+\section*{Ethics Statement}\label{ethics-statement}
+\addcontentsline{toc}{section}{Ethics Statement}
+
+This study reanalyzed publicly available reports and published symptom
+cluster data (Vaes 2023). No new patient data were collected.
+
+
+
+
+\end{document}
