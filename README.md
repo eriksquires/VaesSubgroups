@@ -31,3 +31,5 @@ should also work so long as you keep to the folder organization in this repo.
 # Credits
 
 The source spreadsheet comes from the paper [Symptom-based clusters in people with ME/CFS: an illustration of clinical variety in a cross-sectional cohort]( https://doi.org/10.1186/s12967-023-03946-6)  by Vaes, A.W., Van Herck, M., Deng, Q. et al.and is downloaded, if needed, by **process_excel.R.**  At the time of this writing this spreadsheet was available from [Additional file 3: Table S1](https://static-content.springer.com/esm/art%3A10.1186%2Fs12967-023-03946-6/MediaObjects/12967_2023_3946_MOESM3_ESM.xlsx)
+
+See the [LICENSE.md](LICENSE.md) and [CITATION.cff](CITATION.cff) for details.
