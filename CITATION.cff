@@ -1,0 +1,55 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite it as below."
+title: "Vaes Subgroups Analysis Code"
+type: software
+authors:
+  - family-names: Squires
+    given-names: Erik K.
+license: CC-BY-4.0
+repository-code: "https://github.com/eriksquires/VaesSubgroups"
+abstract: >
+  R/Quarto analysis exploring symptom-based subgroups in ME/CFS using the Vaes et al. dataset,
+  with reproducible scripts and figures.
+keywords:
+  - ME/CFS
+  - clustering
+  - R
+  - Quarto
+  - reproducible-research
+version: "0.1.0"
+date-released: "2025-09-16"
+
+preferred-citation:
+  type: software
+  authors:
+    - family-names: Squires
+      given-names: Erik K.
+  title: "Vaes Subgroups Analysis Code"
+  year: 2025
+  url: "https://github.com/eriksquires/VaesSubgroups"
+  license: CC-BY-4.0
+  notes: "Code and documentation licensed under Creative Commons Attribution 4.0 International."
+
+references:
+  - type: article
+    authors:
+      - family-names: Vaes
+        given-names: Anouk W.
+      - family-names: Van Herck
+        given-names: Maarten
+      - family-names: Deng
+        given-names: Qian
+      - name: "et al."
+    title: "Symptom-based clusters in people with ME/CFS: an illustration of clinical variety in a cross-sectional cohort"
+    journal: "Journal of Translational Medicine"
+    year: 2023
+    doi: "10.1186/s12967-023-03946-6"
+    notes: "Dataset and article are CC BY 4.0."
+  - type: report
+    authors:
+      - family-names: Squires
+        given-names: Erik K.
+    title: "Analysis of ME/CFS Patient Clusters in Vaes Data Reveals Distinct Subgroups"
+    year: 2025
+    doi: "10.20944/preprints202509.1179"
+    notes: "Preprint recommended to cite alongside software."
