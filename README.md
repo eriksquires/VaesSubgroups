@@ -9,7 +9,9 @@ Before you can generate the PDF you'll need to run (in order):
 * r2_by_domain.R
 * leave_one_out.R
 
-Data comes from the Vaes (2023) paper on ME/CFS patient clusters, and is downloaded once in process_excel.R. 
+I then use Rstudio to render the quarto document (VaesSubgroups.qmd). 
+
+Data comes from the Vaes (2023) paper on ME/CFS patient clusters, and is downloaded, if needed, by process_excel.R. 
 
 You'll find the clean PDF under docs/ which looks nicer than whats in Preprints.org.
 
