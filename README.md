@@ -1,6 +1,6 @@
-# Git Repository
+# Analysis of ME/CFS Patient Clusters in Vaes Data Reveals Distinct Subgroups
 
-The code here is all of the code needed to generate my research paper: [**Analysis of ME/CFS Patient Clusters in Vaes Data Reveals Distinct Subgroups**](https://github.com/eriksquires/VaesSubgroups/blob/main/docs/VaesSubgroups.pdf). [This is also online as a preprint](https://www.preprints.org/manuscript/202509.1179) 
+The code here is all of the code needed to generate my research paper [which is also online as a preprint](https://www.preprints.org/manuscript/202509.1179) 
 
 Before you can generate the PDF you'll need to run (in order):
 
