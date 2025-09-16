@@ -11,6 +11,8 @@ Before you can generate the PDF you'll need to run (in order):
 
 Data comes from the Vaes (2023) paper on ME/CFS patient clusters, and is downloaded once in process_excel.R. 
 
+You'll find the clean PDF under docs/ which looks nicer than whats in Preprints.org.
+
 The Vaes paper is online here:  https://translational-medicine.biomedcentral.com/articles/10.1186/s12967-023-03946-6
 
 This paper is online here: https://www.preprints.org/manuscript/202509.1179
