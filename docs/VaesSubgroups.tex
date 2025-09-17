@@ -245,12 +245,13 @@ to identify patterns and subgroups.
 
 \textbf{Results:} We identified two groups of patient clusters with
 distinct symptom-domain profiles. Separating the 13 clusters into these
-subgroups reduced heterogeneity within each. The first group showed a
-consistent amplification pattern across all symptom domains as PEM
-increased, whereas the second group exhibited selective amplification:
-pain and neurocognitive symptoms escalated more rapidly with PEM, while
-immune and sleep symptoms remained relatively flat. This subgroup's
-profile resembles that of fibromyalgia.
+subgroups reduced the variability of symptom-PEM relationships within
+each group. The first group showed a consistent amplification pattern
+across all symptom domains as PEM increased, whereas the second group
+exhibited selective amplification: pain and neurocognitive symptoms
+escalated more rapidly with PEM, while immune and sleep symptoms
+remained relatively flat. This subgroup's profile resembles that of
+fibromyalgia.
 
 \textbf{Keywords:} Myalgic Encephalomyelitis, ME/CFS, patient
 clustering, fibromyalgia, post-exertional malaise, PEM
@@ -331,7 +332,7 @@ linear models when used. While this section focuses on visual
 inspection, we provide regression analysis in
 \hyperref[sec-regression]{Appendix B}.
 
-\subsection{Similarities}\label{similarities}
+\subsection{Similarities}\label{sec-similar}
 
 In terms of fatigue, the two groups overlap completely, as ME/CFS
 patient clusters are expected to. See Figure~\ref{fig-fatigue}, below.
@@ -690,14 +691,18 @@ C40 & 1.21 & 1.76 & 2.80 & 0.74 & 0.52 & 0.95 & 0.82 & 1.19 & 0.67 \\
 \end{table}%
 
 \FloatBarrier
+\clearpage
 
-\subsection*{Appendix B: Regression Analysis}\label{sec-regression}
-\addcontentsline{toc}{subsection}{Appendix B: Regression Analysis}
+\subsection*{Appendix B: Statistical Analysis}\label{sec-regression}
+\addcontentsline{toc}{subsection}{Appendix B: Statistical Analysis}
 
 In the body of this text we used visual analysis to identify two
 subgroups of ME/CFS patient clusters defined by their symptom domain
 profiles relative to PEM severity. Here we focus on quantifying how this
-group distinction reduces symptom heterogeneity.
+group distinction reduces the variability of symptom intensity within
+each group.
+
+\bigskip
 
 \textbf{R² by Group}
 
@@ -719,7 +724,7 @@ low-intensity group, and we'll also show that the high-intensity group
 maintains a stronger correlation to PEM across most symptom domains.
 \FloatBarrier
 
-\begin{table}
+\begin{table}[h]
 
 \caption{\label{tbl-t2}R² by Domain}
 
@@ -756,6 +761,7 @@ In some cases, like neurocognitive, neuroendocrine, and Other the
 combined R² is significantly weaker than either of the subgroups.
 
 \FloatBarrier
+\bigskip
 
 \textbf{Leave-one-out Analysis}
 
@@ -769,7 +775,7 @@ We summarize the mean R² differences, in order of greatest improvement,
 in Table~\ref{tbl-t3}. We see that removing any of the low-intensity
 clusters improves R².
 
-\begin{table}
+\begin{table}[h]
 
 \caption{\label{tbl-t3}Leave-one-out Analysis}
 
@@ -794,10 +800,52 @@ C24 & low & 8 & 0.0126 \\
 \end{table}%
 
 Of the top 6 clusters only C31 is not part of the low-intensity group.
+\FloatBarrier \bigskip \textbf{ANCOVA}
 
-The \textbf{R² by Group} and \textbf{Leave-one-out Analysis} strongly
-support the existence of two distinct subgroups within the Vaes
-clusters.
+We can also quantify the significance of the group distinction using
+analysis of covariance (ANCOVA). We compare our two groups for each
+symptom domain.
+
+\FloatBarrier
+
+\begin{table}[h]
+
+\caption{\label{tbl-t4}ANCOVA Analysis}
+
+\centering{
+
+\fontsize{12.0pt}{14.4pt}\selectfont
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrlr}
+\toprule
+Domain & F Value & P Value & significance \\ 
+\midrule\addlinespace[2.5pt]
+other & 33.3 & < 0.001 & *** \\ 
+neuroendocrine & 11.6 & 0.007 & ** \\ 
+fatigue & 5.2 & 0.046 & * \\ 
+autonomic & 3.8 & 0.08 & . \\ 
+pain & 3.1 & 0.108 & NA \\ 
+Immune & 1.4 & 0.268 & NA \\ 
+all\_mean & 1.0 & 0.33 & NA \\ 
+Sleep & 0.2 & 0.647 & NA \\ 
+neurocognitive & 0.0 & 0.849 & NA \\ 
+\bottomrule
+\end{tabular*}
+
+}
+
+\end{table}%
+
+Table~\ref{tbl-t4} shows agreement with the charts that other,
+neuroendocrine and autonomic domains show the most significant offsets
+between the two groups. The high F and P values for fatigue, however, do
+not agree with the charts. As we note earlier in
+Section~\ref{sec-similar}, the lines in Figure~\ref{fig-fatigue} are
+nearly identical but R² is significantly weaker in the low-intensity
+group. The high F and P values in the ANCOVA analysis for fatigue is
+most likely an artifact of the high spread in the low-intensity group.
+
+\textbf{Statistical Summary} These three analyses strongly support the
+existence of two distinct subgroups within the Vaes clusters.
 
 \FloatBarrier
 

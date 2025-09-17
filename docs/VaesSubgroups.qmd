@@ -102,7 +102,7 @@ Email: esquires.research\@proton.me
 
 **Methods:** We analyzed the Vaes cluster summary data [@vaes2023_excel], calculated geometric means for each symptom domain within each cluster, and plotted these means against PEM severity to identify patterns and subgroups.
 
-**Results:** We identified two groups of patient clusters with distinct symptom-domain profiles. Separating the 13 clusters into these subgroups reduced heterogeneity within each. The first group showed a consistent amplification pattern across all symptom domains as PEM increased, whereas the second group exhibited selective amplification: pain and neurocognitive symptoms escalated more rapidly with PEM, while immune and sleep symptoms remained relatively flat. This subgroup's profile resembles that of fibromyalgia.
+**Results:** We identified two groups of patient clusters with distinct symptom-domain profiles. Separating the 13 clusters into these subgroups reduced the variability of symptom-PEM relationships within each group. The first group showed a consistent amplification pattern across all symptom domains as PEM increased, whereas the second group exhibited selective amplification: pain and neurocognitive symptoms escalated more rapidly with PEM, while immune and sleep symptoms remained relatively flat. This subgroup's profile resembles that of fibromyalgia.
 
 **Keywords:** Myalgic Encephalomyelitis, ME/CFS, patient clustering, fibromyalgia, post-exertional malaise, PEM
 
@@ -139,7 +139,7 @@ We will start by showing how the groups are most similar, then how they differ. 
 
 **Notes:** The DSQ-2 uses a single symptom for fatigue. Also, for the "Overall" chart we used the arithmetic mean instead of geometric mean for the Y axis. All other graphs in this study use geometric means exclusively. Shaded bands represent the 95% confidence interval of the linear models when used. While this section focuses on visual inspection, we provide regression analysis in [Appendix B](#sec-regression).
 
-## Similarities
+## Similarities {#sec-similar}
 
 In terms of fatigue, the two groups overlap completely, as ME/CFS patient clusters are expected to. See [@fig-fatigue], below. While the lines have a similar slope and offset we note the R² value is significantly weaker in the low-intensity group (0.54 vs. 0.86).
 
@@ -357,11 +357,13 @@ gt(rounded_vcs_tidy) %>%
 :::
 
 \FloatBarrier
+\clearpage
 
-## Appendix B: Regression Analysis {#sec-regression .unnumbered}
+## Appendix B: Statistical Analysis {#sec-regression .unnumbered}
 
-In the body of this text we used visual analysis to identify two subgroups of ME/CFS patient clusters defined by their symptom domain profiles relative to PEM severity. Here we focus on quantifying how this group distinction reduces symptom heterogeneity.
+In the body of this text we used visual analysis to identify two subgroups of ME/CFS patient clusters defined by their symptom domain profiles relative to PEM severity. Here we focus on quantifying how this group distinction reduces the variability of symptom intensity within each group.
 
+\bigskip
 **R² by Group**
 
 We compare the regression coefficient (R²) of the symptom domains in three levels:
@@ -372,7 +374,7 @@ We compare the regression coefficient (R²) of the symptom domains in three leve
 
 We will show that R² is consistently strengthened by removing the low-intensity group, and we'll also show that the high-intensity group maintains a stronger correlation to PEM across most symptom domains. \FloatBarrier
 
-::: {#tbl-t2 tbl-cap="R² by Domain" fig-pos="h"}
+::: {#tbl-t2 tbl-cap="R² by Domain" tbl-pos="h"}
 ```{r r2_domain, include=TRUE}
 input_file <- here::here("data","r2_by_domain_combined_high_low.csv")
 if (!file.exists(input_file)) {
@@ -385,8 +387,10 @@ res <- read_csv(input_file) %>%
   arrange(Domain)
 
 # Capitalize first letter in Domain
-gt(res) %>% 
-  tab_options(latex.tbl.pos = "h")
+gt(res)
+#%>% 
+#  tab_options(latex.tbl.pos = "h")
+
 ```
 :::
 
@@ -395,14 +399,14 @@ gt(res) %>%
 In some cases, like neurocognitive, neuroendocrine, and Other the combined R² is significantly weaker than either of the subgroups.
 
 \FloatBarrier
-
+\bigskip
 **Leave-one-out Analysis**
 
 We discovered our two groups by visual analysis, but we can rediscover the set using leave-one-out analysis. In this analysis we go through each domain and examine what happens when we remove one cluster at a time. The goal is to identify whether removing a cluster improves R² or makes it worse.
 
 We summarize the mean R² differences, in order of greatest improvement, in @tbl-t3. We see that removing any of the low-intensity clusters improves R².
 
-::: {#tbl-t3 tbl-cap="Leave-one-out Analysis" fig-pos="h"}
+::: {#tbl-t3 tbl-cap="Leave-one-out Analysis" tbl-pos="h"}
 ```{r loo_analysis, include=TRUE}
 input_file <- here::here("data","loo_delta_r2_by_cluster.csv")
 if (!file.exists(input_file)) {
@@ -426,8 +430,37 @@ gt(res_loo)
 :::
 
 Of the top 6 clusters only C31 is not part of the low-intensity group.
+\FloatBarrier
+\bigskip
+**ANCOVA**
 
-The **R² by Group** and **Leave-one-out Analysis** strongly support the existence of two distinct subgroups within the Vaes clusters.
+We can also quantify the significance of the group distinction using analysis of covariance (ANCOVA) in order to identify the domains which are most discriminatory. We compare our two groups for each symptom domain. 
+
+\FloatBarrier
+
+::: {#tbl-t4 tbl-cap="ANCOVA Analysis" tbl-pos="h"}
+```{r ancova, include=TRUE}
+input_file <- here::here("data","ancova_results.csv")
+if (!file.exists(input_file)) {
+  stop(paste("Input file", input_file, "not found. Please run ancova_analysis.R first."))
+}
+ ancova_results <- read_csv(here::here("data", "ancova_results.csv")) %>%
+  mutate(p_value = round(p_value, 3)) %>%
+   mutate(`P Value` = case_when(
+     p_value < 0.001 ~ "< 0.001",
+     TRUE ~ as.character(p_value)
+   )) %>%
+   mutate(F_value = round(F_value, 1)) %>%
+   rename(`F Value`= F_value)
+
+  gt(ancova_results %>% select(Domain, `F Value`, `P Value`, significance))
+```
+:::
+
+@tbl-t4 shows agreement with the charts that other, neuroendocrine and autonomic domains show the most significant offsets between the two groups. The high F and P values for fatigue, however, do not agree with the charts. As we note earlier in @sec-similar, the lines in @fig-fatigue are nearly identical but R² is significantly weaker in the low-intensity group. The high F and P values in the ANCOVA analysis for fatigue is most likely an artifact of the high spread in the low-intensity group. 
+
+**Statistical Summary**
+These three analyses strongly support the existence of two distinct subgroups within the Vaes clusters while the ANCOVA analysis also helps identify which domains can best identify the two subgroups.
 
 \FloatBarrier
 
