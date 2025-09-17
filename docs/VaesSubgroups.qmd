@@ -119,17 +119,17 @@ Email: esquires.research\@proton.me
 
 # Introduction
 
-Dr. Anouk W. Vaes and her collaborators at CIRO performed one of the largest systematic surveys of ME/CFS symptom patterns, applying clustering methods to patient-reported outcomes to identify recurring constellations of symptoms [@vaes2023]. They used symptom surveys based on the DePaul Symptom Questionnaire version 2 (DSQ-2) from 337 patients to identify a total of 45 patient clusters of which 13 were of size $\geq$ 10. We used the publicly available data of their final 13 clusters for analysis.[@vaes2023_excel]
+Dr. Anouk W. Vaes and her collaborators at CIRO performed one of the largest systematic surveys of ME/CFS symptom patterns, applying clustering methods to patient-reported outcomes to identify recurring constellations of symptoms [@vaes2023]. They used symptom surveys based on the DePaul Symptom Questionnaire version 2 (DSQ-2) from 337 patients to identify a total of 45 patient clusters, of which 13 were of size $\geq$ 10. We used the publicly available data of their final 13 clusters for analysis [@vaes2023_excel].
 
-While Vaes described each cluster, and noted some differences among symptom severity, an overall organizing principle was not proposed. Other methods have been used to group ME/CFS phenotypes, including by severity alone, or a combination of severity and symptoms but no consensus has emerged on how to best group patients.
+While Vaes described each cluster, and noted some differences among symptom severity, an overall organizing principle was not proposed. Other methods have been used to group ME/CFS phenotypes, including by severity alone, or a combination of severity and symptoms, but no consensus has emerged on how to best group patients.
 
-Our analysis suggests that the Vaes ME/CFS clusters can be organized into two overarching families defined by their relationship to PEM. This reduces the complexity of the cluster symptom intensities and highlights a fibromyalgia-like subgroup within the Vaes clusters that has not been explicitly recognized in prior work.
+Our analysis suggests that the Vaes ME/CFS clusters can be organized into two overarching families defined by their relationship to PEM. This reduces the complexity of the cluster symptom intensities and highlights a subgroup within the Vaes clusters that has not been explicitly recognized in prior work. This subgroup has characteristics that resemble fibromyalgia, which we'll cover in-depth, below.
 
-According to Vaes[@vaes2023]:
+According to Vaes [@vaes2023]:
 
-> Almost 90% of the participants fulfilled the Fukuda case definition, compared to 80%, 59% and 39% fulfilling the IOM, CCC and ME-ICC case definitions, respectively. More than a quarter of the participants met the criteria for all four different case definitions, whilst 5% of the participants met none of the abovementioned \[sp.\] case definitions,...
+> Almost 90% of the participants fulfilled the Fukuda case definition, compared to 80%, 59% and 39% fulfilling the IOM, CCC and ME-ICC case definitions, respectively. More than a quarter of the participants met the criteria for all four different case definitions, whilst 5% of the participants met none of the abovementioned case definitions,...
 
-This means the patients in the Vaes study were diagnosed with broad and different criteria which, when taken together with our analysis, provides one of the first opportunities to quantitatively describe fibromyalgia-like patients inside ME/CFS from a single, uniformly collected cohort.
+If this subgroup really is related to fibromyalgia, then the Vaes data, taken together with our analysis, may provide one of the first opportunities to quantitatively describe fibromyalgia-like patients within ME/CFS from a single, uniformly collected cohort. Otherwise, it may represent a distinct but as-yet uncharacterized subgroup worthy of further study.
 
 # Visual Analysis of Symptom Domains vs. PEM
 
@@ -384,7 +384,10 @@ if (!file.exists(input_file)) {
 res <- read_csv(input_file) %>%
   rename(Domain = domain) %>%
   mutate(Domain = str_to_title(Domain)) %>%
-  arrange(Domain)
+  arrange(Domain) %>%
+  rename(`Combined R²` = R2_combined,
+         `High-intensity R²` = R2_high,
+         `Low-intensity R²` = R2_low)
 
 # Capitalize first letter in Domain
 gt(res)
@@ -430,9 +433,13 @@ gt(res_loo)
 ```
 :::
 
-Of the top 6 clusters only C31 is not part of the low-intensity group. \FloatBarrier \bigskip **ANCOVA**
+Of the top 6 clusters only C31 is not part of the low-intensity group. 
+\FloatBarrier 
+\bigskip 
 
-We can also quantify the significance of the group distinction using analysis of covariance (ANCOVA) to identify the domains which are most discriminatory. We compare our two groups for each symptom domain. We arrange the results by descending F-statistic and show the p-value rounded to three decimal places.
+**ANCOVA**
+
+We analysis of covariance (ANCOVA) to identify the domains which are most statistically significant and discriminatory. We compare our two groups for each symptom domain. We arrange the results by descending F-statistic and show the p-value rounded to three decimal places.
 
 \FloatBarrier
 
