@@ -102,7 +102,7 @@ Email: esquires.research\@proton.me
 
 **Methods:** We analyzed the Vaes cluster summary data [@vaes2023_excel], calculated geometric means for each symptom domain within each cluster, and plotted these means against PEM severity to identify patterns and subgroups.
 
-**Results:** We observed two groups of patient clusters with distinct symptom-domain profiles. Separating the 13 clusters into these subgroups reduced the variability of symptom-PEM relationships within each group. The first group showed a consistent amplification pattern across all symptom domains as PEM increased, whereas the second group has selective amplification: pain and neurocognitive symptoms escalated more rapidly with PEM, while immune and sleep symptoms remained relatively flat. This subgroup's profile appears to resemble that of fibromyalgia.
+**Results:** We observed two groups of patient clusters with distinct symptom-domain profiles. The first group showed a consistent amplification pattern across all symptom domains as PEM increased, whereas the second group has selective amplification: pain and neurocognitive symptoms escalated more rapidly with PEM, while immune and sleep symptoms remained relatively flat. This subgroup's profile appears to resemble that of fibromyalgia.
 
 **Keywords:** Myalgic Encephalomyelitis, ME/CFS, patient clustering, fibromyalgia, post-exertional malaise, PEM
 
@@ -124,10 +124,6 @@ Dr. Anouk W. Vaes and her collaborators at CIRO performed one of the largest sys
 While Vaes described each cluster, and noted some differences among symptom severity, an overall organizing principle was not proposed. Other methods have been used to group ME/CFS phenotypes, including by severity alone, or a combination of severity and symptoms, but no consensus has emerged on how to best group patients.
 
 Our analysis suggests that the Vaes ME/CFS clusters can be organized into two overarching families defined by their relationship to PEM. This reduces the complexity of the cluster symptom intensities and highlights a subgroup within the Vaes clusters that has not been explicitly recognized in prior work. Once separated and profiled, this subgroup has characteristics that resemble fibromyalgia. 
-
-According to Vaes [@vaes2023]:
-
-> Almost 90% of the participants fulfilled the Fukuda case definition, compared to 80%, 59% and 39% fulfilling the IOM, CCC and ME-ICC case definitions, respectively. More than a quarter of the participants met the criteria for all four different case definitions, whilst 5% of the participants met none of the abovementioned case definitions,...
 
 If this subgroup really is related to fibromyalgia, then the Vaes data, taken together with our analysis, may provide one of the first opportunities to quantitatively describe fibromyalgia-like patients within ME/CFS from a single, uniformly collected cohort. Otherwise, it may represent a distinct but as-yet uncharacterized subgroup worthy of further study. We will cover this in depth, below in @sec-fibro. 
 
@@ -289,9 +285,11 @@ We summarize these differences in the table below.\bigskip
 
 # Exploring the Fibromyalgia–like Subgroup {#sec-fibro}
 
-The question of whether we have identified a useful subgroup in the Vaes data is a separate debate, but based on implications in @sec-different a discussion of whether the low-intensity group could be related to fibromyalgia is warranted. 
+The question of whether we have identified a useful subgroup in the Vaes data is a separate debate, but based on implications in @sec-different a discussion of whether the low-intensity group could be related to fibromyalgia is warranted. Vaes [@vaes2023] described the selection criteria for their cohort as follows:
 
-An examination of the charts above shows the low-intensity group occupies a very narrow range of PEM intensity and then stops abruptly when PEM reaches \~2.9. We see no reason for a PEM-specific boundary but the charts in @fig-pain suggest that our group is not PEM-limited but pain- and neurocognitive-limited within this dataset. In those charts, pain and neurocognitive symptoms trend upward and then the clusters stop at C7 just before they would cross the high-intensity group trend lines. This truncation could be due to diagnostic criteria that would classify these individuals as fibromyalgia when pain and neurocognitive scores are above the high-intensity lines. 
+> Almost 90% of the participants fulfilled the Fukuda case definition, compared to 80%, 59% and 39% fulfilling the IOM, CCC and ME-ICC case definitions, respectively. More than a quarter of the participants met the criteria for all four different case definitions, whilst 5% of the participants met none of the abovementioned case definitions,...
+
+This seems like a potentially wide net and may help explain two potential subgroups which suggest a different pathophysiology. An examination of the proposed low-intensity subgroup shows it occupies a very narrow range of PEM intensity and then stops abruptly when PEM reaches \~2.9. We see no reason for a PEM-specific boundary but the charts in @fig-pain suggest that our group is not PEM-limited but pain- and neurocognitive-limited within this dataset. In those charts, pain and neurocognitive symptoms trend upward and then the clusters stop at C7 just before they would cross the high-intensity group trend lines. This truncation could be due to diagnostic criteria that would classify these individuals as fibromyalgia when pain and neurocognitive scores are above the high-intensity lines. 
 
 This would align with published DSQ-2 studies showing that ME/CFS patients who meet fibromyalgia criteria exhibit amplified pain and more severe post-exertional malaise compared with ME/CFS alone [@jason2015dsq2; @mcmanimen2017pem; @nature2023fm] and would also explain why our subgroup occupies such a narrow range of PEM scores compared to the overall cohort.
 
@@ -318,8 +316,6 @@ While the hypothesis that this subgroup is related to fibromyalgia is attractive
 We have shown that the Vaes clusters can be organized into two subgroups defined by symptom domains relative to PEM, and that these subgroups remain consistent across most symptom domains.
 
 We've also shown that grouping the Vaes clusters by their relationship to PEM simplifies this complexity at the domain and cluster levels, but this may not translate directly to grouping individual patients. Vaes[@vaes2023] provided cluster-specific summaries of standout symptoms; some of those align with our domain-based charts while others show a different emphasis, underscoring the challenge of reconciling symptom-level observations with domain-level analyses.
-
-The wide net cast by Vaes in terms of diagnostic criteria may have helped to reveal these two subgroups. The high-intensity group aligns more closely with classic ME/CFS presentations, while the low-intensity group, with its fibromyalgia-like profile, suggests a different pathophysiology. This may be a unique subgroup or in fact "low-grade" fibromyalgia.
 
 Although these charts look compelling, several cautions are warranted. This is a secondary analysis of patient clusters defined by symptom domains with small subgroup sizes (8 and 5 clusters). The original clustering methods of Vaes et al. may have obscured or exaggerated some relationships we show here. Moreover, visual inspection of the plots may suggest directional trends where none truly exist.
 
