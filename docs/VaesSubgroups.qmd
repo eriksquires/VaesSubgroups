@@ -311,7 +311,7 @@ This would align with published DSQ-2 studies showing that ME/CFS patients who m
 
 It is possible that current pain and neurocognitive thresholds for a fibromyalgia diagnosis may focus too heavily on symptom severity to capture the nuanced patterns revealed by our subgroup analysis. If these groups are commingled, then properly separating the two groups may require a more complex approach that relies less on absolute pain scores and more on the ratio of symptom domain scores to PEM.
 
-While the hypothesis that this subgroup is related to fibromyalgia is attractive, other explanations may also be true.  At the very least, this data need direct comparison to fibromyalgia cohorts before it can be used to formally claim a fibromyalgia link. 
+While the hypothesis that this subgroup is related to fibromyalgia is attractive, other explanations may also be true. At the very least, this data need direct comparison to fibromyalgia cohorts before it can be used to formally claim a fibromyalgia link. 
 
 # Discussion
 
@@ -380,7 +380,7 @@ We compare the regression coefficient (R²) of the symptom domains in three leve
 -   High-intensity group
 -   Low-intensity group
 
-We will show that R² is consistently strengthened by removing the low-intensity group, and we'll also show that the high-intensity group maintains a stronger correlation to PEM across most symptom domains. \FloatBarrier
+\FloatBarrier
 
 ::: {#tbl-t2 tbl-cap="R² by Domain" tbl-pos="h"}
 ```{r r2_domain, include=TRUE}
