@@ -96,7 +96,7 @@ Email: esquires.research\@proton.me
 
 # Abstract {.unnumbered}
 
-**Background:** Vaes et al. (2023)[@vaes2023] identified 13 symptom clusters in a large cohort of ME/CFS patients. Symptom intensity is broadly correlated with post-exertional malaise (PEM) severity, with variation across clusters that seems heterogeneous. Despite this research, no broadly accepted organizing principle has emerged from this paper or other attempts at phenotyping ME/CFS.
+**Background:** Vaes et al. (2023)[@vaes2023] identified 13 symptom clusters in a large cohort of ME/CFS patients. Symptom intensity is broadly correlated with post-exertional malaise (PEM) severity, with variation across clusters that seems disorganized. Despite this research, no broadly accepted organizing principle has emerged from this paper or other attempts at phenotyping ME/CFS.
 
 **Objective:** To identify and characterize potential subgroups defined by symptom domain severity relative to PEM within the original Vaes symptom clusters.
 
@@ -287,7 +287,7 @@ We summarize these differences in the table below.\bigskip
 
 # Fibromyalgia–like Subgroup {#sec-fibro}
 
-An examination of the charts above show the low-intensity group occupies a very narrow range of PEM intensity and then stops abruptly when PEM reaches \~2.9. We see no reason for a PEM specific boundary but the charts in @fig-pain suggest that our group is not PEM limited but pain and neurocognitive limited. Pain and neurocognitive symptoms trend upward and then the clusters stop at C7 just before they would cross the high-intensity group trend lines. This truncation could be due to diagnostic criteria which would reclassify these individuals as fibromyalgia after the pain and neurocognitive scores cross the high-intensity lines. Doing similar visual inspections with fibromyalgia cohorts could confirm this.
+An examination of the charts above shows the low-intensity group occupies a very narrow range of PEM intensity and then stops abruptly when PEM reaches \~2.9. We see no reason for a PEM-specific boundary but the charts in @fig-pain suggest that our group is not PEM-limited but pain- and neurocognitive-limited within this dataset. Pain and neurocognitive symptoms trend upward and then the clusters stop at C7 just before they would cross the high-intensity group trend lines. This truncation could be due to diagnostic criteria which would classify these individuals as fibromyalgia when pain and neurocognitive scores are above the high-intensity lines. Doing similar visual inspections with fibromyalgia cohorts could confirm this.
 
 This would align with published DSQ-2 studies showing that ME/CFS patients who meet fibromyalgia criteria exhibit amplified pain and more severe post-exertional malaise compared with ME/CFS alone [@jason2015dsq2; @mcmanimen2017pem; @nature2023fm] and would also explain why our subgroup occupies such a narrow range of PEM scores compared to the overall cohort.
 
@@ -396,13 +396,13 @@ gt(res)
 
 @tbl-t2 shows that for almost every symptom domain, the high-intensity group has a higher R² than the combined group, which in turn has a higher R² than the low-intensity group. This is consistent with our visual analysis and supports the existence of two distinct subgroups within the Vaes clusters.
 
-In some cases, like neurocognitive, neuroendocrine, and Other the combined R² is significantly weaker than either of the subgroups.
+In some cases -- such as neurocognitive, neuroendocrine, and Other -- the combined R² is significantly weaker than either of the subgroups.
 
 \FloatBarrier
 \bigskip
 **Leave-one-out Analysis**
 
-We discovered our two groups by visual analysis, but we can rediscover the set using leave-one-out analysis. In this analysis we go through each domain and examine what happens when we remove one cluster at a time. The goal is to identify whether removing a cluster improves R² or makes it worse.
+We discovered our two groups by visual analysis, but we can re-identify the set using leave-one-out analysis. In this analysis we go through each domain and examine what happens when we remove one cluster at a time. The goal is to identify whether removing a cluster improves R² or makes it worse.
 
 We summarize the mean R² differences, in order of greatest improvement, in @tbl-t3. We see that removing any of the low-intensity clusters improves R².
 
@@ -434,7 +434,7 @@ Of the top 6 clusters only C31 is not part of the low-intensity group.
 \bigskip
 **ANCOVA**
 
-We can also quantify the significance of the group distinction using analysis of covariance (ANCOVA) in order to identify the domains which are most discriminatory. We compare our two groups for each symptom domain. 
+We can also quantify the significance of the group distinction using analysis of covariance (ANCOVA) to identify the domains which are most discriminatory. We compare our two groups for each symptom domain. 
 
 \FloatBarrier
 
@@ -446,21 +446,23 @@ if (!file.exists(input_file)) {
 }
  ancova_results <- read_csv(here::here("data", "ancova_results.csv")) %>%
   mutate(p_value = round(p_value, 3)) %>%
-   mutate(`P Value` = case_when(
+   mutate(`p-value` = case_when(
      p_value < 0.001 ~ "< 0.001",
      TRUE ~ as.character(p_value)
    )) %>%
    mutate(F_value = round(F_value, 1)) %>%
-   rename(`F Value`= F_value)
+   rename(`F statistic`= F_value)
 
-  gt(ancova_results %>% select(Domain, `F Value`, `P Value`, significance))
+  gt(ancova_results %>% select(Domain, `F statistic`, `p-value`, Significance = significance))
 ```
 :::
 
-@tbl-t4 shows agreement with the charts that other, neuroendocrine and autonomic domains show the most significant offsets between the two groups. The high F and P values for fatigue, however, do not agree with the charts. As we note earlier in @sec-similar, the lines in @fig-fatigue are nearly identical but R² is significantly weaker in the low-intensity group. The high F and P values in the ANCOVA analysis for fatigue is most likely an artifact of the high spread in the low-intensity group. 
+@tbl-t4 shows agreement with the charts that Other, Neuroendocrine and Autonomic domains show the most significant offsets between the two groups. The high F-statistic and low p-value for Fatigue, however, do not agree with the charts. As we note earlier in @sec-similar, the lines in @fig-fatigue are nearly identical but R² is significantly weaker in the low-intensity group. The high F-statistic and P-value in the ANCOVA analysis for fatigue is most likely an artifact of the wide spread in the low-intensity group. 
+
+Given the exploratory nature of this study and small number of clusters, these ANCOVA results should be interpreted as descriptive rather than confirmatory.
 
 **Statistical Summary**
-These three analyses strongly support the existence of two distinct subgroups within the Vaes clusters while the ANCOVA analysis also helps identify which domains can best identify the two subgroups.
+These three analyses strongly support the existence of two distinct subgroups within the Vaes clusters while the ANCOVA results also helps identify which domains can best identify the two subgroups.
 
 \FloatBarrier
 
