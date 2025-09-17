@@ -322,7 +322,7 @@ Despite these limitations, we believe further steps should be taken. Using the o
 
 # Conclusion
 
-Our secondary analysis shows that the many heterogeneous Vaes clusters can be organized into two broader structures defined by overall symptom intensity relative to PEM severity. These two groups remain coherent across symptom domains and display distinct, largely linear relationships with PEM. Although exploratory and limited to cluster-level data, these findings offer a reproducible framework that may help clarify apparent heterogeneity in ME/CFS.
+Our secondary analysis shows that the 13 clusters identified by Vaes can be organized into two broader structures defined by overall symptom intensity relative to PEM severity. These two groups remain coherent across symptom domains and display distinct, largely linear relationships with PEM. Although exploratory and limited to cluster-level data, these findings offer a reproducible framework that may help clarify apparent heterogeneity in ME/CFS.
 
 \clearpage
 
