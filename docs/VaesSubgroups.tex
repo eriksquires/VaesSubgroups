@@ -303,8 +303,8 @@ definitions,\ldots{}
 
 This means the patients in the Vaes study were diagnosed with broad and
 different criteria which, when taken together with our analysis,
-provides one of the first opportunities to quantitatively separate
-classic ME/CFS and fibromyalgia-like patients from a single, uniformly
+provides one of the first opportunities to quantitatively describe
+fibromyalgia-like patients inside ME/CFS from a single, uniformly
 collected cohort.
 
 \section{Visual Analysis of Symptom Domains
@@ -518,10 +518,10 @@ cohort.
 \bigskip
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.3836}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2055}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2055}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2055}}@{}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.3425}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2192}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2192}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2192}}@{}}
 \caption{ME/CFS vs.~Fibro}\label{tbl-t3}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
@@ -775,12 +775,7 @@ We summarize the mean R² differences, in order of greatest improvement,
 in Table~\ref{tbl-t3}. We see that removing any of the low-intensity
 clusters improves R².
 
-\begin{table}[h]
-
-\caption{\label{tbl-t3}Leave-one-out Analysis}
-
-\centering{
-
+\begin{table}
 \fontsize{12.0pt}{14.4pt}\selectfont
 \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcrr}
 \toprule
@@ -794,46 +789,37 @@ C7 & low & 5 & 0.0129 \\
 C24 & low & 8 & 0.0126 \\ 
 \bottomrule
 \end{tabular*}
-
-}
-
-\end{table}%
+\end{table}
 
 Of the top 6 clusters only C31 is not part of the low-intensity group.
-\FloatBarrier \bigskip \textbf{ANCOVA}
+\FloatBarrier \bigskip **ANCOVA**
 
 We can also quantify the significance of the group distinction using
 analysis of covariance (ANCOVA) to identify the domains which are most
-discriminatory. We compare our two groups for each symptom domain.
+discriminatory. We compare our two groups for each symptom domain. We
+arrange the results by descending F-statistic and show the p-value
+rounded to three decimal places.
 
 \FloatBarrier
 
-\begin{table}[h]
-
-\caption{\label{tbl-t4}ANCOVA Analysis}
-
-\centering{
-
+\begin{table}
 \fontsize{12.0pt}{14.4pt}\selectfont
 \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrlr}
 \toprule
 Domain & F statistic & p-value & Significance \\ 
 \midrule\addlinespace[2.5pt]
-other & 33.3 & < 0.001 & *** \\ 
-neuroendocrine & 11.6 & 0.007 & ** \\ 
-fatigue & 5.2 & 0.046 & * \\ 
-autonomic & 3.8 & 0.08 & . \\ 
-pain & 3.1 & 0.108 & NA \\ 
+Other & 33.3 & < 0.001 & *** \\ 
+Neuroendocrine & 11.6 & 0.007 & ** \\ 
+Fatigue & 5.2 & 0.046 & * \\ 
+Autonomic & 3.8 & 0.08 & . \\ 
+Pain & 3.1 & 0.108 & NA \\ 
 Immune & 1.4 & 0.268 & NA \\ 
-all\_mean & 1.0 & 0.33 & NA \\ 
+All\_mean & 1.0 & 0.33 & NA \\ 
 Sleep & 0.2 & 0.647 & NA \\ 
-neurocognitive & 0.0 & 0.849 & NA \\ 
+Neurocognitive & 0.0 & 0.849 & NA \\ 
 \bottomrule
 \end{tabular*}
-
-}
-
-\end{table}%
+\end{table}
 
 Table~\ref{tbl-t4} shows agreement with the charts that Other,
 Neuroendocrine and Autonomic domains show the most significant offsets

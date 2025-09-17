@@ -129,7 +129,7 @@ According to Vaes[@vaes2023]:
 
 > Almost 90% of the participants fulfilled the Fukuda case definition, compared to 80%, 59% and 39% fulfilling the IOM, CCC and ME-ICC case definitions, respectively. More than a quarter of the participants met the criteria for all four different case definitions, whilst 5% of the participants met none of the abovementioned \[sp.\] case definitions,...
 
-This means the patients in the Vaes study were diagnosed with broad and different criteria which, when taken together with our analysis, provides one of the first opportunities to quantitatively separate classic ME/CFS and fibromyalgia-like patients from a single, uniformly collected cohort.
+This means the patients in the Vaes study were diagnosed with broad and different criteria which, when taken together with our analysis, provides one of the first opportunities to quantitatively describe fibromyalgia-like patients inside ME/CFS from a single, uniformly collected cohort.
 
 # Visual Analysis of Symptom Domains vs. PEM
 
@@ -291,12 +291,11 @@ An examination of the charts above shows the low-intensity group occupies a very
 
 This would align with published DSQ-2 studies showing that ME/CFS patients who meet fibromyalgia criteria exhibit amplified pain and more severe post-exertional malaise compared with ME/CFS alone [@jason2015dsq2; @mcmanimen2017pem; @nature2023fm] and would also explain why our subgroup occupies such a narrow range of PEM scores compared to the overall cohort.
 
-
 \bigskip
 
 ::: {#tbl-t3 tbl-cap="ME/CFS vs. Fibro" fig-pos="h"}
 | Domain (DSQ / DSQ-PEM items) | ME/CFS (no FM) | ME/CFS + FM | FM (alone) |
-|----------------------------|---------------|---------------|---------------|
+|-------------------------|----------------|----------------|----------------|
 | Post-Exertional Malaise (PEM) | Core feature; DSQ captures frequency & severity well | **Higher** PEM frequency/severity than ME/CFS alone (incl. “General” and “Muscle” PEM factors) | Not a defining criterion of FM; DSQ-PEM shows variable/typically lower PEM signal vs ME/CFS cohorts |
 | Pain | Common, variable; not primary diagnostic driver | **Higher overall pain burden**; amplifies illness severity | **Defining**; widespread musculoskeletal pain central to diagnosis |
 | Neurocognitive | Frequent (attention, memory, processing speed) | Often **worse** with FM comorbidity | Present in many FM cohorts; DSQ-SF cognitive items used in FM studies |
@@ -306,7 +305,7 @@ This would align with published DSQ-2 studies showing that ME/CFS patients who m
 
 \bigskip
 
-In conclusion, current pain and neurocognitive thresholds for a fibromyalgia diagnosis may focus too heavily on symptom severity to capture the nuanced patterns revealed by our subgroup analysis. Properly separating the two groups may require a more complex approach that relies less on absolute pain scores and more on the ratio of symptom domain scores to PEM. 
+In conclusion, current pain and neurocognitive thresholds for a fibromyalgia diagnosis may focus too heavily on symptom severity to capture the nuanced patterns revealed by our subgroup analysis. Properly separating the two groups may require a more complex approach that relies less on absolute pain scores and more on the ratio of symptom domain scores to PEM.
 
 # Discussion
 
@@ -314,11 +313,11 @@ We have shown that the Vaes clusters can be organized into two subgroups defined
 
 We've also shown that grouping the Vaes clusters by their relationship to PEM simplifies this complexity at the domain and cluster levels, but this may not translate directly to grouping individual patients. Vaes[@vaes2023] provided cluster-specific summaries of standout symptoms; some of those align with our domain-based charts while others show a different emphasis, underscoring the challenge of reconciling symptom-level observations with domain-level analyses.
 
-The wide net cast by Vaes in terms of diagnostic criteria may have helped to reveal these two subgroups. The high-intensity group aligns more closely with classic ME/CFS presentations, while the low-intensity group, with its fibromyalgia-like profile, suggests a different pathophysiology. This may be a unique subgroup or in fact "low-grade" fibromyalgia.  
+The wide net cast by Vaes in terms of diagnostic criteria may have helped to reveal these two subgroups. The high-intensity group aligns more closely with classic ME/CFS presentations, while the low-intensity group, with its fibromyalgia-like profile, suggests a different pathophysiology. This may be a unique subgroup or in fact "low-grade" fibromyalgia.
 
 Although these charts look compelling, several cautions are warranted. This is a secondary analysis of patient clusters defined by symptom domains with small subgroup sizes (8 and 5 clusters). The original clustering methods of Vaes et al. may have obscured or exaggerated some relationships we show here. Moreover, visual inspection of the plots may suggest directional trends where none truly exist.
 
-Despite these limitations, we believe further steps should be taken. Using the original patient scores could validate, refine, or repudiate these subgroups and possibly produce a short list of differentiating symptoms. If this proves useful then examining biological markers across these subgroups could help to reveal underlying pathophysiological differences.  Additionally, using similar analysis to what we've done here with fibromyalgia and long-COVID could help clarify relationships among these overlapping conditions, or help redefine how we classify ME/CFS, or fibromyalgia.
+Despite these limitations, we believe further steps should be taken. Using the original patient scores could validate, refine, or repudiate these subgroups and possibly produce a short list of differentiating symptoms. If this proves useful then examining biological markers across these subgroups could help to reveal underlying pathophysiological differences. Additionally, using similar analysis to what we've done here with fibromyalgia and long-COVID could help clarify relationships among these overlapping conditions, or help redefine how we classify ME/CFS, or fibromyalgia.
 
 # Conclusion
 
@@ -364,6 +363,7 @@ gt(rounded_vcs_tidy) %>%
 In the body of this text we used visual analysis to identify two subgroups of ME/CFS patient clusters defined by their symptom domain profiles relative to PEM severity. Here we focus on quantifying how this group distinction reduces the variability of symptom intensity within each group.
 
 \bigskip
+
 **R² by Group**
 
 We compare the regression coefficient (R²) of the symptom domains in three levels:
@@ -400,13 +400,14 @@ In some cases -- such as neurocognitive, neuroendocrine, and Other -- the combin
 
 \FloatBarrier
 \bigskip
+
 **Leave-one-out Analysis**
 
 We discovered our two groups by visual analysis, but we can re-identify the set using leave-one-out analysis. In this analysis we go through each domain and examine what happens when we remove one cluster at a time. The goal is to identify whether removing a cluster improves R² or makes it worse.
 
 We summarize the mean R² differences, in order of greatest improvement, in @tbl-t3. We see that removing any of the low-intensity clusters improves R².
 
-::: {#tbl-t3 tbl-cap="Leave-one-out Analysis" tbl-pos="h"}
+::: {tbl-cap="Leave-one-out Analysis" tbl-pos="h"}
 ```{r loo_analysis, include=TRUE}
 input_file <- here::here("data","loo_delta_r2_by_cluster.csv")
 if (!file.exists(input_file)) {
@@ -429,40 +430,38 @@ gt(res_loo)
 ```
 :::
 
-Of the top 6 clusters only C31 is not part of the low-intensity group.
-\FloatBarrier
-\bigskip
-**ANCOVA**
+Of the top 6 clusters only C31 is not part of the low-intensity group. \FloatBarrier \bigskip **ANCOVA**
 
-We can also quantify the significance of the group distinction using analysis of covariance (ANCOVA) to identify the domains which are most discriminatory. We compare our two groups for each symptom domain. 
+We can also quantify the significance of the group distinction using analysis of covariance (ANCOVA) to identify the domains which are most discriminatory. We compare our two groups for each symptom domain. We arrange the results by descending F-statistic and show the p-value rounded to three decimal places.
 
 \FloatBarrier
 
-::: {#tbl-t4 tbl-cap="ANCOVA Analysis" tbl-pos="h"}
+::: {tbl-cap="ANCOVA Analysis" tbl-pos="h"}
 ```{r ancova, include=TRUE}
 input_file <- here::here("data","ancova_results.csv")
 if (!file.exists(input_file)) {
   stop(paste("Input file", input_file, "not found. Please run ancova_analysis.R first."))
 }
- ancova_results <- read_csv(here::here("data", "ancova_results.csv")) %>%
+ancova_results <- read_csv(here::here("data", "ancova_results.csv")) %>%
   mutate(p_value = round(p_value, 3)) %>%
-   mutate(`p-value` = case_when(
+  mutate(`p-value` = case_when(
      p_value < 0.001 ~ "< 0.001",
      TRUE ~ as.character(p_value)
-   )) %>%
-   mutate(F_value = round(F_value, 1)) %>%
-   rename(`F statistic`= F_value)
+    )) %>%
+  mutate(F_value = round(F_value, 1)) %>%
+  mutate(Domain = str_to_title(Domain)) %>%
+  rename(`F statistic`= F_value)
 
+ 
   gt(ancova_results %>% select(Domain, `F statistic`, `p-value`, Significance = significance))
 ```
 :::
 
-@tbl-t4 shows agreement with the charts that Other, Neuroendocrine and Autonomic domains show the most significant offsets between the two groups. The high F-statistic and low p-value for Fatigue, however, do not agree with the charts. As we note earlier in @sec-similar, the lines in @fig-fatigue are nearly identical but R² is significantly weaker in the low-intensity group. The high F-statistic and P-value in the ANCOVA analysis for fatigue is most likely an artifact of the wide spread in the low-intensity group. 
+@tbl-t4 shows agreement with the charts that Other, Neuroendocrine and Autonomic domains show the most significant offsets between the two groups. The high F-statistic and low p-value for Fatigue, however, do not agree with the charts. As we note earlier in @sec-similar, the lines in @fig-fatigue are nearly identical but R² is significantly weaker in the low-intensity group. The high F-statistic and P-value in the ANCOVA analysis for fatigue is most likely an artifact of the wide spread in the low-intensity group.
 
 Given the exploratory nature of this study and small number of clusters, these ANCOVA results should be interpreted as descriptive rather than confirmatory.
 
-**Statistical Summary**
-These three analyses strongly support the existence of two distinct subgroups within the Vaes clusters while the ANCOVA results also helps identify which domains can best identify the two subgroups.
+**Statistical Summary** These three analyses strongly support the existence of two distinct subgroups within the Vaes clusters while the ANCOVA results also helps identify which domains can best identify the two subgroups.
 
 \FloatBarrier
 
@@ -476,7 +475,6 @@ All data manipulation and analysis scripts are available at <https://github.com/
 
 ::: {#refs}
 :::
-
 
 {{< pagebreak >}}
 
