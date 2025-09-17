@@ -236,7 +236,7 @@ p
 
 \FloatBarrier
 
-The two charts above, while not severe enough to claim this is fibromyalgia with PEM, begin to suggest it.
+The two charts above, while not severe enough to claim this is fibromyalgia with PEM, begin to suggest it. We discuss this more fully in the [Fibromyalgia–like group](#sec-fibro) section.
 
 ## Different Correlations to PEM
 
@@ -285,7 +285,7 @@ We summarize these differences in the table below.\bigskip
 
 **Symptom Severity:** In terms of overall symptom range the two groups largely overlap. The high-intensity group, by symptom intensity alone, could be considered a superset of the low-intensity group. It is the differing relationships to PEM and the selective amplification of certain symptom domains in the low-intensity group that set the two groups apart.
 
-# Fibromyalgia–like Subgroup
+# Fibromyalgia–like Subgroup {#sec-fibro}
 
 An examination of the charts above show the low-intensity group occupies a very narrow range of PEM intensity and then stops abruptly when PEM reaches \~2.9. We see no reason for a PEM specific boundary but the charts in @fig-pain suggest that our group is not PEM limited but pain and neurocognitive limited. Pain and neurocognitive symptoms trend upward and then the clusters stop where they would cross the high-intensity group trend lines. This truncation could be due to diagnostic criteria which would reclassify these individuals as fibromyalgia after the pain and neurocognitive scores cross the high-intensity lines. Doing similar visual inspections with fibromyalgia cohorts could confirm this.
 
@@ -316,9 +316,9 @@ We've also shown that grouping the Vaes clusters by their relationship to PEM si
 
 The wide net cast by Vaes in terms of diagnostic criteria may have helped to reveal these two subgroups. The high-intensity group aligns more closely with classic ME/CFS presentations, while the low-intensity group, with its fibromyalgia-like profile, suggests a different pathophysiology. This may be a unique subgroup or in fact "low-grade" fibromyalgia.  
 
-Although these patterns may guide future phenotyping, several cautions are warranted. This is a secondary analysis of patient clusters defined by symptom domains with small subgroup sizes (8 and 5 clusters). The original clustering methods of Vaes et al. may have obscured or exaggerated some relationships we show here. Moreover, visual inspection of the plots may suggest directional trends where none truly exist.
+Although these charts look compelling, several cautions are warranted. This is a secondary analysis of patient clusters defined by symptom domains with small subgroup sizes (8 and 5 clusters). The original clustering methods of Vaes et al. may have obscured or exaggerated some relationships we show here. Moreover, visual inspection of the plots may suggest directional trends where none truly exist.
 
-Despite these limitations, we believe further steps should be taken. Using the original patient scores could validate, refine, or repudiate these subgroups and possibly produce a short list of differentiating symptoms. If this proves useful then examining biological markers across these subgroups could help to reveal underlying pathophysiological differences.  Additionally, using similar analysis to what we've done here with fibromyalgia and long-COVID could help clarify relationships among these overlapping conditions, or help discover subgroups in either. 
+Despite these limitations, we believe further steps should be taken. Using the original patient scores could validate, refine, or repudiate these subgroups and possibly produce a short list of differentiating symptoms. If this proves useful then examining biological markers across these subgroups could help to reveal underlying pathophysiological differences.  Additionally, using similar analysis to what we've done here with fibromyalgia and long-COVID could help clarify relationships among these overlapping conditions, or help redefine how we classify ME/CFS, or fibromyalgia.
 
 # Conclusion
 
