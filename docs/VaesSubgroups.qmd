@@ -123,9 +123,9 @@ Dr. Anouk W. Vaes and her collaborators at CIRO performed one of the largest sys
 
 While Vaes described each cluster, and noted some differences among symptom severity, an overall organizing principle was not proposed. Other methods have been used to group ME/CFS phenotypes, including by severity alone, or a combination of severity and symptoms, but no consensus has emerged on how to best group patients.
 
-Our analysis suggests that the Vaes ME/CFS clusters can be organized into two overarching families defined by their relationship to PEM. This reduces the complexity of the cluster symptom intensities and highlights a subgroup within the Vaes clusters that has not been explicitly recognized in prior work. Once separated and profiled, this subgroup has characteristics that resemble fibromyalgia. 
+Our analysis suggests that the Vaes ME/CFS clusters can be organized into two overarching families defined by their relationship to PEM. This reduces the complexity of the cluster symptom intensities and highlights a subgroup within the Vaes clusters that has not been explicitly recognized in prior work. Once separated and profiled, this subgroup has characteristics that resemble fibromyalgia.
 
-If this subgroup really is related to fibromyalgia, then the Vaes data, taken together with our analysis, may provide one of the first opportunities to quantitatively describe fibromyalgia-like patients within ME/CFS from a single, uniformly collected cohort. Otherwise, it may represent a distinct but as-yet uncharacterized subgroup worthy of further study. We will cover this in depth, below in @sec-fibro. 
+If this subgroup really is related to fibromyalgia, then the Vaes data, taken together with our analysis, may provide one of the first opportunities to quantitatively describe fibromyalgia-like patients within ME/CFS from a single, uniformly collected cohort. Otherwise, it may represent a distinct but as-yet uncharacterized subgroup worthy of further study. We will cover this in depth, below in @sec-fibro.
 
 # Visual Analysis of Symptom Domains vs. PEM
 
@@ -135,7 +135,7 @@ Because these analyses are exploratory and based on cluster-level data, the patt
 
 We will start by showing how the groups are most similar, then how they differ. We add an "all" category to gauge overall symptom severity to the original symptom domains. Our use of the terms “high-intensity” and “low-intensity” does not reproduce the clusters described by Vaes or others but reflects a new organization based on how symptom domains scale with PEM. Vaes used the DePaul symptom groupings which we keep as-is.
 
-**Notes:** The DSQ-2 uses a single symptom for fatigue. Also, for the "Overall" chart we used the arithmetic mean instead of geometric mean for the Y axis. All other graphs in this study use geometric means exclusively. Shaded bands represent the 95% confidence interval of the linear models when used. While this section focuses on visual inspection, we provide more statistical analysis in [Appendix B](#sec-regression).
+**Notes:** The DSQ-2 uses a single symptom for fatigue. Also, for the "Overall" chart we used the arithmetic mean instead of geometric mean for the Y axis. All other graphs in this study use geometric means exclusively. Shaded bands represent the 95% confidence interval of the linear models when used. While this section focuses on visual inspection, we provide more statistical descriptions in [Appendix B](#sec-regression).
 
 ## Similarities {#sec-similar}
 
@@ -289,7 +289,7 @@ The question of whether we have identified a useful subgroup in the Vaes data is
 
 > Almost 90% of the participants fulfilled the Fukuda case definition, compared to 80%, 59% and 39% fulfilling the IOM, CCC and ME-ICC case definitions, respectively. More than a quarter of the participants met the criteria for all four different case definitions, whilst 5% of the participants met none of the abovementioned case definitions,...
 
-This seems like a potentially wide net and may help explain two potential subgroups which suggest a different pathophysiology. An examination of the proposed low-intensity subgroup shows it occupies a very narrow range of PEM intensity and then stops abruptly when PEM reaches \~2.9. We see no reason for a PEM-specific boundary but the charts in @fig-pain suggest that our group is not PEM-limited but pain- and neurocognitive-limited within this dataset. In those charts, pain and neurocognitive symptoms trend upward and then the clusters stop at C7 just before they would cross the high-intensity group trend lines. This truncation could be due to diagnostic criteria that would classify these individuals as fibromyalgia when pain and neurocognitive scores are above the high-intensity lines. 
+This seems like a potentially wide net and may help explain two potential subgroups which suggest a different pathophysiology. An examination of the proposed low-intensity subgroup shows it occupies a very narrow range of PEM intensity and then stops abruptly when PEM reaches \~2.9. We see no reason for a PEM-specific boundary but the charts in @fig-pain suggest that our group is not PEM-limited but pain- and neurocognitive-limited within this dataset. In those charts, pain and neurocognitive symptoms trend upward and then the clusters stop at C7 just before they would cross the high-intensity group trend lines. This truncation could be due to diagnostic criteria that would classify these individuals as fibromyalgia when pain and neurocognitive scores are above the high-intensity lines.
 
 This would align with published DSQ-2 studies showing that ME/CFS patients who meet fibromyalgia criteria exhibit amplified pain and more severe post-exertional malaise compared with ME/CFS alone [@jason2015dsq2; @mcmanimen2017pem; @nature2023fm] and would also explain why our subgroup occupies such a narrow range of PEM scores compared to the overall cohort.
 
@@ -297,7 +297,7 @@ This would align with published DSQ-2 studies showing that ME/CFS patients who m
 
 ::: {#tbl-t3 tbl-cap="ME/CFS vs. Fibro" fig-pos="h"}
 | Domain (DSQ / DSQ-PEM items) | ME/CFS (no FM) | ME/CFS + FM | FM (alone) |
-|-----------------------|-----------------|-----------------|-----------------|
+|----|----|----|----|
 | Post-Exertional Malaise (PEM) | Core feature; DSQ captures frequency & severity well | **Higher** PEM frequency/severity than ME/CFS alone (incl. “General” and “Muscle” PEM factors) | Not a defining criterion of FM; DSQ-PEM shows variable/typically lower PEM signal vs ME/CFS cohorts |
 | Pain | Common, variable; not primary diagnostic driver | **Higher overall pain burden**; amplifies illness severity | **Defining**; widespread musculoskeletal pain central to diagnosis |
 | Neurocognitive | Frequent (attention, memory, processing speed) | Often **worse** with FM comorbidity | Present in many FM cohorts; DSQ-SF cognitive items used in FM studies |
@@ -309,7 +309,7 @@ This would align with published DSQ-2 studies showing that ME/CFS patients who m
 
 It is possible that current pain and neurocognitive thresholds for a fibromyalgia diagnosis may focus too heavily on symptom severity to capture the nuanced patterns revealed by our subgroup analysis. If these groups are commingled, then properly separating the two groups may require a more complex approach that relies less on absolute pain scores and more on the ratio of symptom domain scores to PEM.
 
-While the hypothesis that this subgroup is related to fibromyalgia is attractive, other explanations may also be true. At the very least, this data need direct comparison to fibromyalgia cohorts before it can be used to formally claim a fibromyalgia link. 
+While the hypothesis that this subgroup is related to fibromyalgia is attractive, other explanations may also be true. At the very least, this data need direct comparison to fibromyalgia cohorts before it can be used to formally claim a fibromyalgia link.
 
 # Discussion
 
@@ -360,7 +360,7 @@ gt(rounded_vcs_tidy) %>%
 \FloatBarrier
 \clearpage
 
-## Appendix B: Statistical Analysis {#sec-regression .unnumbered}
+## Appendix B: Statistical Descriptions {#sec-regression .unnumbered}
 
 In the body of the text, we used visual analysis to identify two subgroups of ME/CFS patient clusters defined by their symptom domain profiles relative to PEM severity. Here we present statistical analysis that may help clarify the data in the plots.
 
@@ -408,7 +408,7 @@ gt(res)
 
 **Leave-one-out Analysis**
 
-We discovered our two groups by visual analysis, but we can re-identify the set using leave-one-out analysis. In this analysis we go through each domain and examine what happens when we remove one cluster at a time. The goal is to identify which clusters, when removed, improve R² the most. 
+We discovered our two groups by visual analysis, but we can re-identify the set using leave-one-out analysis. In this analysis we go through each domain and examine what happens when we remove one cluster at a time. The goal is to identify which clusters, when removed, improve R² the most.
 
 We summarize the mean R² differences, in order of greatest improvement, in @tbl-t3.
 
@@ -437,7 +437,7 @@ gt(res_loo)
 
 Of the top 6 clusters only C31 is not part of the low-intensity group. While this does not prove the existence of two subgroups it does support the idea that the members of the low-intensity group are, overall, responsible for most of the R² degradation in the combined group.
 
-\FloatBarrier  \bigskip 
+\FloatBarrier  \bigskip
 
 **ANCOVA**
 
