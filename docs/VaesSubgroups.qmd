@@ -287,7 +287,7 @@ We summarize these differences in the table below.\bigskip
 
 # Fibromyalgia–like Subgroup
 
-An examination of the charts above show the low-intensity subgroup occupies a very narrow range of PEM intensity which has no immediate explanation.  One hypothesis is that our low-intensity subgroup would be diagnosed as fibromyalgia if the trends were allowed to continue to the right.  Pain and neurocognitive symptoms trend upward and then the clusters stop where they would cross the high-intensity group trend lines. This is visible above in @fig-pain. This truncation could be due to diagnostic criteria which would reclassify these individuals as fibromyalgia after crossing the high-intensity lines. Doing similar research with fibromyalgia cohorts could confirm this.
+An examination of the charts above show the low-intensity group occupies a very narrow range of PEM intensity and then stops abruptly when PEM reaches \~2.9. We see no reason for a PEM specific boundary but the charts in @fig-pain suggest that our group is not PEM limited but pain and neurocognitive limited. Pain and neurocognitive symptoms trend upward and then the clusters stop where they would cross the high-intensity group trend lines. This truncation could be due to diagnostic criteria which would reclassify these individuals as fibromyalgia after the pain and neurocognitive scores cross the high-intensity lines. Doing similar visual inspections with fibromyalgia cohorts could confirm this.
 
 This would align with published DSQ-2 studies showing that ME/CFS patients who meet fibromyalgia criteria exhibit amplified pain and more severe post-exertional malaise compared with ME/CFS alone [@jason2015dsq2; @mcmanimen2017pem; @nature2023fm] and would also explain why our subgroup occupies such a narrow range of PEM scores compared to the overall cohort.
 
@@ -360,7 +360,7 @@ gt(rounded_vcs_tidy) %>%
 
 ## Appendix B: Regression Analysis {#sec-regression .unnumbered}
 
-In the preceding section we used visual analysis to identify two subgroups of ME/CFS patient clusters defined by their symptom domain profiles relative to PEM severity. Here we focus on quantifying the value of these groups.
+In the body of this text we used visual analysis to identify two subgroups of ME/CFS patient clusters defined by their symptom domain profiles relative to PEM severity. Here we focus on quantifying how this group distinction reduces symptom heterogeneity.
 
 **R² by Group**
 
