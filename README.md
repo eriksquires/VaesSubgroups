@@ -25,13 +25,13 @@ Make sure to  keep to the folder organization in this repo.
 
 **Methods:** We analyzed the Vaes cluster summary data [@vaes2023_excel], calculated geometric means for each symptom domain within each cluster, and plotted these means against PEM severity to identify patterns and subgroups.
 
-**Results:** We observed two groups of patient clusters with distinct symptom-domain profiles. The first group showed a consistent amplification pattern across all symptom domains as PEM increased, whereas the second group has selective amplification: pain and neurocognitive symptoms escalated more rapidly with PEM, while immune and sleep symptoms remained relatively flat. This subgroup's profile appears to resemble that of fibromyalgia.
+**Results:** We observed two groups of patient clusters with distinct symptom-domain profiles. The first group showed a consistent amplification pattern across all symptom domains as PEM increased, whereas the second group has selective amplification: pain and neurocognitive symptoms escalated more rapidly with PEM, while immune and sleep symptoms remained relatively flat. This subgroup's profile appears to resemble that of fibromyalgia. Further exploration with individual patient data is needed to validate these findings.
 
 **Keywords:** Myalgic Encephalomyelitis, ME/CFS, patient clustering, fibromyalgia, post-exertional malaise, PEM
 
 ## Data source and attribution
 
-This repository includes a spreadsheet which is a copy of [**Additional file 3: Table S1**](https://static-content.springer.com/esm/art%3A10.1186%2Fs12967-023-03946-6/MediaObjects/12967_2023_3946_MOESM3_ESM.xlsx) from:
+This repository includes spreadsheets from:
 
 Vaes AW, Van Herck M, Deng Q, Delbressine JM, Jason LA, Spruit MA (2023).
 “Symptom-based clusters in people with ME/CFS: an illustration of clinical variety in a cross-sectional cohort.”
@@ -39,7 +39,7 @@ Vaes AW, Van Herck M, Deng Q, Delbressine JM, Jason LA, Spruit MA (2023).
 
 Original article and supplementary files are available from the publisher’s site. The article is **Open Access** under **CC BY 4.0**. The publisher notes that “the Creative Commons Public Domain Dedication waiver (CC0) applies to the data made available in this article, unless otherwise stated in a credit line to the data.”  
 
-We include the spreadsheet solely for **reproducibility**; all rights remain with the original authors/publisher.
+We include the spreadsheets solely for **reproducibility**; all rights remain with the original authors/publisher.
 
 ## License and Citations
 See the [LICENSE.md](LICENSE.md) and [CITATION.cff](CITATION.cff) for details.
