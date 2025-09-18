@@ -102,7 +102,7 @@ Email: esquires.research\@proton.me
 
 **Methods:** We analyzed the Vaes cluster summary data [@vaes2023_excel], calculated geometric means for each symptom domain within each cluster, and plotted these means against PEM severity to identify patterns and subgroups.
 
-**Results:** We observed two groups of patient clusters with distinct symptom-domain profiles. The first group showed a consistent amplification pattern across all symptom domains as PEM increased, whereas the second group has selective amplification: pain and neurocognitive symptoms escalated more rapidly with PEM, while immune and sleep symptoms remained relatively flat. This subgroup's profile appears to resemble that of fibromyalgia.
+**Results:** We observed two groups of patient clusters with distinct symptom-domain profiles. The first group showed a consistent amplification pattern across all symptom domains as PEM increased, whereas the second group has selective amplification: pain and neurocognitive symptoms escalated more rapidly with PEM, while immune and sleep symptoms remained relatively flat. This subgroup's profile appears to resemble that of fibromyalgia. Further exploration with individual patient data is needed to validate these findings.
 
 **Keywords:** Myalgic Encephalomyelitis, ME/CFS, patient clustering, fibromyalgia, post-exertional malaise, PEM
 
@@ -121,11 +121,9 @@ Email: esquires.research\@proton.me
 
 Dr. Anouk W. Vaes and her collaborators at CIRO performed one of the largest systematic surveys of ME/CFS symptom patterns, applying clustering methods to patient-reported outcomes to identify recurring constellations of symptoms [@vaes2023]. They used symptom surveys based on the DePaul Symptom Questionnaire version 2 (DSQ-2) from 337 patients to identify a total of 45 patient clusters, of which 13 were of size $\geq$ 10. We used the publicly available data of their final 13 clusters for analysis [@vaes2023_excel].
 
-While Vaes described each cluster, and noted some differences among symptom severity, an overall organizing principle was not proposed. Other methods have been used to group ME/CFS phenotypes, including by severity alone, or a combination of severity and symptoms, but no consensus has emerged on how to best group patients.
+While Vaes described each cluster, and noted some differences among symptom severity, an overall organizing principle was not proposed. We examined whether a broader organizing principle might emerge from that dataset.
 
-Our analysis suggests that the Vaes ME/CFS clusters can be organized into two overarching families defined by their relationship to PEM. This reduces the complexity of the cluster symptom intensities and highlights a subgroup within the Vaes clusters that has not been explicitly recognized in prior work. Once separated and profiled, this subgroup has characteristics that resemble fibromyalgia.
-
-If this subgroup really is related to fibromyalgia, then the Vaes data, taken together with our analysis, may provide one of the first opportunities to quantitatively describe fibromyalgia-like patients within ME/CFS from a single, uniformly collected cohort. Otherwise, it may represent a distinct but as-yet uncharacterized subgroup worthy of further study. We will cover this in depth, below in @sec-fibro.
+Our analysis suggests that the Vaes ME/CFS clusters can be organized into two overarching families defined by their relationship to PEM. This reduces the complexity of the cluster symptom intensities and highlights a subgroup within the Vaes clusters that has not been explicitly recognized in prior work. Once separated and profiled, this subgroup has characteristics that resemble fibromyalgia in their symptom trajectory. This paper invites further investigation with patient-level symptom data to validate or refute these findings and clarify their clinical and biological relevance.
 
 # Visual Analysis of Symptom Domains vs. PEM
 
@@ -297,7 +295,7 @@ This would align with published DSQ-2 studies showing that ME/CFS patients who m
 
 ::: {#tbl-t3 tbl-cap="ME/CFS vs. Fibro" fig-pos="h"}
 | Domain (DSQ / DSQ-PEM items) | ME/CFS (no FM) | ME/CFS + FM | FM (alone) |
-|----|----|----|----|
+|------------------|------------------|------------------|------------------|
 | Post-Exertional Malaise (PEM) | Core feature; DSQ captures frequency & severity well | **Higher** PEM frequency/severity than ME/CFS alone (incl. “General” and “Muscle” PEM factors) | Not a defining criterion of FM; DSQ-PEM shows variable/typically lower PEM signal vs ME/CFS cohorts |
 | Pain | Common, variable; not primary diagnostic driver | **Higher overall pain burden**; amplifies illness severity | **Defining**; widespread musculoskeletal pain central to diagnosis |
 | Neurocognitive | Frequent (attention, memory, processing speed) | Often **worse** with FM comorbidity | Present in many FM cohorts; DSQ-SF cognitive items used in FM studies |
@@ -309,13 +307,15 @@ This would align with published DSQ-2 studies showing that ME/CFS patients who m
 
 It is possible that current pain and neurocognitive thresholds for a fibromyalgia diagnosis may focus too heavily on symptom severity to capture the nuanced patterns revealed by our subgroup analysis. If these groups are commingled, then properly separating the two groups may require a more complex approach that relies less on absolute pain scores and more on the ratio of symptom domain scores to PEM.
 
+Recent work in fibromyalgia adds weight to our interpretation. Maurel et al. (2023) applied hierarchical clustering to a population-based FM cohort and identified distinct clinical–neuropsychological phenotypes, separating pain-dominant and maladaptive-coping profiles from more resilient ones [@maurel2023]. Although FM lacks a PEM requirement, these findings align with our two-subgroup model: they suggest that the low-intensity ME/CFS group—marked by elevated pain and neurocognitive amplification—may represent a fibromyalgia-like subtype that retains post-exertional features.
+
 While the hypothesis that this subgroup is related to fibromyalgia is attractive, other explanations may also be true. At the very least, this data need direct comparison to fibromyalgia cohorts before it can be used to formally claim a fibromyalgia link.
 
 # Discussion
 
 We have shown that the Vaes clusters can be organized into two subgroups defined by symptom domains relative to PEM, and that these subgroups remain consistent across most domains. Grouping them by their relationship to PEM simplifies the original complexity at both the domain and cluster levels. From this perspective, the 13 Vaes clusters can be reduced to two groups of linear models, where membership in one group combined with PEM intensity allows inference of the intensity of other symptom domains.
 
-While these patterns are striking, our analysis is a secondary exploration. We summarized the original Vaes patient data by symptom domains. This together with the small subgroup sizes (8 and 5 clusters) and the original clustering methods may have distorted some relationships. Patterns in the plots may also suggest trends that do not truly exist or cannot be translated to individual patients or symptoms.
+While these patterns are striking, our analysis is a secondary exploration based on symptom-domain summaries of the Vaes patient data. The small subgroup sizes (eight and five clusters) and the original clustering approach may distort some relationships, and the plots can suggest trends that do not necessarily exist at the patient level. The apparent high/low separation may therefore reflect artifacts of the clustering algorithm averaging a broad underlying distribution rather than true biological subgroups, which would render our suggested distinctions essentially coincidental.
 
 These considerations highlight the need for validation before our findings can be clinically relevant. We see challenges in at least three areas: whether the groupings hold when tested with individual patient data; whether symptom-domain analysis can reliably identify the group to which a given patient belongs; and how these subgroups relate—or fail to relate—to fibromyalgia.
 
