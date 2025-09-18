@@ -313,13 +313,17 @@ While the hypothesis that this subgroup is related to fibromyalgia is attractive
 
 # Discussion
 
-We have shown that the Vaes clusters can be organized into two subgroups defined by symptom domains relative to PEM, and that these subgroups remain consistent across most symptom domains.
+We have shown that the Vaes clusters can be organized into two subgroups defined by symptom domains relative to PEM, and that these subgroups remain consistent across most domains. Grouping them by their relationship to PEM simplifies the original complexity at both the domain and cluster levels. From this perspective, the 13 Vaes clusters can be reduced to two groups of linear models, where membership in one group combined with PEM intensity allows inference of the intensity of other symptom domains.
 
-We've also shown that grouping the Vaes clusters by their relationship to PEM simplifies this complexity at the domain and cluster levels, but this may not translate directly to grouping individual patients. Vaes[@vaes2023] provided cluster-specific summaries of standout symptoms; some of those align with our domain-based charts while others show a different emphasis, underscoring the challenge of reconciling symptom-level observations with domain-level analyses.
+While these patterns are striking, our analysis is a secondary exploration. We summarized the original Vaes patient data by symptom domains. This together with the small subgroup sizes (8 and 5 clusters) and the original clustering methods may have distorted some relationships. Patterns in the plots may also suggest trends that do not truly exist or cannot be translated to individual patients or symptoms.
 
-Although these charts look compelling, several cautions are warranted. This is a secondary analysis of patient clusters defined by symptom domains with small subgroup sizes (8 and 5 clusters). The original clustering methods of Vaes et al. may have obscured or exaggerated some relationships we show here. Moreover, visual inspection of the plots may suggest directional trends where none truly exist.
+These considerations highlight the need for validation before our findings can be clinically relevant. We see challenges in at least three areas: whether the groupings hold when tested with individual patient data; whether symptom-domain analysis can reliably identify the group to which a given patient belongs; and how these subgroups relate—or fail to relate—to fibromyalgia.
 
-Despite these limitations, we believe further steps should be taken. Using the original patient scores could validate, refine, or repudiate these subgroups and possibly produce a short list of differentiating symptoms. If this proves useful then examining biological markers across these subgroups could help to reveal underlying pathophysiological differences. Additionally, using similar analysis to what we've done here with fibromyalgia and long-COVID could help clarify relationships among these overlapping conditions, or help redefine how we classify ME/CFS, or fibromyalgia.
+As an example, Vaes[@vaes2023] provided cluster-specific summaries of standout symptoms; some of those align with our domain-based charts while others show a different emphasis, demonstrating the challenge of reconciling symptom-level observations with domain-level analyses.
+
+Despite these limitations, we believe further steps are justified. Analyses using the original patient scores could validate, refine, or repudiate these subgroups and help identify a short list of differentiating symptoms. If that proves useful, examining biological markers across these subgroups could help reveal underlying pathophysiological differences. In addition, applying similar analyses to fibromyalgia and long-COVID could clarify relationships among these overlapping conditions or even help refine how ME/CFS and fibromyalgia are classified.
+
+------------------------------------------------------------------------
 
 # Conclusion
 
