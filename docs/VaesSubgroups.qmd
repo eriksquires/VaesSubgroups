@@ -208,7 +208,7 @@ The last chart (Other vs. PEM) shows a markedly lower offset and is perhaps the 
 
 While the groups maintain integrity, the parallelism observed in the charts above does not hold in the next charts and suggests a more complex physiological cause for the differences.
 
-## Amplification Patterns Relative to PEM {#sec-different}
+## Separate Amplification Patterns Relative to PEM {#sec-different}
 
 Pain and neurocognitive domains show that while the low-intensity group remains offset, symptom domain amplification is increased. As PEM increases to 3, C7 comes very close to the high-intensity line.
 
@@ -283,7 +283,7 @@ We summarize these differences in the table below.\bigskip
 
 # Exploring the Fibromyalgia–trending Subgroup {#sec-fibro}
 
-Based on the trends noticed in @sec-different, a discussion of whether the low-intensity group could be related to fibromyalgia is warranted. The question of whether we have identified a clinically useful subgroup in the Vaes data remains important but separate debate. 
+Based on the trends noticed in @sec-different, a discussion of whether the low-intensity group could be related to fibromyalgia is warranted. The question of whether we have identified a clinically useful subgroup in the Vaes data remains an important but separate debate. 
 
 To be clear, we do not claim this subgroup is clinically fibromyalgia, but that the pain and neurocognitive symptom trends suggest that group members might meet fibromyalgia criteria if additional group members appeared along the low-intensity regression lines. Further, if this subgroup represents a continuum of the same physiological processes responsible for fibromyalgia it would have implications for future diagnostic criteria. 
 
@@ -311,7 +311,7 @@ This would align with published DSQ-2 studies showing that ME/CFS patients who m
 
 It is possible that current pain and neurocognitive thresholds for a fibromyalgia diagnosis may focus too heavily on symptom severity to capture the nuanced patterns revealed by our subgroup analysis. If these groups are commingled, then properly separating the two groups may require a more complex approach that relies less on absolute pain scores and more on the ratio of symptom domain scores to PEM.
 
-Recent work in fibromyalgia adds weight to our interpretation. Maurel et al. (2023) applied hierarchical clustering to a population-based FM cohort and identified distinct clinical–neuropsychological phenotypes, separating pain-dominant and maladaptive-coping profiles from more resilient ones [@maurel2023]. Although FM lacks a PEM requirement, these findings align with our two-subgroup model: they suggest that the low-intensity ME/CFS group—marked by elevated pain and neurocognitive amplification—may represent a fibromyalgia-like subtype that retains post-exertional features.
+Recent work in fibromyalgia adds weight to this possibility. Maurel et al. (2023) applied hierarchical clustering to a population-based FM cohort and identified distinct clinical–neuropsychological phenotypes, separating pain-dominant and maladaptive-coping profiles from more resilient ones [@maurel2023]. Although FM lacks a PEM requirement, these findings align with our two-subgroup model: they suggest that the low-intensity ME/CFS group—marked by elevated pain and neurocognitive amplification—may represent a fibromyalgia-like subtype that retains post-exertional features.
 
 While the hypothesis that this subgroup is related to fibromyalgia is attractive, other explanations may also be true. At the very least, these data need direct comparison to fibromyalgia cohorts before it can be used to formally claim a fibromyalgia link.
 
