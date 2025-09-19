@@ -23,9 +23,9 @@ Make sure to  keep to the folder organization in this repo.
 
 **Objective:** To identify and characterize potential subgroups defined by symptom domain severity relative to PEM within the original Vaes symptom clusters.
 
-**Methods:** We analyzed the Vaes cluster summary data [@vaes2023_excel], calculated geometric means for each symptom domain within each cluster, and plotted these means against PEM severity to identify patterns and subgroups.
+**Methods:** We analyzed the Vaes cluster summary data [@vaes2023_excel_large], calculated geometric means for each symptom domain within each cluster, and plotted these means against PEM severity to identify patterns and subgroups.
 
-**Results:** We observed two groups of patient clusters with distinct symptom-domain profiles. The first group showed a consistent amplification pattern across all symptom domains as PEM increased, whereas the second group has selective amplification: pain and neurocognitive symptoms escalated more rapidly with PEM, while immune and sleep symptoms remained relatively flat. This subgroup's profile appears to resemble that of fibromyalgia. Further exploration with individual patient data is needed to validate these findings.
+**Results:** Our analysis identified two groups of patient clusters with distinct symptom-domain profiles. The first group showed a consistent amplification pattern across all symptom domains as PEM increased, whereas the second group has selective amplification: pain and neurocognitive symptoms escalated more rapidly with PEM, while immune and sleep symptoms remained relatively flat. This subgroup's symptom trends could align with those of fibromyalgia. Further exploration with individual patient data is needed to validate these findings.
 
 **Keywords:** Myalgic Encephalomyelitis, ME/CFS, patient clustering, fibromyalgia, post-exertional malaise, PEM
 
