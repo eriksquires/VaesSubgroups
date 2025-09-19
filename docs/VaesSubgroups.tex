@@ -243,20 +243,21 @@ domain within each cluster, and plotted these means against PEM severity
 to identify patterns and subgroups.
 
 \textbf{Results:} Our analysis identified two groups of patient clusters
-with distinct symptom-domain profiles. The first group showed a
-consistent amplification pattern across all symptom domains as PEM
-increased, whereas the second group has selective amplification: pain
-and neurocognitive symptoms escalated more rapidly with PEM, while
-immune and sleep symptoms remained relatively flat. This subgroup's
-symptom trends could align with those of fibromyalgia. Further
-exploration with individual patient data is needed to validate these
-findings.
+with distinct symptom-domain profiles. Anchoring symptom domains to PEM
+collapses the 13 Vaes clusters into two reproducible families: one
+characterized by parallel offsets (autonomic, neuroendocrine, other) and
+one by amplified slopes (pain, neurocognitive), with high-end
+convergence after accounting for a single influential cluster. This
+subgroup's symptom trends could align with those of fibromyalgia.
+Further exploration with individual patient data is needed to validate
+these findings.
 
 \textbf{Keywords:} Myalgic Encephalomyelitis, ME/CFS, patient
 clustering, fibromyalgia, post-exertional malaise, PEM
 
 \newpage{}
 
+\setcounter{tocdepth}{2}
 \tableofcontents
 
 \newpage{}
@@ -288,11 +289,15 @@ Our analysis suggests that the Vaes ME/CFS clusters can be organized
 into two overarching families defined by their relationship to PEM. This
 reduces the complexity of the cluster symptom intensities and highlights
 a subgroup within the Vaes clusters that has not been explicitly
-recognized in prior work. Once separated and profiled, this subgroup has
-pain and neurocognitive trends that could meet fibromyalgia criteria if
-the data extended along the regression lines. This paper invites further
+recognized in prior work. Once separated and profiled, this subgroup
+shows amplified PEM per symptom domain, consistent with current research
+on ME/CFS and fibromyalgia comorbidity. This paper invites further
 investigation with patient-level symptom data to validate or refute
 these findings and clarify their clinical and biological relevance.
+
+Our central contribution is a PEM-referenced decomposition that reduces
+the Vaes clusters to two linear families (offsets vs.~amplification) and
+explains much of the apparent heterogeneity.
 
 \section{Symptom Domains Relative to
 PEM}\label{symptom-domains-relative-to-pem}
@@ -301,7 +306,8 @@ The strong weight of PEM symptoms makes the Vaes dataset tricky to
 interpret if you only look at raw intensity, so instead we compared
 overall symptom levels to PEM severity. From this comparison we
 identified two groups of clusters that maintain their integrity across
-most symptom domains.
+most symptom domains. This PEM-anchored view is the organizing principle
+for all results that follow.
 
 Because these analyses are exploratory and based on cluster-level data,
 the patterns described below should be interpreted as
@@ -321,7 +327,7 @@ mean for the Y axis. All other graphs in this study use geometric means
 exclusively. Shaded bands represent the 95\% confidence interval of the
 linear models when used. While this section focuses on visual
 inspection, we provide more statistical descriptions in
-\hyperref[sec-regression]{Appendix B}.
+\hyperref[sec-stats]{Appendix B}.
 
 \subsection{Similarities}\label{sec-similar}
 
@@ -356,7 +362,7 @@ Autonomic, Neuroendocrine and Other also follow a similar pattern:
 Parallel but lower than the high-intensity group.
 
 We note that the limited range of PEM severity in the low-intensity
-group (\textasciitilde2.2 to 2.9) may have otherwise caused it to remain
+group (\(\approx 2.2\) to 2.9) may have otherwise caused it to remain
 undetected.
 
 \begin{figure}[h]
@@ -377,7 +383,8 @@ undetected.
 clusters C9, C19, C26, C28, C31, C36, C37, C40 as high-intensity, C2,
 C4, C7, C11, C24 as low-intensity. We'll keep these groupings for all
 plots that follow. The high and low groups are approximately 54.5\% and
-45.5\% of the total cohort, respectively.
+45.5\% of the total cohort, respectively. We further discuss our
+grouping choices in \hyperref[sec-loo]{Leave-one-out Analysis}
 
 The last chart (Other vs.~PEM) shows a markedly lower offset and is
 perhaps the most visibly obvious difference between the two groups. The
@@ -410,10 +417,6 @@ increases to 3, C7 comes very close to the high-intensity line.
 
 \FloatBarrier
 
-The regression lines for the low-intensity group suggest that if the
-data extended further they could meet fibromyalgia criteria. We discuss
-this more fully in Section~\ref{sec-fibro}.
-
 \subsection{Weak Correlations Relative to
 PEM}\label{weak-correlations-relative-to-pem}
 
@@ -440,7 +443,9 @@ disturbance can be pronounced in the low-intensity group.
 \subsection{Summary of Differences}\label{summary-of-differences}
 
 \textbf{High-intensity:} Has a consistent amplification pattern: as PEM
-increases, all other symptom domains rise together.
+increases, all other symptom domains rise together. Important to note
+C36 as an outlier for the entire cohort. Without it the upper limits of
+PEM, Neurocognitive and Pain would match around C7 and C26.
 
 \textbf{Low-intensity:} Presents a more selective profile. Pain,
 neurocognitive, and neuroendocrine symptoms escalate more rapidly with
@@ -451,26 +456,40 @@ clusters if not actively searched for.
 
 We summarize these differences in the table below.\bigskip
 
-\begin{longtable}[]{@{}lll@{}}
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2787}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2131}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.5082}}@{}}
 \caption{Summary of Group Differences}\label{tbl-t1}\tabularnewline
 \toprule\noalign{}
-Feature & High group & Low group \\
+\begin{minipage}[b]{\linewidth}\raggedright
+Feature
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+High group
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Low group
+\end{minipage} \\
 \midrule\noalign{}
 \endfirsthead
 \toprule\noalign{}
-Feature & High group & Low group \\
+\begin{minipage}[b]{\linewidth}\raggedright
+Feature
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+High group
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Low group
+\end{minipage} \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
 Overall vs.~PEM & Higher & Lower - esp.~``Other'' \\
 Fatigue & R² - 0.86 & Weaker R² - 0.54 \\
-PEM range & \textasciitilde1.3 -- 3.4 & Narrower \textasciitilde2.2 --
-2.9 \\
+PEM range & \(\approx 1.3\) -- 3.4 & Narrower \(\approx 2.2\) -- 2.9 \\
 Neurocognitive & Tracks PEM & Elevated amplification \\
 Pain & Tracks PEM & Elevated amplification \\
-Immune & Tracks PEM & Flat at \textasciitilde1 \\
-Sleep & Tracks PEM & \textasciitilde1.4 -- 2.5, but uncorrelated \\
+Immune & Tracks PEM & Flat at \(\approx 1\) \\
+Sleep & Tracks PEM & \(\approx 1.4\) -- 2.5, but uncorrelated \\
 \end{longtable}
 
 \bigskip
@@ -481,26 +500,25 @@ alone, could be considered a superset of the low-intensity group. It is
 the differing relationships to PEM and the selective amplification of
 pain and neurocognitive symptom domains in the low-intensity group that
 set the two groups apart. We discuss this further in
-Section~\ref{sec-fibro}, below.
+Section~\ref{sec-li}, below.
 
-\section{Exploring the Fibromyalgia--trending Subgroup}\label{sec-fibro}
+\section{Exploring the Low-intensity Subgroup}\label{sec-li}
 
-Based on the trends noticed in Section~\ref{sec-different}, a discussion
-of whether the low-intensity group could be related to fibromyalgia is
-warranted. The question of whether we have identified a clinically
-useful subgroup in the Vaes data remains an important but separate
-debate.
+Based on the trends noted in Section~\ref{sec-different}, a discussion
+of whether the low-intensity group could relate to fibromyalgia is
+warranted. We note that Vaes\textsuperscript{1} did not model
+fibromyalgia diagnoses, nor did they report excluding patients with
+fibromyalgia from their cohort. We cannot assert that the subgroup is
+clinically fibromyalgia, only that its domain profile aligns with what
+would be expected if fibromyalgia were present within this cohort.
 
-To be clear, we do not claim this subgroup is clinically fibromyalgia,
-but that the pain and neurocognitive symptom trends suggest that group
-members might meet fibromyalgia criteria if additional group members
-appeared along the low-intensity regression lines. Further, if this
-subgroup represents a continuum of the same physiological processes
-responsible for fibromyalgia it would have implications for future
-diagnostic criteria.
+Patterns in the low-intensity group have higher PEM burdens for all
+symptom domains except Immune and Sleep, which are uncorrelated with
+PEM. Further, Neurocognitive and Pain regression lines are amplified.
 
-Vaes\textsuperscript{1} described the selection criteria for their
-cohort as follows:
+Vaes\textsuperscript{1} recruited participants who self-reported ME/CFS
+and later mapped them to multiple case definitions, yielding a broad
+spectrum of clinical presentations:
 
 \begin{quote}
 Almost 90\% of the participants fulfilled the Fukuda case definition,
@@ -510,107 +528,20 @@ the criteria for all four different case definitions, whilst 5\% of the
 participants met none of the abovementioned case definitions,\ldots{}
 \end{quote}
 
-This seems like a potentially wide net and may help explain two
-potential subgroups which suggest a different pathophysiology. An
-examination of the proposed low-intensity subgroup shows it occupies a
-very narrow range of PEM intensity and then stops abruptly when PEM
-reaches \textasciitilde2.9. We see no reason for a PEM-specific boundary
-but the charts in Figure~\ref{fig-pain} suggest that our group is not
-PEM-limited but pain- and neurocognitive-limited within this dataset. In
-those charts, pain and neurocognitive symptoms trend upward and then the
-clusters stop at C7 just before they would cross the high-intensity
-group trend lines. This truncation could be due to diagnostic criteria
-that would classify these individuals as fibromyalgia when pain and
-neurocognitive scores are above the high-intensity lines.
+This breadth makes mixed phenotypes plausible. Independent evidence also
+indicates that fibromyalgia frequently co-occurs with
+ME/CFS\textsuperscript{3,4}, and comorbidity has been associated with
+more frequent and severe PEM in ME/CFS patients\textsuperscript{5},
+which could explain the subgroup's right-shift along the PEM axis.
 
-This would align with published DSQ-2 studies showing that ME/CFS
-patients who meet fibromyalgia criteria exhibit amplified pain and more
-severe post-exertional malaise compared with ME/CFS
-alone\textsuperscript{3--5} and would also explain why our subgroup
-occupies such a narrow range of PEM scores compared to the overall
-cohort.
-
-\bigskip
-
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}@{}}
-\caption{ME/CFS vs.~Fibromyalgia}\label{tbl-t2}\tabularnewline
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-Domain (DSQ / DSQ-PEM items)
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-ME/CFS (no FM)
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-ME/CFS + FM
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-FM (alone)
-\end{minipage} \\
-\midrule\noalign{}
-\endfirsthead
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-Domain (DSQ / DSQ-PEM items)
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-ME/CFS (no FM)
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-ME/CFS + FM
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-FM (alone)
-\end{minipage} \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-Post-Exertional Malaise (PEM) & Core feature; DSQ captures frequency \&
-severity well & \textbf{Higher} PEM frequency/severity than ME/CFS alone
-(incl.~``General'' and ``Muscle'' PEM factors) & Not a defining
-criterion of FM; DSQ-PEM shows variable/typically lower PEM signal vs
-ME/CFS cohorts \\
-Pain & Common, variable; not primary diagnostic driver & \textbf{Higher
-overall pain burden}; amplifies illness severity & \textbf{Defining};
-widespread musculoskeletal pain central to diagnosis \\
-Neurocognitive & Frequent (attention, memory, processing speed) & Often
-\textbf{worse} with FM comorbidity & Present in many FM cohorts; DSQ-SF
-cognitive items used in FM studies \\
-Sleep & Non-restorative sleep common & Often \textbf{worse} with FM
-comorbidity & Common in FM, often prominent \\
-Autonomic / Immune / Neuroendo & Captured across DSQ domains;
-heterogeneous patterns documented & Can be \textbf{more burdensome} with
-FM comorbidity & Less emphasized in FM criteria; may appear but not
-core \\
-\end{longtable}
-
-\bigskip
-
-It is possible that current pain and neurocognitive thresholds for a
-fibromyalgia diagnosis may focus too heavily on symptom severity to
-capture the nuanced patterns revealed by our subgroup analysis. If these
-groups are commingled, then properly separating the two groups may
-require a more complex approach that relies less on absolute pain scores
-and more on the ratio of symptom domain scores to PEM.
-
-Recent work in fibromyalgia adds weight to this possibility. Maurel et
-al.~(2023) applied hierarchical clustering to a population-based FM
-cohort and identified distinct clinical--neuropsychological phenotypes,
-separating pain-dominant and maladaptive-coping profiles from more
-resilient ones\textsuperscript{6}. Although FM lacks a PEM requirement,
-these findings align with our two-subgroup model: they suggest that the
-low-intensity ME/CFS group---marked by elevated pain and neurocognitive
-amplification---may represent a fibromyalgia-like subtype that retains
-post-exertional features.
-
-While the hypothesis that this subgroup is related to fibromyalgia is
-attractive, other explanations may also be true. At the very least,
-these data need direct comparison to fibromyalgia cohorts before it can
-be used to formally claim a fibromyalgia link.
+Because the Vaes analysis used cluster-level summaries and did not model
+comorbidities, we cannot identify fibromyalgia directly here.
+Confirmation would require patient-level data we do not have access to.
 
 \section{Characteristics of the Smallest Clusters}\label{sec-small}
 
 Vaes\textsuperscript{1} identified 32 additional
-clusters\textsuperscript{7}. These were mostly of size 1, with 4
+clusters\textsuperscript{6}. These were mostly of size 1, with 4
 clusters of size 2 and represent approximately 9.4\% of the cohort. We
 examined these smaller clusters in light of our two-group hypothesis.
 
@@ -622,12 +553,12 @@ data that is widespread.
 
 Specifically however, the small clusters mostly had sleep scores above
 the high-intensity group's regression lines and showed similar upper
-pain and neurocognitive limits as described in Section~\ref{sec-fibro}.
+pain and neurocognitive limits as described in Section~\ref{sec-li}.
 
 Finally, the small clusters, when added to the large clusters, did not
 significantly move their location or regression lines.
 
-\section{Discussion}\label{discussion}
+\section{Discussion}\label{sec-discuss}
 
 We have shown that the Vaes clusters can be organized into two subgroups
 defined by symptom domains relative to PEM, and that these subgroups
@@ -636,7 +567,9 @@ relationship to PEM simplifies the original complexity at both the
 domain and cluster levels. From this perspective, the 13 Vaes clusters
 can be reduced to two groups of linear models, where membership in one
 group combined with PEM intensity allows inference of the intensity of
-other symptom domains.
+other symptom domains. We view this PEM-referenced, two-family reduction
+(offsets vs.~amplification, with C36 sensitivity at the high end) as the
+main conceptual advance over prior descriptions of the Vaes clusters.
 
 While these patterns are striking, our analysis is a secondary
 exploration based on symptom-domain summaries of the Vaes patient data.
@@ -646,7 +579,9 @@ suggest trends that do not necessarily exist at the patient level. The
 apparent high/low separation may therefore reflect artifacts of the
 clustering algorithm averaging a broad underlying distribution rather
 than true biological subgroups, which would render our suggested
-distinctions essentially coincidental.
+distinctions essentially coincidental. The framework is compatible with
+FM enrichment as a downstream hypothesis, but the PEM-referenced
+structure stands independently of comorbidity.
 
 These considerations highlight the need for validation before our
 findings can be clinically relevant. We see challenges in at least three
@@ -690,8 +625,8 @@ and exploring their clinical and biological relevance.
 
 \FloatBarrier
 
-\subsection{Appendix A: Cluster Summary
-Data}\label{appendix-a-cluster-summary-data}
+\subsection*{Appendix A: Cluster Summary Data}\label{sec-cluster-data}
+\addcontentsline{toc}{subsection}{Appendix A: Cluster Summary Data}
 
 We use the Vaes cluster spreadsheet\textsuperscript{2} exclusively as
 our data source. We use R for significant cleaning and transformation
@@ -752,21 +687,118 @@ C40 & 1.21 & 1.76 & 2.80 & 0.74 & 0.52 & 0.95 & 0.82 & 1.19 & 0.67 \\
 \FloatBarrier
 \clearpage
 
-\subsection*{Appendix B: Statistical Descriptions}\label{sec-regression}
+\subsection*{Appendix B: Statistical Descriptions}\label{sec-stats}
 \addcontentsline{toc}{subsection}{Appendix B: Statistical Descriptions}
 
 In the body of the text, we used visual analysis to identify two
 subgroups of ME/CFS patient clusters defined by their symptom domain
-profiles relative to PEM severity. Here we present statistical analyses
-that may help clarify the data in the plots.
-
-Given the exploratory nature of this study and the small number of
-clusters, these results should be interpreted as descriptive rather than
-confirmatory.
+profiles relative to PEM severity. Here we present statistics that may
+help clarify the data in the plots. Given the exploratory nature of this
+study and the small number of clusters, these results should be
+interpreted as descriptive rather than confirmatory.
 
 \bigskip
 
-\textbf{R² by Group}
+\subsubsection*{ANCOVA}\label{sec-ancova}
+\addcontentsline{toc}{subsubsection}{ANCOVA}
+
+We performed an analysis of covariance (ANCOVA) to identify the domains
+which could be most statistically significant and discriminatory. We
+compare our two groups for each symptom domain. We arrange the results
+by descending F-statistic and show the p-value rounded to three decimal
+places.
+
+\FloatBarrier
+
+\begin{table}[h]
+
+\caption{\label{tbl-t6}ANCOVA Analysis}
+
+\centering{
+
+\fontsize{12.0pt}{14.4pt}\selectfont
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrlr}
+\toprule
+Domain & F statistic & p-value & Significance \\ 
+\midrule\addlinespace[2.5pt]
+Other & 33.3 & < 0.001 & *** \\ 
+Neuroendocrine & 11.6 & 0.007 & ** \\ 
+Fatigue & 5.2 & 0.046 & * \\ 
+Autonomic & 3.8 & 0.08 & . \\ 
+Pain & 3.1 & 0.108 & NA \\ 
+Immune & 1.4 & 0.268 & NA \\ 
+All\_mean & 1.0 & 0.33 & NA \\ 
+Sleep & 0.2 & 0.647 & NA \\ 
+Neurocognitive & 0.0 & 0.849 & NA \\ 
+\bottomrule
+\end{tabular*}
+
+}
+
+\end{table}%
+
+Table~\ref{tbl-t6} shows agreement with the charts that Other,
+Neuroendocrine and Autonomic domains show the most significant offsets
+between the two groups. The high F-statistic and low p-value for
+Fatigue, however, do not agree with the regression lines. As we note
+earlier in Section~\ref{sec-similar}, the lines in
+Figure~\ref{fig-fatigue} are nearly identical but R² is significantly
+weaker in the low-intensity group. The high F-statistic and low p-value
+in the ANCOVA analysis for fatigue is most likely an artifact of the
+wide spread and small sample count in the low-intensity group.
+
+\FloatBarrier
+
+\subsubsection*{Leave-one-out Analysis}\label{sec-loo}
+\addcontentsline{toc}{subsubsection}{Leave-one-out Analysis}
+
+We discovered our two groups by visual analysis, but we can re-identify
+the set using leave-one-out analysis. In this analysis we go through
+each domain and examine what happens when we remove one cluster at a
+time. The goal is to identify which clusters, when removed, improve R²
+the most.
+
+We summarize the mean R² differences, in order of greatest improvement,
+in Table~\ref{tbl-t5}.
+
+\begin{table}[h]
+
+\caption{\label{tbl-t5}Leave-one-out Analysis}
+
+\centering{
+
+\fontsize{12.0pt}{14.4pt}\selectfont
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcrr}
+\toprule
+Cluster & Group & Domains Improved & Mean ΔR² \\ 
+\midrule\addlinespace[2.5pt]
+C2 & low & 9 & 0.0379 \\ 
+C11 & low & 9 & 0.0271 \\ 
+C4 & low & 8 & 0.0191 \\ 
+C31 & high & 7 & 0.0163 \\ 
+C7 & low & 5 & 0.0129 \\ 
+C24 & low & 8 & 0.0126 \\ 
+\bottomrule
+\end{tabular*}
+
+}
+
+\end{table}%
+
+Of the top 6 clusters only C31 is not part of the low-intensity group.
+While this does not prove the existence of two subgroups it does support
+the idea that the members of the low-intensity group are, overall,
+responsible for most of the R² degradation in the combined group.
+
+C31 does exhibit variability but it varies around the high-intensity
+group trend lines, which is why we include it with the high group
+despite this result.
+
+\FloatBarrier 
+\bigskip
+
+\subsubsection*{R² by Group}\label{sec-r2-group}
+\addcontentsline{toc}{subsubsection}{R² by Group}
 
 We compare the coefficient of determination (R²) of the symptom domains
 in three levels:
@@ -819,166 +851,22 @@ significantly weaker than either of the subgroups.
 \FloatBarrier
 \bigskip
 
-\textbf{Leave-one-out Analysis}
-
-We discovered our two groups by visual analysis, but we can re-identify
-the set using leave-one-out analysis. In this analysis we go through
-each domain and examine what happens when we remove one cluster at a
-time. The goal is to identify which clusters, when removed, improve R²
-the most.
-
-We summarize the mean R² differences, in order of greatest improvement,
-in Table~\ref{tbl-t5}.
-
-\begin{table}[h]
-
-\caption{\label{tbl-t5}Leave-one-out Analysis}
-
-\centering{
-
-\fontsize{12.0pt}{14.4pt}\selectfont
-\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcrr}
-\toprule
-Cluster & Group & Domains Improved & Mean ΔR² \\ 
-\midrule\addlinespace[2.5pt]
-C2 & low & 9 & 0.0379 \\ 
-C11 & low & 9 & 0.0271 \\ 
-C4 & low & 8 & 0.0191 \\ 
-C31 & high & 7 & 0.0163 \\ 
-C7 & low & 5 & 0.0129 \\ 
-C24 & low & 8 & 0.0126 \\ 
-\bottomrule
-\end{tabular*}
-
-}
-
-\end{table}%
-
-Of the top 6 clusters only C31 is not part of the low-intensity group.
-While this does not prove the existence of two subgroups it does support
-the idea that the members of the low-intensity group are, overall,
-responsible for most of the R² degradation in the combined group.
-
-\FloatBarrier  \bigskip
-
-\textbf{ANCOVA}
-
-We performed an analysis of covariance (ANCOVA) to identify the domains
-which could be most statistically significant and discriminatory. We
-compare our two groups for each symptom domain. We arrange the results
-by descending F-statistic and show the p-value rounded to three decimal
-places.
-
-\FloatBarrier
-
-\begin{table}[h]
-
-\caption{\label{tbl-t6}ANCOVA Analysis}
-
-\centering{
-
-\fontsize{12.0pt}{14.4pt}\selectfont
-\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrlr}
-\toprule
-Domain & F statistic & p-value & Significance \\ 
-\midrule\addlinespace[2.5pt]
-Other & 33.3 & < 0.001 & *** \\ 
-Neuroendocrine & 11.6 & 0.007 & ** \\ 
-Fatigue & 5.2 & 0.046 & * \\ 
-Autonomic & 3.8 & 0.08 & . \\ 
-Pain & 3.1 & 0.108 & NA \\ 
-Immune & 1.4 & 0.268 & NA \\ 
-All\_mean & 1.0 & 0.33 & NA \\ 
-Sleep & 0.2 & 0.647 & NA \\ 
-Neurocognitive & 0.0 & 0.849 & NA \\ 
-\bottomrule
-\end{tabular*}
-
-}
-
-\end{table}%
-
-Table~\ref{tbl-t6} shows agreement with the charts that Other,
-Neuroendocrine and Autonomic domains show the most significant offsets
-between the two groups. The high F-statistic and low p-value for
-Fatigue, however, do not agree with the regression lines. As we note
-earlier in Section~\ref{sec-similar}, the lines in
-Figure~\ref{fig-fatigue} are nearly identical but R² is significantly
-weaker in the low-intensity group. The high F-statistic and p-value in
-the ANCOVA analysis for fatigue is most likely an artifact of the wide
-spread in the low-intensity group.
-
-\FloatBarrier
-
 \section*{Code Availability}\label{sec-code}
 \addcontentsline{toc}{section}{Code Availability}
 
 All data manipulation and analysis scripts are available at
 \url{https://github.com/eriksquires/VaesSubgroups}
 
-\newpage{}
+\section*{Data Availability}\label{sec-data}
+\addcontentsline{toc}{section}{Data Availability}
 
-\section*{References}\label{references}
-\addcontentsline{toc}{section}{References}
+A copy of the original Vaes spreadsheets are available in the GitHub
+repository, above, and from the original Vaes
+publication\textsuperscript{1} at
+\url{https://doi.org/10.1186/s12967-023-03946-6}.
 
-\phantomsection\label{refs}
-\begin{CSLReferences}{0}{0}
-\bibitem[\citeproctext]{ref-vaes2023}
-\CSLLeftMargin{1. }%
-\CSLRightInline{Vaes, A. W. \emph{et al.}
-\href{https://doi.org/10.1186/s12967-023-03946-6}{Symptom-based clusters
-in people with ME/CFS: An illustration of clinical variety in a
-cross-sectional cohort}. \emph{Journal of Translational Medicine}
-\textbf{21}, 112 (2023).}
-
-\bibitem[\citeproctext]{ref-vaes2023_excel_large}
-\CSLLeftMargin{2. }%
-\CSLRightInline{Vaes, A. W. \& collaborators.
-\href{https://static-content.springer.com/esm/art\%3A10.1186\%2Fs12967-023-03946-6/MediaObjects/12967_2023_3946_MOESM3_ESM.xlsx}{Supplementary
-dataset (excel): Additional file 3: Table S1 :
-12967\_2023\_3946\_MOESM3\_ESM.xlsx}. Journal of Translational Medicine,
-Springer Nature (2023).}
-
-\bibitem[\citeproctext]{ref-jason2015dsq2}
-\CSLLeftMargin{3. }%
-\CSLRightInline{Jason, L. A. \emph{et al.}
-\href{https://doi.org/10.1080/21641846.2014.978110}{The DePaul symptom
-questionnaire-2: A validation study}. \emph{Fatigue: Biomedicine, Health
-\& Behavior} \textbf{3}, 1--13 (2015).}
-
-\bibitem[\citeproctext]{ref-mcmanimen2017pem}
-\CSLLeftMargin{4. }%
-\CSLRightInline{McManimen, S. L., Jason, L. A. \& Williams, Y. J.
-\href{https://doi.org/10.1080/21641846.2017.1281323}{Post-exertional
-malaise in patients with myalgic encephalomyelitis/chronic fatigue
-syndrome with comorbid fibromyalgia}. \emph{Fatigue: Biomedicine, Health
-\& Behavior} \textbf{5}, 102--117 (2017).}
-
-\bibitem[\citeproctext]{ref-nature2023fm}
-\CSLLeftMargin{5. }%
-\CSLRightInline{Almenar-Pérez, E. \& al., et.
-\href{https://doi.org/10.1038/s41598-023-28955-9}{MicroRNA profiles
-distinguish fibromyalgia, ME/CFS, and ME/CFS with fibromyalgia}.
-\emph{Scientific Reports} \textbf{13}, 28955 (2023).}
-
-\bibitem[\citeproctext]{ref-maurel2023}
-\CSLLeftMargin{6. }%
-\CSLRightInline{Maurel, S., Giménez-Llort, L., Alegre-Martin, J. \&
-Castro-Marrero, J.
-\href{https://doi.org/10.3390/biomedicines11102867}{Hierarchical cluster
-analysis based on clinical and neuropsychological symptoms reveals
-distinct subgroups in fibromyalgia: A population-based cohort study}.
-\emph{Biomedicines} \textbf{11}, 2867 (2023).}
-
-\bibitem[\citeproctext]{ref-vaes2023_excel_small}
-\CSLLeftMargin{7. }%
-\CSLRightInline{Vaes, A. W. \& collaborators.
-\href{https://static-content.springer.com/esm/art\%3A10.1186\%2Fs12967-023-03946-6/MediaObjects/12967_2023_3946_MOESM4_ESM.xlsx}{Supplementary
-dataset (excel): Additional file 4 table S2 :
-12967\_2023\_3946\_MOESM4\_ESM.xlsx}. Journal of Translational Medicine,
-Springer Nature (2023).}
-
-\end{CSLReferences}
+All other data files are created from the original Vaes spreadsheets
+using the code in the GitHub repository, above.
 
 \newpage{}
 
@@ -1017,6 +905,63 @@ This work received no external funding.
 
 This study reanalyzed publicly available reports and published symptom
 cluster data (Vaes 2023). No new patient data were collected.
+
+\newpage{}
+
+\section*{References}\label{references}
+\addcontentsline{toc}{section}{References}
+
+\phantomsection\label{refs}
+\begin{CSLReferences}{0}{0}
+\bibitem[\citeproctext]{ref-vaes2023}
+\CSLLeftMargin{1. }%
+\CSLRightInline{Vaes, A. W. \emph{et al.}
+\href{https://doi.org/10.1186/s12967-023-03946-6}{Symptom-based clusters
+in people with ME/CFS: An illustration of clinical variety in a
+cross-sectional cohort}. \emph{Journal of Translational Medicine}
+\textbf{21}, 112 (2023).}
+
+\bibitem[\citeproctext]{ref-vaes2023_excel_large}
+\CSLLeftMargin{2. }%
+\CSLRightInline{Vaes, A. W. \& collaborators.
+\href{https://static-content.springer.com/esm/art\%3A10.1186\%2Fs12967-023-03946-6/MediaObjects/12967_2023_3946_MOESM3_ESM.xlsx}{Supplementary
+dataset (excel): Additional file 3: Table S1 :
+12967\_2023\_3946\_MOESM3\_ESM.xlsx}. Journal of Translational Medicine,
+Springer Nature (2023).}
+
+\bibitem[\citeproctext]{ref-fall2024mcam}
+\CSLLeftMargin{3. }%
+\CSLRightInline{Fall, E. A. \emph{et al.}
+\href{https://doi.org/10.1186/s12883-024-03872-0}{Chronic overlapping
+pain conditions in people with myalgic encephalomyelitis/chronic fatigue
+syndrome (ME/CFS): A sample from the multi-site clinical assessment of
+ME/CFS (MCAM) study}. \emph{BMC Neurology} \textbf{24}, (2024).}
+
+\bibitem[\citeproctext]{ref-ramirez2022overlap}
+\CSLLeftMargin{4. }%
+\CSLRightInline{Ramı́rez-Morales, R., Bermúdez-Benı́tez, E.,
+Martı́nez-Martı́nez, L.-A. \& Martı́nez-Lavı́n, M.
+\href{https://doi.org/10.1016/j.autrev.2022.103129}{Clinical overlap
+between fibromyalgia and myalgic encephalomyelitis: A systematic review
+and meta-analysis}. \emph{Autoimmunity Reviews} \textbf{21}, 103129
+(2022).}
+
+\bibitem[\citeproctext]{ref-mcmanimen2017pem}
+\CSLLeftMargin{5. }%
+\CSLRightInline{McManimen, S. L. \& Jason, L. A.
+\href{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5464757}{Post-exertional
+malaise in patients with ME and CFS with comorbid fibromyalgia}.
+\emph{SRL Neurology \& Neurosurgery} \textbf{3}, 22--27 (2017).}
+
+\bibitem[\citeproctext]{ref-vaes2023_excel_small}
+\CSLLeftMargin{6. }%
+\CSLRightInline{Vaes, A. W. \& collaborators.
+\href{https://static-content.springer.com/esm/art\%3A10.1186\%2Fs12967-023-03946-6/MediaObjects/12967_2023_3946_MOESM4_ESM.xlsx}{Supplementary
+dataset (excel): Additional file 4 table S2 :
+12967\_2023\_3946\_MOESM4\_ESM.xlsx}. Journal of Translational Medicine,
+Springer Nature (2023).}
+
+\end{CSLReferences}
 
 
 
