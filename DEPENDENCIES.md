@@ -1,16 +1,27 @@
 # Dependencies
 
-## Executables:
+This document lists the software dependencies required to run the code in this repository.
 
-Tested with the following executables
+## Software Dependencies:
 
-- R - 4.5.1
-- quarto - 1.4 and 1.7
-- lualatex - 1.14.0 and 1.22.0
+Tested with the following:
+
+-   Ubuntu 22.04.5 LTS ("Jammy Jellyfish")
+-   R - 4.5.1
+-   quarto - 1.4 and 1.7
+-   lualatex - 1.14.0 and 1.22.0
+
+The statistics and spreadsheet manipulation packages are all pretty basic. The only place I can imagine an OSX or other Linux user having a problem is with Lualatex. If you are using OSX you might want to look at <https://tug.org/mactex/> or try:
+
+``` bash
+brew install --cask mactex
+```
+
+If you have insurmountable Quarto problems you will find test versions of the plots at the end of summarize_vaes_csv_by_symptom_domain.R
 
 ## Required R packages:
 
-```r
+``` r
 # Core data analysis
 install.packages(c(
   "tidyverse",    # 2.0.0 - data manipulation and visualization
@@ -29,7 +40,7 @@ install.packages(c(
   # Tables and reporting
   "gt",           # 1.0.0 - table formatting
   "here",         # 1.0.1 - file path management
-  "rmarkdown"     # 2.29 - document generation
+  "rmarkdown"     # 2.29  - document generation
+  "quarto"        # 1.5.1 - document generation
 ))
 ```
-

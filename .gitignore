@@ -3,3 +3,4 @@ git_me
 *.tex
 *.R*
 *_files/
+.Rproj.user
