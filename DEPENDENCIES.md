@@ -19,6 +19,7 @@ install.packages(c(
   "readxl",       # 1.4.5 - Excel file import
   "broom",        # 1.0.8 - statistical model tidying
   "gtools",       # 3.9.5 - various utilities
+  "here",		  # 1.0.2 - Simplifies finding project files
   
   # Visualization
   "ggrepel",      # 0.9.6 - text/label positioning

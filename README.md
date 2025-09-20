@@ -2,19 +2,8 @@
 
 The code here is all of the code needed to generate my research paper [which is also online as a preprint](https://www.preprints.org/manuscript/202509.1179) 
 
-Before you can generate the PDF you'll need to run:
+R/main.R will execute all the steps needed to generate the PDF assuming you have the dependencies installed. 
 
-* process_excel.R
-* summarize_vaes_csv_by_symptom_domain.R 
-* r2_by_domain.R
-* leave_one_out.R
-* ancova_analysis.R
-
-The first two files  must be run in order.  This will generate the intermediate CSV files which are not in this repo.  You can then use RStudio to render VaesSubgroups.qmd or use the command line if you have quarto installed separately: 
-
-````bash
-quarto render VaesSubgroups.qmd
-````
 Make sure to  keep to the folder organization in this repo. 
 
 # Abstract
