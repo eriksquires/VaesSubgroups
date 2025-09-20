@@ -1,6 +1,8 @@
 # Dependencies
 
-This document lists the software dependencies required to run the code in this repository.
+This document lists the software dependencies required to run the code in this repository. Testing and notes were current as of version 0.4.0.
+
+The author does not offer installation support of any kind but tips are included below.
 
 ## Software Dependencies:
 
@@ -11,13 +13,21 @@ Tested with the following:
 -   quarto - 1.4 and 1.7
 -   lualatex - 1.14.0 and 1.22.0
 
+## OSX
+
 The statistics and spreadsheet manipulation packages are all pretty basic. The only place I can imagine an OSX or other Linux user having a problem is with Lualatex. If you are using OSX you might want to look at <https://tug.org/mactex/> or try:
 
 ``` bash
 brew install --cask mactex
 ```
 
-If you have insurmountable Quarto problems you will find test versions of the plots at the end of summarize_vaes_csv_by_symptom_domain.R
+If you have insurmountable Quarto problems you will find test versions of the plots at the end of summarize_vaes_csv_by_symptom_domain.R.
+
+## Windows
+
+If you are using R in Windows and are happy with it this repo shouldn't pose a challenge, but I've not tested it, so am not sure all the dependencies are available. I used the **here** library for file IO in an OS agnostic fashion so hopefully paths will be handled transparently.
+
+R on Windows was rather painful when I last tried it. You might be better off running this inside an Ubuntu VM. There's no significant performance hit.
 
 ## Required R packages:
 
