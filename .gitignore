@@ -1,5 +1,5 @@
 git_me
 *.csv
 *.tex
-.R*
+*.R*
 *_files/
