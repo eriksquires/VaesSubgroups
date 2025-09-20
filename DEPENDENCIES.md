@@ -23,6 +23,8 @@ brew install --cask mactex
 
 If you have insurmountable Quarto problems you will find test versions of the plots at the end of summarize_vaes_csv_by_symptom_domain.R.
 
+I have not tested on OSX, but it's usually pretty good when it comes to R and OS package availability.
+
 ## Windows
 
 If you are using R in Windows and are happy with it this repo shouldn't pose a challenge, but I've not tested it, so am not sure all the dependencies are available. I used the **here** library for file IO in an OS agnostic fashion so hopefully paths will be handled transparently.

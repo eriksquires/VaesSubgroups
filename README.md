@@ -5,7 +5,7 @@ The code here is all of the code needed to generate my research paper [which is 
 **Instructions:**
 
 1.  Clone this repo.
-2.  Review [dependencies](DEPENDENCIES.md). They are all pretty basic.
+2.  Review [dependencies](DEPENDENCIES.md) and install missing packages.
 3.  Run R/main.R. This will generate all of the intermediate data files and the final PDF.
 
 # Abstract
