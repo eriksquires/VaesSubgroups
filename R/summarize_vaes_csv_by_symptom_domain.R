@@ -14,9 +14,13 @@ geo_pos <- function(v)
   exp(mean(log(v[v > 0]), na.rm = TRUE))
 # geo_pos <- function(v) mean(v)
 
+# From visual inspection of charts, below, we identify members of each group ####
+high_symptom_clusters <- mixedsort(c("C37", "C28", "C40", "C31", "C9", "C26", "C36", "C19"))
+low_symptom_clusters  <- mixedsort(setdiff(all_clusters, high_symptom_clusters))
+
 
 summarize_csv <- function(do_large = TRUE) {
-  # Function to process the Excel file and extract severity data
+  # Function to process the Excel file and extract severity data ####
   # do_large: if TRUE, process large clusters (size >= 10), else small clusters (mostly size 1)
   
   
@@ -90,11 +94,7 @@ summarize_csv <- function(do_large = TRUE) {
     left_join(all, by = "cluster")
   
   
-  # From visual inspection of charts, below, we identify members of each group ####
-  high_symptom_clusters <- mixedsort(c("C37", "C28", "C40", "C31", "C9", "C26", "C36", "C19"))
-  # low_symptom_clusters <- c( "C2", "C11", "C4", "C24", "C7")
-  low_symptom_clusters <- mixedsort(setdiff(all_clusters, high_symptom_clusters))
-  
+
   
   vcs_tidy <- vcs_tidy %>%
     mutate(
@@ -113,8 +113,12 @@ summarize_csv <- function(do_large = TRUE) {
 summarize_csv(do_large = TRUE)
 # summarize_csv(do_large = FALSE)
 
+
 #
-# Data creation end
+#
+# End of Data Creation ####
+#
+# ------------------------------------------------------------------
 #
 # Plotting function ####
 #

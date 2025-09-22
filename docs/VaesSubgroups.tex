@@ -245,10 +245,10 @@ to identify patterns and subgroups.
 \textbf{Results:} Our analysis identified two groups of patient clusters
 with distinct symptom-domain profiles. Anchoring symptom domains to PEM
 collapses the 13 Vaes clusters into two reproducible families: one
-characterized by parallel offsets (autonomic, neuroendocrine, other) and
-one by amplified slopes (pain, neurocognitive), with high-end
-convergence after accounting for a single influential cluster. This
-subgroup's symptom trends could align with those of fibromyalgia.
+characterized by parallel offsets (Autonomic, Neuroendocrine, Other) and
+one by amplified slopes (Pain, Neurocognitive), with convergence at
+higher PEM levels after accounting for a single influential cluster.
+This subgroup's symptom trends could align with those of fibromyalgia.
 Further exploration with individual patient data is needed to validate
 these findings.
 
@@ -299,8 +299,7 @@ Our central contribution is a PEM-referenced decomposition that reduces
 the Vaes clusters to two linear families (offsets vs.~amplification) and
 explains much of the apparent heterogeneity.
 
-\section{Symptom Domains Relative to
-PEM}\label{symptom-domains-relative-to-pem}
+\section{Symptom Domains Relative to PEM}\label{sec-symptoms}
 
 The strong weight of PEM symptoms makes the Vaes dataset tricky to
 interpret if you only look at raw intensity, so instead we compared
@@ -321,7 +320,7 @@ described by Vaes or others but reflects a new organization based on how
 symptom domains scale with PEM. Vaes used the DePaul symptom groupings
 which we keep as-is.
 
-\textbf{Notes:} The DSQ-2 uses a single symptom for fatigue. Also, for
+\textbf{Notes:} The DSQ-2 uses a single symptom for Fatigue. Also, for
 the ``Overall'' chart we used the arithmetic mean instead of geometric
 mean for the Y axis. All other graphs in this study use geometric means
 exclusively. Shaded bands represent the 95\% confidence interval of the
@@ -331,7 +330,7 @@ inspection, we provide more statistical descriptions in
 
 \subsection{Similarities}\label{sec-similar}
 
-In terms of fatigue, the two groups overlap completely, as ME/CFS
+In terms of Fatigue, the two groups overlap completely, as ME/CFS
 patient clusters are expected to. See Figure~\ref{fig-fatigue}, below.
 While the lines have a similar slope and offset we note the R² value is
 significantly weaker in the low-intensity group (0.54 vs.~0.86).
@@ -350,7 +349,7 @@ significantly weaker in the low-intensity group (0.54 vs.~0.86).
 
 \FloatBarrier
 
-While fatigue shows complete overlap in our groups the next charts
+While Fatigue shows complete overlap in our groups the next charts
 (Figure~\ref{fig-symptoms}) show how they stand out. In the first chart
 (top left) we compare the average of all symptoms to PEM. In this chart
 one can easily discern two tiers of clusters. One has a higher overall
@@ -384,11 +383,15 @@ clusters C9, C19, C26, C28, C31, C36, C37, C40 as high-intensity, C2,
 C4, C7, C11, C24 as low-intensity. We'll keep these groupings for all
 plots that follow. The high and low groups are approximately 54.5\% and
 45.5\% of the total cohort, respectively. We further discuss our
-grouping choices in \hyperref[sec-loo]{Leave-one-out Analysis}
+grouping choices in \hyperref[sec-loo]{Leave-one-out Analysis}. We group
+C36 with the high-intensity clusters, but it is also an outlier for the
+entire cohort, and discuss this further in Section~\ref{sec-different}.
 
 The last chart (Other vs.~PEM) shows a markedly lower offset and is
-perhaps the most visibly obvious difference between the two groups. The
-two symptoms in `Other' are sensitivity to mold and vibration.
+perhaps the most visibly obvious difference between the two groups.
+Unfortunately, `Other' only has two symptoms: sensitivity to mold and
+vibration which might make it a poor candidate for per-patient
+validation.
 
 \FloatBarrier
 
@@ -396,12 +399,13 @@ While the groups maintain integrity, the parallelism observed in the
 charts above does not hold in the next charts and suggests a more
 complex physiological cause for the differences.
 
-\subsection{Separate Amplification Patterns Relative to
-PEM}\label{sec-different}
+\subsection{Converging Patterns Relative to PEM}\label{sec-different}
 
-Pain and neurocognitive domains show that while the low-intensity group
-remains offset, symptom domain amplification is increased. As PEM
-increases to 3, C7 comes very close to the high-intensity line.
+Pain and Neurocognitive domains show that while the low-intensity group
+remains offset, as PEM severity increases to 3, the two lines converge.
+Arguably, this is either increased amplification, or a reduction of
+differences around C26. This distinct convergence between the two
+cluster groups does not appear in any of the other symptom domains.
 
 \begin{figure}[h]
 
@@ -417,12 +421,19 @@ increases to 3, C7 comes very close to the high-intensity line.
 
 \FloatBarrier
 
+Without C36, the cohort outlier, the upper limits of PEM, Neurocognitive
+and Pain would converge around where C7 (low-intensity) and C26
+(high-intensity) meet. Vaes et al.~note that the participants in C36
+``had the highest symptom burden (i.e.~highest frequency and severity of
+symptoms)''\textsuperscript{1} and all of the charts in this study are
+consistent with that observation.
+
 \subsection{Weak Correlations Relative to
 PEM}\label{weak-correlations-relative-to-pem}
 
 In all of the previous charts we've shown that both groups maintain a
-strong but distinct relationship to PEM. By contrast, the immune and
-sleep domains show little to no correlation with PEM severity in the
+strong but distinct relationship to PEM. By contrast, the Immune and
+Sleep domains show little to no correlation with PEM severity in the
 low-intensity group. Notably, despite this lack of correlation, sleep
 disturbance can be pronounced in the low-intensity group.
 
@@ -443,13 +454,11 @@ disturbance can be pronounced in the low-intensity group.
 \subsection{Summary of Differences}\label{summary-of-differences}
 
 \textbf{High-intensity:} Has a consistent amplification pattern: as PEM
-increases, all other symptom domains rise together. Important to note
-C36 as an outlier for the entire cohort. Without it the upper limits of
-PEM, Neurocognitive and Pain would match around C7 and C26.
+increases, all other symptom domains rise together.
 
-\textbf{Low-intensity:} Presents a more selective profile. Pain,
-neurocognitive, and neuroendocrine symptoms escalate more rapidly with
-PEM, while sleep and immune symptoms show little or no correlation.
+\textbf{Low-intensity:} Presents a more selective profile. Pain, and
+Neurocognitive symptoms start low but converge with the high-intensity
+group, while Sleep and Immune symptoms show low correlation.
 Additionally, the low-intensity group is notably nestled in the middle
 of the overall PEM range which could allow it to hide among the other
 clusters if not actively searched for.
@@ -498,15 +507,15 @@ Sleep & Tracks PEM & \(\approx 1.4\) -- 2.5, but uncorrelated \\
 groups largely overlap. The high-intensity group, by symptom intensity
 alone, could be considered a superset of the low-intensity group. It is
 the differing relationships to PEM and the selective amplification of
-pain and neurocognitive symptom domains in the low-intensity group that
+Pain and Neurocognitive symptom domains in the low-intensity group that
 set the two groups apart. We discuss this further in
 Section~\ref{sec-li}, below.
 
 \section{Exploring the Low-intensity Subgroup}\label{sec-li}
 
-Based on the trends noted in Section~\ref{sec-different}, a discussion
-of whether the low-intensity group could relate to fibromyalgia is
-warranted. We note that Vaes\textsuperscript{1} did not model
+Based on the trends noted in Section~\ref{sec-symptoms}, a discussion of
+whether the low-intensity group could relate to fibromyalgia is
+warranted. We note that Vaes et al.\textsuperscript{1} did not model
 fibromyalgia diagnoses, nor did they report excluding patients with
 fibromyalgia from their cohort. We cannot assert that the subgroup is
 clinically fibromyalgia, only that its domain profile aligns with what
@@ -516,9 +525,9 @@ Patterns in the low-intensity group have higher PEM burdens for all
 symptom domains except Immune and Sleep, which are uncorrelated with
 PEM. Further, Neurocognitive and Pain regression lines are amplified.
 
-Vaes\textsuperscript{1} recruited participants who self-reported ME/CFS
-and later mapped them to multiple case definitions, yielding a broad
-spectrum of clinical presentations:
+Vaes et al.\textsuperscript{1} recruited participants who self-reported
+ME/CFS and later mapped them to multiple case definitions, yielding a
+broad spectrum of clinical presentations:
 
 \begin{quote}
 Almost 90\% of the participants fulfilled the Fukuda case definition,
@@ -540,20 +549,25 @@ Confirmation would require patient-level data we do not have access to.
 
 \section{Characteristics of the Smallest Clusters}\label{sec-small}
 
-Vaes\textsuperscript{1} identified 32 additional
-clusters\textsuperscript{6}. These were mostly of size 1, with 4
-clusters of size 2 and represent approximately 9.4\% of the cohort. We
-examined these smaller clusters in light of our two-group hypothesis.
+Vaes et al.\textsuperscript{1} identified 13 large\textsuperscript{2}
+and 32 small clusters\textsuperscript{6}. The small clusters were mostly
+of size 1, with 4 clusters of size 2 and represent approximately 9.4\%
+of the cohort. We examined both sets in light of our two-group
+hypothesis and with similar charts to those in
+Section~\ref{sec-symptoms}. Our goal was to examine if the small
+clusters could illuminate or challenge our two-group hypothesis.
 
-Taken as a whole the 13 large clusters appear to have captured the broad
-trends of the entire dataset with the remaining clusters spread across
-and beyond our two subgroups. This may suggest that the two groups are
-not distinct but artifacts of the clustering constraints when applied to
-data that is widespread.
+Overlaying both datasets, for most domains the small clusters (of size
+n=1 or 2) spread above and below our two subgroup trend lines. This may
+suggest that the two groups in our visualizations are not distinct but
+artifacts of the clustering constraints. If this reflects a continuous
+distribution instead of two, our PEM-referenced framework would still
+provide a useful characterization of how symptoms vary across the
+severity spectrum.
 
-Specifically however, the small clusters mostly had sleep scores above
-the high-intensity group's regression lines and showed similar upper
-pain and neurocognitive limits as described in Section~\ref{sec-li}.
+The Sleep domain stood out in comparison to the rest. The small clusters
+mostly had Sleep intensity scores above the high-intensity group's
+regression lines.
 
 Finally, the small clusters, when added to the large clusters, did not
 significantly move their location or regression lines.
@@ -590,7 +604,7 @@ data; whether symptom-domain analysis can reliably identify the group to
 which a given patient belongs; and how these subgroups relate---or fail
 to relate---to fibromyalgia.
 
-As an example, Vaes\textsuperscript{1} provided cluster-specific
+As an example, Vaes\textsuperscript{1} includes cluster-specific
 summaries of standout symptoms; some of those align with our
 domain-based charts while others show a different emphasis,
 demonstrating the challenge of reconciling symptom-level observations
@@ -609,9 +623,9 @@ are classified.
 \section{Conclusion}\label{conclusion}
 
 Our secondary analysis suggests that the 13 clusters identified by Vaes
-can be organized into two broader structures defined by overall symptom
-intensity relative to PEM severity. These two groups remain coherent
-across symptom domains and display distinct, largely linear
+et al.~can be organized into two broader structures defined by overall
+symptom intensity relative to PEM severity. These two groups remain
+coherent across symptom domains and display distinct, largely linear
 relationships with PEM. Although exploratory and limited to
 cluster-level data, these findings offer a reproducible framework for
 further research, specifically for validating these potential subgroups
@@ -843,7 +857,7 @@ Sleep & 0.53 & 0.82 & 0.05 \\
 Table~\ref{tbl-t4} shows that for almost every symptom domain, the
 high-intensity group has a higher R² than the combined group, which in
 turn has a higher R² than the low-intensity group. In some cases -- such
-as neurocognitive, neuroendocrine, and Other -- the combined R² is
+as Neurocognitive, Neuroendocrine, and Other -- the combined R² is
 significantly weaker than either of the subgroups.
 
 \FloatBarrier
