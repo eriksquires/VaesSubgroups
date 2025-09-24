@@ -311,7 +311,7 @@ We will use Neuroendocrine, which shows the most distinct grouping vs. our low- 
 
 ::: {#fig-smallest fig-cap="Neuroendocrine vs. PEM with Small Clusters" fig-pos="h"}
 ```{r neuro_e_small_clusters, include=TRUE}
-#| fig-width: 10
+#| fig-width: 5
 #| fig-height: 5
 #| out-width: 100%
 #| 
@@ -357,9 +357,9 @@ geo_plot_vs_pem_2 <- function(yvar, ylabel) {
 }
 
 a <- geo_plot_vs_pem_2('neuroendocrine', 'Neuroendocrine')
-p <- (a | patchwork::plot_spacer()) + 
-  plot_annotation(caption = "Small clusters are shown as unlabeled points; regression lines are drawn only for the high and low groups.") +
-  plot_layout(heights = c(1, 1), guides="collect") &
+p <- (a) + 
+  plot_annotation(caption = "Small clusters are unlabelled.") +
+  plot_layout(heights = c(1), guides="collect") &
   theme(legend.position = "bottom") 
 
 p
