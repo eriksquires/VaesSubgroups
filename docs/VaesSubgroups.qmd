@@ -307,7 +307,7 @@ Because the Vaes analysis used cluster-level summaries and did not model comorbi
 \FloatBarrier
 Vaes et al. [@vaes2023] identified 13 large [@vaes2023_excel_large] and 32 small clusters [@vaes2023_excel_small]. These were mostly of size 1, with 4 clusters of size 2 and represent approximately 9.4% of the cohort. We used similar charts to those in @sec-symptoms with the addition of the small cluster data.  Our goal was to examine if the small clusters could illuminate or challenge our two-group hypothesis.
 
-We will use Neuroendocrine, which shows the most distinct grouping vs. our low- and high-intensity groups. Neuroendocrine is made up of 13 symptoms, while PEM is made up of 9, allowing for small steps along both axes. The smallest clusters show clear elevation in severity scores compared to our two previously defined groups.  Additionally, some small clusters line up precisely with the high-intensity group. 
+We will use Neuroendocrine, which shows the most distinct grouping vs. our low- and high-intensity groups. Neuroendocrine is made up of 13 symptoms, while PEM is made up of 9, allowing for small steps along both axes. Among the smallest clusters, many sit above the high-intensity trend, while several align closely with it. 
 
 ::: {#fig-smallest fig-cap="Neuroendocrine vs. PEM with Small Clusters" fig-pos="h"}
 ```{r neuro_e_small_clusters, include=TRUE}
@@ -330,9 +330,11 @@ geo_plot_vs_pem_2 <- function(yvar, ylabel) {
   
   ggplot(df, aes(x = PEM, y = !!sym(yvar))) +
     geom_point(aes(color = intensity_group, shape = intensity_group), size = 3) +
-    ggrepel::geom_text_repel(aes(label = cluster),
-                             size = 3,
-                             show.legend = FALSE) +
+    ggrepel::geom_text_repel(
+      data = df %>% dplyr::filter(intensity_group != "small"),
+      aes(label = cluster),
+      size = 3, show.legend = FALSE
+    )+
     #   scale_shape_manual(values = c("high" = 16, "low" = 17, "out" = 4)) +
     scale_shape_manual(values = c("high" = 16, "low" = 17, "small" = 4)) +
     scale_color_brewer(
@@ -343,9 +345,9 @@ geo_plot_vs_pem_2 <- function(yvar, ylabel) {
     ) +
     guides(color = guide_legend(override.aes = list(shape = c(16, 17, 4))), shape = "none") +
     geom_smooth(
+      data = df %>% dplyr::filter(intensity_group != "small"),
       aes(color = intensity_group, group = intensity_group),
-      method = "lm",
-      se = TRUE
+      method = "lm", se = TRUE
     ) +
     labs(title = paste(ylabel, "vs PEM"),
          x = "PEM",
@@ -356,6 +358,7 @@ geo_plot_vs_pem_2 <- function(yvar, ylabel) {
 
 a <- geo_plot_vs_pem_2('neuroendocrine', 'Neuroendocrine')
 p <- (a | patchwork::plot_spacer()) + 
+  plot_annotation(caption = "Small clusters are shown as unlabeled points; regression lines are drawn only for the high and low groups.") +
   plot_layout(heights = c(1, 1), guides="collect") &
   theme(legend.position = "bottom") 
 
@@ -371,13 +374,13 @@ We cannot draw strong conclusions from this chart, but it does illustrate the po
 
 # Discussion {#sec-discuss}
 
-We have shown that the Vaes clusters can be organized into two subgroups defined by symptom domains relative to PEM, and that these subgroups remain consistent across most domains. Grouping them by their relationship to PEM simplifies the original complexity at both the domain and cluster levels. From this perspective, the 13 Vaes clusters can be reduced to two groups of linear models, where membership in one group combined with PEM intensity allows inference of the intensity of other symptom domains. We view this PEM-referenced, two-family reduction (offsets vs. amplification, with C36 sensitivity at the high end) as the main conceptual advance over prior descriptions of the Vaes clusters.
+We have shown that the Vaes clusters can be organized into two subgroups defined by symptom domains relative to PEM, and that these subgroups remain consistent across most domains. Grouping them by their relationship to PEM simplifies the original complexity at both the domain and cluster levels. From this perspective, the 13 Vaes clusters can be reduced to two groups of linear models, where membership in one group combined with PEM intensity allows inference of the intensity of other symptom domains. We view this PEM-referenced, two-family reduction (offsets vs. amplification, with C36 sensitivity at the high end) as the main conceptual advance over prior descriptions of the Vaes clusters. 
 
 While these patterns are striking, our analysis is a secondary exploration based on symptom-domain summaries of the Vaes patient data. The small subgroup sizes (eight and five clusters) together with the original clustering approach and our own visualizations may have produced trends that are purely artifacts of layering our visualizations on top. These concerns highlight the need for validation before our findings can be clinically relevant. 
 
 We see challenges in at least three areas: whether the groupings hold when tested with individual patient data; whether symptom-domain analysis can reliably identify the group to which a given patient belongs; and how these subgroups relate—or fail to relate—to fibromyalgia. As an example, Vaes[@vaes2023] includes cluster-specific summaries of standout symptoms; some of those align with our domain-based charts while others show a different emphasis, demonstrating the challenge of reconciling symptom-level observations with domain-level analyses.
 
-Despite these limitations, we believe further investigation could lead to clinically useful organization of patient types. A simplified narrative that organizes patients on a few axes could help clinicians and researchers better understand the heterogeneity of ME/CFS.
+Despite these limitations, we believe further investigation could clarify whether these axes yield clinically useful patient groupings. A simplified narrative that organizes patients on a few axes could help clinicians and researchers better understand the heterogeneity of ME/CFS.
 
 # Conclusion
 
