@@ -158,4 +158,4 @@ process_excel <- function(do_large = TRUE) {
 }
 
 process_excel(do_large = TRUE)  # Process large clusters
-# process_excel(do_large = FALSE) # Process small clusters
+process_excel(do_large = TRUE) # Process small clusters

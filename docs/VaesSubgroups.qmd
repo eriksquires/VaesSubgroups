@@ -83,7 +83,7 @@ geo_plot_vs_pem <- function(yvar, ylabel) {
     labs(title = paste(ylabel, "vs PEM"),
          x = "PEM",
          y = ylabel) +
-    theme_minimal(base_family = "sans") +  # Or switch to theme_minimal()
+    theme_minimal(base_family = "sans") +  
     xlim(0, 4.0) + ylim(0, 4.0)
 }
 
@@ -303,13 +303,70 @@ Because the Vaes analysis used cluster-level summaries and did not model comorbi
 
 # Characteristics of the Smallest Clusters {#sec-small}
 
-Vaes et al. [@vaes2023] identified 13 large [@vaes2023_excel_large] and 32 small clusters [@vaes2023_excel_small]. The small clusters were mostly of size 1, with 4 clusters of size 2 and represent approximately 9.4% of the cohort. We examined both sets in light of our two-group hypothesis and with  similar charts to those in @sec-symptoms.  Our goal was to examine if the small clusters could illuminate or challenge our two-group hypothesis.
+\FloatBarrier
+Vaes et al. [@vaes2023] identified 13 large [@vaes2023_excel_large] and 32 small clusters [@vaes2023_excel_small]. These were mostly of size 1, with 4 clusters of size 2 and represent approximately 9.4% of the cohort. We used similar charts to those in @sec-symptoms with the addition of the small cluster data.  Our goal was to examine if the small clusters could illuminate or challenge our two-group hypothesis.
 
-Overlaying both datasets, for most domains the small clusters (of size n=1 or 2) spread above and below our two subgroup trend lines. This may suggest that the two groups in our visualizations are not distinct but artifacts of the clustering constraints. If this reflects a continuous distribution instead of two, our PEM-referenced framework would still provide a useful characterization of how symptoms vary across the severity spectrum.
+We will use Neuroendocrine, which shows the most distinct grouping vs. our low- and high-intensity groups. Neuroendocrine is made up of 13 symptoms, while PEM is made up of 9, allowing for small steps along both axes. The smallest clusters show clear elevation in severity scores compared to our two previously defined groups.  Additionally, some small clusters line up precisely with the high-intensity group. 
 
-The Sleep domain stood out in comparison to the rest.  The small clusters mostly had Sleep intensity scores above the high-intensity group's regression lines. 
+::: {#fig-smallest fig-cap="Neuroendocrine vs. PEM with Small Clusters" fig-pos="h"}
+```{r neuro_e_small_clusters, include=TRUE}
+#| fig-width: 10
+#| fig-height: 5
+#| out-width: 100%
+#| 
 
-Finally, the small clusters, when added to the large clusters, did not significantly move their location or regression lines.
+input_file <- here::here("data", "cluster_grouped_tidy_combined.csv")
+
+vcs_tidy <- read_csv(input_file) %>%
+  mutate(intensity_group = as.factor(str_trim(intensity_group))) %>%
+  droplevels()
+  
+geo_plot_vs_pem_2 <- function(yvar, ylabel) {
+  # Not strictly needed, but makes reading and debugging nicer
+  # browser()
+  columns = c("cluster", "PEM", yvar, "intensity_group")
+  df <- vcs_tidy %>% select(all_of(columns))
+  
+  ggplot(df, aes(x = PEM, y = !!sym(yvar))) +
+    geom_point(aes(color = intensity_group, shape = intensity_group), size = 3) +
+    ggrepel::geom_text_repel(aes(label = cluster),
+                             size = 3,
+                             show.legend = FALSE) +
+    #   scale_shape_manual(values = c("high" = 16, "low" = 17, "out" = 4)) +
+    scale_shape_manual(values = c("high" = 16, "low" = 17, "small" = 4)) +
+    scale_color_brewer(
+      name = "Subgroup",
+      type = "qual",
+      palette = "Set1",
+      labels = c("high" = "High", "low" = "Low", "small" = "Small")
+    ) +
+    guides(color = guide_legend(override.aes = list(shape = c(16, 17, 4))), shape = "none") +
+    geom_smooth(
+      aes(color = intensity_group, group = intensity_group),
+      method = "lm",
+      se = TRUE
+    ) +
+    labs(title = paste(ylabel, "vs PEM"),
+         x = "PEM",
+         y = ylabel) +
+        theme_minimal(base_family = "sans") +  
+    xlim(0, 4) + ylim(0, 4)
+}
+
+a <- geo_plot_vs_pem_2('neuroendocrine', 'Neuroendocrine')
+p <- (a | patchwork::plot_spacer()) + 
+  plot_layout(heights = c(1, 1), guides="collect") &
+  theme(legend.position = "bottom") 
+
+p
+```
+:::
+
+We cannot draw strong conclusions from this chart, but it does illustrate the possibility that future analysis could identify new directions. 
+
+
+\FloatBarrier
+
 
 # Discussion {#sec-discuss}
 
@@ -319,7 +376,7 @@ While these patterns are striking, our analysis is a secondary exploration based
 
 We see challenges in at least three areas: whether the groupings hold when tested with individual patient data; whether symptom-domain analysis can reliably identify the group to which a given patient belongs; and how these subgroups relate—or fail to relate—to fibromyalgia. As an example, Vaes[@vaes2023] includes cluster-specific summaries of standout symptoms; some of those align with our domain-based charts while others show a different emphasis, demonstrating the challenge of reconciling symptom-level observations with domain-level analyses.
 
-Despite these limitations, we believe further steps are justified. Analyses using the original patient scores could validate, refine, or repudiate these subgroups and help identify a short list of differentiating symptoms. If that proves useful, examining biological markers across these subgroups could help reveal underlying pathophysiological differences. In addition, applying similar analyses to fibromyalgia and long-COVID could clarify relationships among these overlapping conditions or even help refine how ME/CFS and fibromyalgia are classified.
+Despite these limitations, we believe further investigation could lead to clinically useful organization of patient types. A simplified narrative that organizes patients on a few axes could help clinicians and researchers better understand the heterogeneity of ME/CFS.
 
 # Conclusion
 
