@@ -11,19 +11,7 @@ Tested with the following:
 -   Ubuntu 22.04.5 LTS ("Jammy Jellyfish")
 -   R - 4.5.1
 -   quarto - 1.4 and 1.7
--   lualatex - 1.14.0 and 1.22.0
-
-## OSX
-
-The statistics and spreadsheet manipulation packages are all pretty basic. The only place I can imagine an OSX or other Linux user having a problem is with Lualatex. If you are using OSX you might want to look at <https://tug.org/mactex/> or try:
-
-``` bash
-brew install --cask mactex
-```
-
-If you have insurmountable Quarto problems you will find test versions of the plots at the end of summarize_vaes_csv_by_symptom_domain.R.
-
-I have not tested on OSX, but it's usually pretty good when it comes to R and OS package availability.
+-   xelatex - XeTeX 3.141592653-2.6-0.999997 (TeX Live 2025)
 
 ## Windows
 
