@@ -15,8 +15,8 @@ input_file <- here::here("data", "cluster_grouped_tidy.csv")  # set path as need
 output_file <- here::here("data","loo_delta_r2_by_cluster.csv")
 
 # Domains to analyze
-domains <- c("Immune","Sleep","autonomic","fatigue",
-             "neurocognitive","neuroendocrine","other","pain","all_mean")
+domains <- c("Immune","Sleep","Autonomic","Fatigue",
+             "NC","NE","Other","Pain","all_mean")
 
 # Use only these 13 clusters by default (edit or set to NULL to include all)
 #chosen_clusters <- c("C9","C19","C26","C28","C31","C36","C37","C40",

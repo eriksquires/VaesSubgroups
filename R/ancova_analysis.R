@@ -16,8 +16,8 @@ vcs_tidy <- read_csv(input_file, show_col_types = FALSE) %>%
   droplevels()
 
 # Get all symptom domains (exclude cluster, intensity_group, PEM)
-symptom_domains <- c("fatigue", "Immune", "Sleep", "autonomic", "neurocognitive", 
-                     "neuroendocrine", "pain", "other", "all_mean")
+symptom_domains <- c("Fatigue", "Immune", "Sleep", "Autonomic", "NC", 
+                     "NE", "Pain", "Other", "all_mean")
 
 # Store results
 results <- data.frame()

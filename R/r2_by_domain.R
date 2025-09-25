@@ -14,13 +14,11 @@ suppressPackageStartupMessages({
 input_file  <-  here::here("data","cluster_grouped_tidy.csv")   # set your path
 output_file <-  here::here("data","r2_by_domain_combined_high_low.csv")
 
-# Domains to analyze
-domains <- c("Immune","Sleep","autonomic","fatigue",
-             "neurocognitive","neuroendocrine","other","pain","all_mean")
 
-# If 'Group' is missing in the CSV, we’ll derive it from these IDs:
-#high_clusters <- c("C9","C19","C26","C28","C31","C36","C37","C40")
-#low_clusters  <- c("C2","C4","C7","C11","C24")
+# Domains to analyze
+domains <- c("Immune","Sleep","Autonomic","Fatigue",
+             "NC","NE","Other","Pain","all_mean")
+
 
 # Optionally restrict to exactly these 13 clusters (set to FALSE to use all in file)
 restrict_to_13 <- FALSE

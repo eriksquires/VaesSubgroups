@@ -448,7 +448,6 @@ ancova_results <- read_csv(here::here("data", "ancova_results.csv")) %>%
      TRUE ~ as.character(p_value)
     )) %>%
   mutate(F_value = round(F_value, 1)) %>%
-  mutate(Domain = str_to_title(Domain)) %>%
   rename(`F statistic`= F_value)
 
  
@@ -515,7 +514,6 @@ if (!file.exists(input_file)) {
 
 res <- read_csv(input_file) %>%
   rename(Domain = domain) %>%
-  mutate(Domain = str_to_title(Domain)) %>%
   arrange(Domain) %>%
   rename(`Combined R²` = R2_combined,
          `High-intensity R²` = R2_high,
