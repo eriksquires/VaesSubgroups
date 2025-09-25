@@ -150,7 +150,7 @@ In terms of Fatigue, the two groups overlap completely, as ME/CFS patient cluste
 #| fig-height: 5
 #| out-width: 100%
 
-a <- geo_plot_vs_pem('fatigue', 'Fatigue')
+a <- geo_plot_vs_pem('Fatigue', 'Fatigue')
 
 p <- (a | patchwork::plot_spacer()) + 
   plot_layout(heights = c(1.8, 1.8), guides="collect") &
@@ -175,9 +175,9 @@ We note that the limited range of PEM severity in the low-intensity group ($\app
 #| out-width: 100%
 
 a <- geo_plot_vs_pem('all_mean', 'All Arithmetic Mean')
-b <- geo_plot_vs_pem('autonomic', 'Autonomic')
-c <- geo_plot_vs_pem('neuroendocrine', 'Neuroendocrine')
-d <- geo_plot_vs_pem('other', 'Other')
+b <- geo_plot_vs_pem('Autonomic', 'Autonomic')
+c <- geo_plot_vs_pem('NE', 'Neuroendocrine')
+d <- geo_plot_vs_pem('Other', 'Other')
 
 p <- (a | b )/ ( c| d) + 
   plot_layout(heights = c(1.8, 1.8), guides="collect") &
@@ -225,8 +225,8 @@ Pain and Neurocognitive domains show that while the low-intensity group remains 
 #| out-width: 100%
 #| 
 
-b <- geo_plot_vs_pem('neurocognitive', 'Neurocognitive')
-c <- geo_plot_vs_pem('pain', 'Pain')
+b <- geo_plot_vs_pem('NC', 'Neurocognitive')
+c <- geo_plot_vs_pem('Pain', 'Pain')
 
 p <- (b | c) + 
   plot_layout(heights = c(1, 1), guides="collect") &
@@ -307,7 +307,7 @@ Because the Vaes analysis used cluster-level summaries and did not model comorbi
 \FloatBarrier
 Vaes et al. [@vaes2023] identified 13 large [@vaes2023_excel_large] and 32 small clusters [@vaes2023_excel_small]. These were mostly of size 1, with 4 clusters of size 2 and represent approximately 9.4% of the cohort. We used similar charts to those in @sec-symptoms with the addition of the small cluster data.  Our goal was to examine if the small clusters could illuminate or challenge our two-group hypothesis.
 
-We will use Neuroendocrine, which shows the most distinct grouping vs. our low- and high-intensity groups. Neuroendocrine is made up of 13 symptoms, while PEM is made up of 9, allowing for small steps along both axes. Among the smallest clusters, many sit above the high-intensity trend, while several align closely with it. 
+We re-use the Neuroendocrine vs. PEM chart we showed above in @fig-symptoms as an example of how per-patient data could alter our findings. In @fig-smallest we overlay the original plot with small clusters. They sit mostly above the high-intensity trend, while several align closely with it. The low-intensity groups however remain apart from the small clusters. Other symptom domains show a variety of differing patterns.
 
 ::: {#fig-smallest fig-cap="Neuroendocrine vs. PEM with Small Clusters" fig-pos="h"}
 ```{r neuro_e_small_clusters, include=TRUE}
@@ -356,7 +356,7 @@ geo_plot_vs_pem_2 <- function(yvar, ylabel) {
     xlim(0, 4) + ylim(0, 4)
 }
 
-a <- geo_plot_vs_pem_2('neuroendocrine', 'Neuroendocrine')
+a <- geo_plot_vs_pem_2('NE', 'Neuroendocrine')
 p <- (a) + 
   plot_annotation(caption = "Small clusters are unlabelled.") +
   plot_layout(heights = c(1), guides="collect") &
@@ -366,7 +366,7 @@ p
 ```
 :::
 
-We cannot draw strong conclusions from this chart, but it does illustrate the possibility that future analysis could identify new directions. 
+We cannot draw strong conclusions from the small clusters alone, but they illustrate the importance of further research with per-patient analysis which could alter or refute our hypotheses.
 
 
 \FloatBarrier
@@ -396,26 +396,26 @@ Our secondary analysis suggests that the 13 clusters identified by Vaes et al. c
 
 We use the Vaes cluster spreadsheet[@vaes2023_excel_large] exclusively as our data source. We use R for significant cleaning and transformation from Excel to CSV. After removing everything but the mean severity of the symptoms in the 13 clusters we:
 
--   Group each cluster by symptom domain and calculate geometric means for each symptom domain within each cluster.
--   Rotate the table
--   Add a new column, "all_mean" which is the arithmetic mean of all symptoms within each cluster.
--   Save this file as cluster_grouped_tidy.csv
+- Rename symptom groups to use consistent capitalization and abbreviations
+- Group each cluster by symptom domain and calculate geometric means for each symptom domain within each cluster.
+- Rotate the table
+- Add a new column, "all_mean" which is the arithmetic mean of all symptoms within each cluster.
+- Save this file as cluster_grouped_tidy.csv
 
-This file is what we then used for our analysis, and the plots. We present the final data used below. Values were rounded and abbreviations were used for formatting. See the [Code Availability](#sec-code) section for links to the code used to generate this file.
+This file is what we then used for our analysis, and the plots. We present the final data used below. Values were rounded for formatting. See the [Code Availability](#sec-code) section for links to the code used to generate this file.
 
 ::: {#tbl-t3 tbl-cap="Cluster Summary Data with Geometric Means by Symptom Domain" tbl-pos="h"}
 ```{r cluster_summary, include=TRUE}
 
 
 rounded_vcs_tidy <- vcs_tidy %>%
+  filter(intensity_group %in% c("high", "low")) %>%
   select(-intensity_group) %>%
   mutate(across(where(is.numeric), ~ round(., 2))) %>%
-  select(cluster, all_mean, PEM, fatigue, Auto = autonomic, Immune,  neurocognitive, neuroendocrine, pain, other)
+  select(Cluster = cluster, All = all_mean, Auto = Autonomic, Fatigue, Immune, NC, NE, Other, PEM, Pain)
 
-# Capitalize all the column names
-colnames(rounded_vcs_tidy) <- str_to_title(colnames(rounded_vcs_tidy)) 
 
-gt(rounded_vcs_tidy %>% rename (All = All_mean, NE = Neuroendocrine, NC = Neurocognitive, PEM = Pem)) %>% 
+gt(rounded_vcs_tidy) %>% 
   tab_options(latex.tbl.pos = "h")
 ```
 :::

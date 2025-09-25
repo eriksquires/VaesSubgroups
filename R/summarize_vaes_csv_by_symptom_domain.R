@@ -67,7 +67,7 @@ summarize_csv <- function(do_large = TRUE) {
   # Create symptoms which are, by domain, discriminatory.
   # This means Neuroendocrine, Autonomic and Other.
   nao_symptoms <- symptom_groups %>%
-    filter(Symptomgroup %in% c("neuroendocrine", "autonomic", "other")) %>%
+    filter(Symptomgroup %in% c("NE", "Autonomic", "Other")) %>%
     pull(Symptoms)
   
   vcs <- vcs %>% select(-Symptomgroup)
@@ -210,13 +210,13 @@ do_plots = FALSE
 if (do_plots == TRUE) {
   geo_plot_vs_pem('all_mean', "All Arithmetic Mean")
   geo_plot_vs_pem('Sleep', 'Sleep Geometric Mean')
-  geo_plot_vs_pem('neurocognitive', 'Neurocognitive Geometric Mean')
-  geo_plot_vs_pem('neuroendocrine', 'Neuroendocrine Geometric Mean')
-  geo_plot_vs_pem('pain', 'Pain Geometric Mean')
+  geo_plot_vs_pem('NC', 'Neurocognitive Geometric Mean')
+  geo_plot_vs_pem('NE', 'Neuroendocrine Geometric Mean')
+  geo_plot_vs_pem('Pain', 'Pain Geometric Mean')
   geo_plot_vs_pem('Immune', 'Immune')
-  geo_plot_vs_pem('fatigue', 'Fatigue')
-  geo_plot_vs_pem('other', 'Other')
-  geo_plot_vs_pem('autonomic', 'Autonomic')
+  geo_plot_vs_pem('Fatigue', 'Fatigue')
+  geo_plot_vs_pem('Other', 'Other')
+  geo_plot_vs_pem('Autonomic', 'Autonomic')
   geo_plot_vs_pem('nao_mean', 'NAO Geometric Mean')
   geo_plot_vs_pem('non_nao_mean', 'Non-NAO Geometric Mean')
 }

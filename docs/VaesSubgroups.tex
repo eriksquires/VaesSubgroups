@@ -559,11 +559,13 @@ with the addition of the small cluster data. Our goal was to examine if
 the small clusters could illuminate or challenge our two-group
 hypothesis.
 
-We will use Neuroendocrine, which shows the most distinct grouping
-vs.~our low- and high-intensity groups. Neuroendocrine is made up of 13
-symptoms, while PEM is made up of 9, allowing for small steps along both
-axes. Among the smallest clusters, many sit above the high-intensity
-trend, while several align closely with it.
+We re-use the Neuroendocrine vs.~PEM chart we showed above in
+Figure~\ref{fig-symptoms} as an example of how per-patient data could
+alter our findings. In Figure~\ref{fig-smallest} we overlay the original
+plot with small clusters. They sit mostly above the high-intensity
+trend, while several align closely with it. The low-intensity groups
+however remain apart from the small clusters. Other symptom domains show
+a variety of differing patterns.
 
 \begin{figure}[h]
 
@@ -577,9 +579,9 @@ trend, while several align closely with it.
 
 \end{figure}%
 
-We cannot draw strong conclusions from this chart, but it does
-illustrate the possibility that future analysis could identify new
-directions.
+We cannot draw strong conclusions from the small clusters alone, but
+they illustrate the importance of further research with per-patient
+analysis which could alter or refute our hypotheses.
 
 \FloatBarrier
 
@@ -648,6 +650,9 @@ the symptoms in the 13 clusters we:
 \begin{itemize}
 \tightlist
 \item
+  Rename symptom groups to use consistent capitalization and
+  abbreviations
+\item
   Group each cluster by symptom domain and calculate geometric means for
   each symptom domain within each cluster.
 \item
@@ -660,9 +665,9 @@ the symptoms in the 13 clusters we:
 \end{itemize}
 
 This file is what we then used for our analysis, and the plots. We
-present the final data used below. Values were rounded and abbreviations
-were used for formatting. See the \hyperref[sec-code]{Code Availability}
-section for links to the code used to generate this file.
+present the final data used below. Values were rounded for formatting.
+See the \hyperref[sec-code]{Code Availability} section for links to the
+code used to generate this file.
 
 \begin{table}[h]
 
@@ -674,53 +679,21 @@ Symptom Domain}
 \fontsize{12.0pt}{14.4pt}\selectfont
 \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrrrrrrr}
 \toprule
-Cluster & All & PEM & Fatigue & Auto & Immune & NC & NE & Pain & Other \\ 
+Cluster & All & Auto & Fatigue & Immune & NC & NE & Other & PEM & Pain \\ 
 \midrule\addlinespace[2.5pt]
-C2 & 1.21 & 2.30 & 2.79 & 0.76 & 0.53 & 1.15 & 0.67 & 0.95 & 0.27 \\ 
-C4 & 1.55 & 2.40 & 3.13 & 1.24 & 0.87 & 1.66 & 0.96 & 1.19 & 0.46 \\ 
-C7 & 1.92 & 2.85 & 3.20 & 1.48 & 1.03 & 2.32 & 1.05 & 1.94 & 0.86 \\ 
-C9 & 2.06 & 2.64 & 2.85 & 2.16 & 1.40 & 2.24 & 1.52 & 1.71 & 1.55 \\ 
-C11 & 1.42 & 2.23 & 2.94 & 1.02 & 1.08 & 1.11 & 0.64 & 1.00 & 0.33 \\ 
-C19 & 1.37 & 1.97 & 2.53 & 1.12 & 0.57 & 1.81 & 0.61 & 1.06 & 0.60 \\ 
-C24 & 1.63 & 2.50 & 2.95 & 1.44 & 0.82 & 1.52 & 0.86 & 1.53 & 0.56 \\ 
-C26 & 2.14 & 2.80 & 3.28 & 1.87 & 1.76 & 2.06 & 1.52 & 2.34 & 1.77 \\ 
-C28 & 1.03 & 1.62 & 2.50 & 0.83 & 0.56 & 0.78 & 0.60 & 0.88 & 0.30 \\ 
-C31 & 1.47 & 2.15 & 2.73 & 1.31 & 0.77 & 1.31 & 1.04 & 1.54 & 1.41 \\ 
-C36 & 2.74 & 3.35 & 3.50 & 2.59 & 2.30 & 3.08 & 2.04 & 2.73 & 2.04 \\ 
-C37 & 0.67 & 1.30 & 2.39 & 0.41 & 0.16 & 0.43 & 0.39 & 0.51 & 0.19 \\ 
-C40 & 1.21 & 1.76 & 2.80 & 0.74 & 0.52 & 0.95 & 0.82 & 1.19 & 0.67 \\ 
-C1 & 1.13 & 2.45 & 3.00 & 1.26 & 1.57 & 1.67 & 1.68 & 2.21 & 1.00 \\ 
-C3 & 1.58 & 2.96 & 3.00 & 2.00 & 3.00 & 2.32 & 2.05 & 2.05 & 3.00 \\ 
-C5 & 1.78 & 3.63 & 4.00 & 2.55 & 2.00 & 2.46 & 2.19 & 1.82 & 0.00 \\ 
-C6 & 2.01 & 2.98 & 4.00 & 2.52 & 2.70 & 2.24 & 2.54 & 2.14 & 0.00 \\ 
-C8 & 2.16 & 2.74 & 3.00 & 1.95 & 1.59 & 3.26 & 1.94 & 2.33 & 2.00 \\ 
-C10 & 1.10 & 1.68 & 1.00 & 1.91 & 0.00 & 2.10 & 1.00 & 1.64 & 0.00 \\ 
-C12 & 1.25 & 2.59 & 3.00 & 1.68 & 1.00 & 1.77 & 1.41 & 1.51 & 1.00 \\ 
-C13 & 1.58 & 2.16 & 3.00 & 1.74 & 1.19 & 2.31 & 2.16 & 1.74 & 2.00 \\ 
-C14 & 1.67 & 2.67 & 3.00 & 1.22 & 1.00 & 2.55 & 2.32 & 2.00 & 3.00 \\ 
-C15 & 1.73 & 2.62 & 3.00 & 2.25 & 1.26 & 2.42 & 1.71 & 2.21 & 0.00 \\ 
-C16 & 1.91 & 2.32 & 3.00 & 1.29 & 1.25 & 2.40 & 1.97 & 1.96 & 0.00 \\ 
-C17 & 2.23 & 3.17 & 4.00 & 2.29 & 2.05 & 1.91 & 2.21 & 2.29 & 3.00 \\ 
-C18 & 2.27 & 3.36 & 3.50 & 1.80 & 1.35 & 2.80 & 2.44 & 2.13 & 1.50 \\ 
-C20 & 1.09 & 2.46 & 3.00 & 1.75 & 0.93 & 1.19 & 1.55 & 1.80 & 0.50 \\ 
-C21 & 1.40 & 2.34 & 3.00 & 1.62 & 2.00 & 1.74 & 2.17 & 1.47 & 2.24 \\ 
-C22 & 1.46 & 2.62 & 4.00 & 1.81 & 2.29 & 1.79 & 1.91 & 2.10 & 0.00 \\ 
-C23 & 1.53 & 1.83 & 3.00 & 1.88 & 0.84 & 1.71 & 1.17 & 1.72 & 0.00 \\ 
-C25 & 1.71 & 3.22 & 4.00 & 1.46 & 1.51 & 1.74 & 2.16 & 1.93 & 0.00 \\ 
-C27 & 2.18 & 1.90 & 3.00 & 2.43 & 1.78 & 2.27 & 2.35 & 2.49 & 1.00 \\ 
-C29 & 1.32 & 2.54 & 2.00 & 1.52 & 0.00 & 1.63 & 2.14 & 2.33 & 4.00 \\ 
-C30 & 1.41 & 1.54 & 2.00 & 1.43 & 2.14 & 1.72 & 1.92 & 2.03 & 0.00 \\ 
-C32 & 1.25 & 1.90 & 3.00 & 1.12 & 1.41 & 1.05 & 1.07 & 1.49 & 1.00 \\ 
-C33 & 1.99 & 2.83 & 4.00 & 2.19 & 2.49 & 2.36 & 2.45 & 2.29 & 3.00 \\ 
-C34 & 1.65 & 2.29 & 3.00 & 1.94 & 1.86 & 2.14 & 1.17 & 1.94 & 2.00 \\ 
-C35 & 2.05 & 2.58 & 3.00 & 2.17 & 2.80 & 1.55 & 2.26 & 2.11 & 3.00 \\ 
-C38 & 0.92 & 1.00 & 2.00 & 1.25 & 1.59 & 1.35 & 1.08 & 1.81 & 0.00 \\ 
-C39 & 1.27 & 2.35 & 3.00 & 2.00 & 2.00 & 2.59 & 1.22 & 1.86 & 2.45 \\ 
-C41 & 1.16 & 2.07 & 3.00 & 1.57 & 1.26 & 1.47 & 1.62 & 1.82 & 2.00 \\ 
-C42 & 1.53 & 2.39 & 3.00 & 1.93 & 1.52 & 1.61 & 1.96 & 2.48 & 3.00 \\ 
-C43 & 1.82 & 2.10 & 2.00 & 1.97 & 2.48 & 2.05 & 2.32 & 2.14 & 3.00 \\ 
-C44 & 2.19 & 3.87 & 4.00 & 1.94 & 1.86 & 2.54 & 2.34 & 2.36 & 3.00 \\ 
-C45 & 2.35 & 3.87 & 4.00 & 2.83 & 3.17 & 2.63 & 3.32 & 3.12 & 4.00 \\ 
+C2 & 1.21 & 0.76 & 2.79 & 0.53 & 1.15 & 0.67 & 0.27 & 2.30 & 0.95 \\ 
+C4 & 1.55 & 1.24 & 3.13 & 0.87 & 1.66 & 0.96 & 0.46 & 2.40 & 1.19 \\ 
+C7 & 1.92 & 1.48 & 3.20 & 1.03 & 2.32 & 1.05 & 0.86 & 2.85 & 1.94 \\ 
+C9 & 2.06 & 2.16 & 2.85 & 1.40 & 2.24 & 1.52 & 1.55 & 2.64 & 1.71 \\ 
+C11 & 1.42 & 1.02 & 2.94 & 1.08 & 1.11 & 0.64 & 0.33 & 2.23 & 1.00 \\ 
+C19 & 1.37 & 1.12 & 2.53 & 0.57 & 1.81 & 0.61 & 0.60 & 1.97 & 1.06 \\ 
+C24 & 1.63 & 1.44 & 2.95 & 0.82 & 1.52 & 0.86 & 0.56 & 2.50 & 1.53 \\ 
+C26 & 2.14 & 1.87 & 3.28 & 1.76 & 2.06 & 1.52 & 1.77 & 2.80 & 2.34 \\ 
+C28 & 1.03 & 0.83 & 2.50 & 0.56 & 0.78 & 0.60 & 0.30 & 1.62 & 0.88 \\ 
+C31 & 1.47 & 1.31 & 2.73 & 0.77 & 1.31 & 1.04 & 1.41 & 2.15 & 1.54 \\ 
+C36 & 2.74 & 2.59 & 3.50 & 2.30 & 3.08 & 2.04 & 2.04 & 3.35 & 2.73 \\ 
+C37 & 0.67 & 0.41 & 2.39 & 0.16 & 0.43 & 0.39 & 0.19 & 1.30 & 0.51 \\ 
+C40 & 1.21 & 0.74 & 2.80 & 0.52 & 0.95 & 0.82 & 0.67 & 1.76 & 1.19 \\ 
 \bottomrule
 \end{tabular*}
 

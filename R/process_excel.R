@@ -152,10 +152,21 @@ process_excel <- function(do_large = TRUE) {
   print("Final processed data:")
   print(head(data_clean, 10))
   
+
+  # The original group names are inconsistently capitalized and 
+  # sometimes too long, let's clean this all up here.
+  data_clean <- data_clean %>%
+    mutate(Symptomgroup = case_when(
+      Symptomgroup == "neurocognitive" ~ "NC",
+      Symptomgroup == "neuroendocrine" ~ "NE",
+      Symptomgroup == "PEM" ~ "PEM",
+      TRUE ~ str_to_title(Symptomgroup)
+    ))
+      
   # Write to CSV
   write.csv(data_clean, output_file, row.names = FALSE)
   print(paste0("File written to ", output_file))
 }
 
 process_excel(do_large = TRUE)  # Process large clusters
-process_excel(do_large = TRUE) # Process small clusters
+process_excel(do_large = FALSE) # Process small clusters
