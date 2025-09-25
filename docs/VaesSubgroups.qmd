@@ -400,12 +400,11 @@ We use the Vaes cluster spreadsheet[@vaes2023_excel_large] exclusively as our da
 - Group each cluster by symptom domain and calculate geometric means for each symptom domain within each cluster.
 - Rotate the table
 - Add a new column, "all_mean" which is the arithmetic mean of all symptoms within each cluster.
-- Save this file as cluster_grouped_tidy.csv
 
-This file is what we then used for our analysis, and the plots. We present the final data used below. Values were rounded for formatting. See the [Code Availability](#sec-code) section for links to the code used to generate this file.
+We present the final data used below. Values were rounded for formatting. See the [Code Availability](#sec-code) section for links to the code used to generate this file.
 
-::: {#tbl-t3 tbl-cap="Cluster Summary Data with Geometric Means by Symptom Domain" tbl-pos="h"}
-```{r cluster_summary, include=TRUE}
+::: {#tbl-t3 tbl-cap="Large Cluster Summary Data with Geometric Means by Symptom Domain" tbl-pos="h"}
+```{r cluster_summary_large, include=TRUE}
 
 
 rounded_vcs_tidy <- vcs_tidy %>%
@@ -422,6 +421,24 @@ gt(rounded_vcs_tidy) %>%
 
 \FloatBarrier
 \clearpage
+
+::: {#tbl-t4 tbl-cap="Small Cluster Summary Data with Geometric Means by Symptom Domain" tbl-pos="h"}
+```{r cluster_summary_small, include=TRUE}
+
+
+rounded_vcs_tidy_small <- vcs_tidy %>%
+  filter(intensity_group == "small") %>%
+  select(-intensity_group) %>%
+  mutate(across(where(is.numeric), ~ round(., 2))) %>%
+  select(Cluster = cluster, All = all_mean, Auto = Autonomic, Fatigue, Immune, NC, NE, Other, PEM, Pain)
+
+
+gt(rounded_vcs_tidy_small) %>% 
+  tab_options(latex.tbl.pos = "h")
+```
+:::
+
+\FloatBarrier
 
 ## Appendix B: Statistical Descriptions {#sec-stats .unnumbered}
 
