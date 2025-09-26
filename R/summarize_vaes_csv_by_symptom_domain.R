@@ -8,7 +8,7 @@
 #
 library(tidyverse)
 library(gtools)
-library(hrbrthemes)
+
 
 # Check to see if X is a valid number, and not NaN
 is_valid_number <- function(x) {
@@ -202,7 +202,7 @@ geo_plot_vs_pem <- function(yvar, ylabel) {
     labs(title = paste(ylabel, "vs PEM"),
          x = "PEM",
          y = ylabel) +
-    theme_ipsum() +
+    theme_minimal() +
     xlim(0, 4) + ylim(0, 4)
 }
 

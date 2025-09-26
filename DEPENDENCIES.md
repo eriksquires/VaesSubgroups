@@ -33,9 +33,7 @@ install.packages(c(
   
   # Visualization
   "ggrepel",      # 0.9.6 - text/label positioning
-  "hrbrthemes",   # 0.8.7 - ggplot2 themes
   "patchwork",    # 1.3.2 - plot composition
-  "showtext",     # 0.9.7 - font management
   
   # Tables and reporting
   "gt",           # 1.0.0 - table formatting
