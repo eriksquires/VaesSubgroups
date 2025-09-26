@@ -522,7 +522,7 @@ We compare the coefficient of determination (R²) of the symptom domains in thre
 
 \FloatBarrier
 
-::: {#tbl-t4 tbl-cap="R² by Domain" tbl-pos="h"}
+::: {#tbl-t4 tbl-cap="R² by Group" tbl-pos="h"}
 ```{r r2_domain, include=TRUE}
 input_file <- here::here("data","r2_by_domain_combined_high_low.csv")
 if (!file.exists(input_file)) {
