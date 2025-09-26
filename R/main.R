@@ -4,19 +4,22 @@
 # Date: 2025-09-20
 #
 
-
+# Run from project root. 
 source_here <- function(fname) {
   source(here::here("R", fname))
 }
 
+# Delete intermediate CSV files in data/
+unlink(here::here("data", "*.csv"))
+
 #
-# Required to be first.
+# Required to be sequential.
 #
 source_here("process_excel.R")
 source_here("summarize_vaes_csv_by_symptom_domain.R")
 
 #
-# These can be rerun any time afterwards.
+# These can be run any time afterwards.
 #
 source_here("ancova_analysis.R")
 source_here("leave_one_out.R")

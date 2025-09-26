@@ -392,7 +392,7 @@ Our secondary analysis suggests that the 13 clusters identified by Vaes et al. c
 
 \FloatBarrier
 
-## Appendix A: Cluster Summary Data {#sec-cluster-data .unnumbered}
+## Appendix A: Cluster Summaries {#sec-cluster-data .unnumbered}
 
 We use the Vaes cluster spreadsheet[@vaes2023_excel_large] exclusively as our data source. We use R for significant cleaning and transformation from Excel to CSV. After removing everything but the mean severity of the symptoms in the 13 clusters we:
 
@@ -403,7 +403,7 @@ We use the Vaes cluster spreadsheet[@vaes2023_excel_large] exclusively as our da
 
 We present the final data used below. Values were rounded for formatting. See the [Code Availability](#sec-code) section for links to the code used to generate this file.
 
-::: {#tbl-t3 tbl-cap="Large Cluster Summary Data with Geometric Means by Symptom Domain" tbl-pos="h"}
+::: {#tbl-t3 tbl-cap="Large Cluster Summary" tbl-pos="h"}
 ```{r cluster_summary_large, include=TRUE}
 
 
@@ -422,7 +422,7 @@ gt(rounded_vcs_tidy) %>%
 \FloatBarrier
 \clearpage
 
-::: {#tbl-t4 tbl-cap="Small Cluster Summary Data with Geometric Means by Symptom Domain" tbl-pos="h"}
+::: {#tbl-t4 tbl-cap="Small Cluster Summary" tbl-pos="h"}
 ```{r cluster_summary_small, include=TRUE}
 
 
@@ -440,7 +440,7 @@ gt(rounded_vcs_tidy_small) %>%
 
 \FloatBarrier
 
-## Appendix B: Statistical Descriptions {#sec-stats .unnumbered}
+## Appendix B: Statistical Summaries {#sec-stats .unnumbered}
 
 In the body of the text, we used visual analysis to identify two subgroups of ME/CFS patient clusters defined by their symptom domain profiles relative to PEM severity. Here we present statistics that may help clarify the data in the plots. Given the exploratory nature of this study and the small number of clusters, these results should be interpreted as descriptive rather than confirmatory.
 
@@ -452,7 +452,7 @@ We performed an analysis of covariance (ANCOVA) to identify the domains which co
 
 \FloatBarrier
 
-::: {#tbl-t6 tbl-cap="ANCOVA Analysis" tbl-pos="h"}
+::: {#tbl-t6 tbl-cap="ANCOVA" tbl-pos="h"}
 ```{r ancova, include=TRUE}
 input_file <- here::here("data","ancova_results.csv")
 if (!file.exists(input_file)) {
@@ -476,13 +476,13 @@ ancova_results <- read_csv(here::here("data", "ancova_results.csv")) %>%
 
 \FloatBarrier
 
-### Leave-one-out Analysis {#sec-loo .unnumbered}
+### Leave-one-out {#sec-loo .unnumbered}
 
 We discovered our two groups by visual analysis, but we can re-identify the set using leave-one-out analysis. In this analysis we go through each domain and examine what happens when we remove one cluster at a time. The goal is to identify which clusters, when removed, improve R² the most.
 
 We summarize the mean R² differences, in order of greatest improvement, in @tbl-t5.
 
-::: {#tbl-t5 tbl-cap="Leave-one-out Analysis" tbl-pos="h"}
+::: {#tbl-t5 tbl-cap="Leave-one-out" tbl-pos="h"}
 ```{r loo_analysis, include=TRUE}
 input_file <- here::here("data","loo_delta_r2_by_cluster.csv")
 if (!file.exists(input_file)) {
@@ -555,9 +555,10 @@ All data manipulation and analysis scripts are available at <https://github.com/
 
 # Data Availability {#sec-data .unnumbered}
 
-A copy of the original Vaes spreadsheets are available in the GitHub repository, above, and from the original Vaes publication[@vaes2023] at <https://doi.org/10.1186/s12967-023-03946-6>.
+Source data[@vaes2023_excel_large; @vaes2023_excel_small] with cluster symptom scores is available from the original Vaes publication[@vaes2023] at <https://doi.org/10.1186/s12967-023-03946-6>
 
-All other data files are created from the original Vaes spreadsheets using the code in the GitHub repository, above.
+Intermediate files, including cluster summaries by symptom domain, are produced from the code in [Code Availability](#sec-code). Copies of the Vaes spreadsheets are also included in the repository.
+
 
 {{< pagebreak >}}
 
