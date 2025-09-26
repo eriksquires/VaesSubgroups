@@ -394,7 +394,7 @@ Our secondary analysis suggests that the 13 clusters identified by Vaes et al. c
 
 ## Appendix A: Cluster Summaries {#sec-cluster-data .unnumbered}
 
-We use the Vaes cluster spreadsheet[@vaes2023_excel_large] exclusively as our data source. We use R for significant cleaning and transformation from Excel to CSV. After removing everything but the mean severity of the symptoms in the 13 clusters we:
+We use the Vaes cluster spreadsheets[@vaes2023_excel_large; @vaes2023_excel_small] for our data. We use R for significant cleaning and transformation from Excel to CSV. After removing everything but the mean symptom severity we:
 
 - Rename symptom groups to use consistent capitalization and abbreviations
 - Group each cluster by symptom domain and calculate geometric means for each symptom domain within each cluster.
@@ -555,9 +555,9 @@ All data manipulation and analysis scripts are available at <https://github.com/
 
 # Data Availability {#sec-data .unnumbered}
 
-Source data[@vaes2023_excel_large; @vaes2023_excel_small] with cluster symptom scores is available from the original Vaes publication[@vaes2023] at <https://doi.org/10.1186/s12967-023-03946-6>
+Source data[@vaes2023_excel_large; @vaes2023_excel_small] is available from the original Vaes publication[@vaes2023] at <https://doi.org/10.1186/s12967-023-03946-6>. 
 
-Intermediate files, including cluster summaries by symptom domain, are produced from the code in [Code Availability](#sec-code). Copies of the Vaes spreadsheets are also included in the repository.
+The repository listed in the [Code Availability](#sec-code) section includes copies of the Vaes spreadsheets as well as code used to generate all intermediate files. 
 
 
 {{< pagebreak >}}
