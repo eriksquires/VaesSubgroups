@@ -531,7 +531,7 @@ We compare the coefficient of determination (R²) of the symptom domains in thre
 
 \FloatBarrier
 
-::: {#tbl-t4 tbl-cap="R² by Group" tbl-pos="h"}
+::: {#tbl-t6 tbl-cap="R² by Group" tbl-pos="h"}
 ```{r r2_domain, include=TRUE}
 input_file <- here::here("data","r2_by_domain_combined_high_low.csv")
 if (!file.exists(input_file)) {
@@ -553,7 +553,7 @@ gt(res)
 ```
 :::
 
-@tbl-t4 shows that for almost every symptom domain, the high-intensity group has a higher R² than the combined group, which in turn has a higher R² than the low-intensity group. In some cases -- such as Neurocognitive, Neuroendocrine, and Other -- the combined R² is significantly weaker than either of the subgroups.
+@tbl-t6 shows that for almost every symptom domain, the high-intensity group has a higher R² than the combined group, which in turn has a higher R² than the low-intensity group. In some cases -- such as Neurocognitive, Neuroendocrine, and Other -- the combined R² is significantly weaker than either of the subgroups.
 
 \FloatBarrier
 \bigskip
