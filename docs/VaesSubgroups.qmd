@@ -412,7 +412,7 @@ We use the Vaes cluster spreadsheets[@vaes2023_excel_large; @vaes2023_excel_smal
 
 We present the final data used below. Values were rounded for formatting. See the [Code Availability](#sec-code) section for links to the code used to generate this file.
 
-::: {#tbl-t3 tbl-cap="Large Cluster Summary" tbl-pos="h"}
+::: {#tbl-t2 tbl-cap="Large Cluster Summary" tbl-pos="h"}
 ```{r cluster_summary_large, include=TRUE}
 
 
@@ -431,7 +431,7 @@ gt(rounded_vcs_tidy) %>%
 \FloatBarrier
 \clearpage
 
-::: {#tbl-t4 tbl-cap="Small Cluster Summary" tbl-pos="h"}
+::: {#tbl-t3 tbl-cap="Small Cluster Summary" tbl-pos="h"}
 ```{r cluster_summary_small, include=TRUE}
 
 
@@ -461,7 +461,7 @@ We performed an analysis of covariance (ANCOVA) to identify the domains which co
 
 \FloatBarrier
 
-::: {#tbl-t6 tbl-cap="ANCOVA" tbl-pos="h"}
+::: {#tbl-t4 tbl-cap="ANCOVA" tbl-pos="h"}
 ```{r ancova, include=TRUE}
 input_file <- here::here("data","ancova_results.csv")
 if (!file.exists(input_file)) {
@@ -481,7 +481,7 @@ ancova_results <- read_csv(here::here("data", "ancova_results.csv")) %>%
 ```
 :::
 
-@tbl-t6 shows agreement with the charts that Other, Neuroendocrine and Autonomic domains show the most significant offsets between the two groups. The high F-statistic and low p-value for Fatigue, however, do not agree with the regression lines. As we note earlier in @sec-similar, the lines in @fig-fatigue are nearly identical but R² is significantly weaker in the low-intensity group. The high F-statistic and low p-value in the ANCOVA analysis for fatigue is most likely an artifact of the wide spread and small sample count in the low-intensity group.
+@tbl-t4 shows agreement with the charts that Other, Neuroendocrine and Autonomic domains show the most significant offsets between the two groups. The high F-statistic and low p-value for Fatigue, however, do not agree with the regression lines. As we note earlier in @sec-similar, the lines in @fig-fatigue are nearly identical but R² is significantly weaker in the low-intensity group. The high F-statistic and low p-value in the ANCOVA analysis for fatigue is most likely an artifact of the wide spread and small sample count in the low-intensity group.
 
 \FloatBarrier
 
