@@ -14,6 +14,7 @@ secnumdepth: 2
 number-sections: true
 format:
   html:
+    embed-resources: true
     toc: true
     toc-title: "Contents"
     toc-depth: 2
