@@ -1,7 +1,7 @@
 ---
 title: "Analysis of Potential Subgroups in Vaes ME/CFS Patient Clusters"
 author: "Erik Squires"
-date: "September 13, 2025"
+date: "September 28, 2025"
 bibliography: references.bib
 csl: nature.csl
 citeproc: true
@@ -13,6 +13,14 @@ toc-depth: 2
 secnumdepth: 2
 number-sections: true
 format:
+  html:
+    toc: true
+    toc-title: "Contents"
+    toc-depth: 2
+    code-fold: true
+    code-summary: "Show/Hide Code"
+    theme: cosmo
+    css: styles.css
   pdf:
     toc-depth: 2
     include-in-header:
@@ -26,8 +34,8 @@ format:
         \setlength\LTpost{0pt}
     keep-tex: true
     pdf-engine: xelatex
-lof: false   # list of figures
-lot: false   # list of tables
+    lof: false   # list of figures
+    lot: false   # list of tables
 execute:
   echo: false
   warning: false

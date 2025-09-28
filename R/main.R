@@ -32,7 +32,9 @@ source_here("r2_by_domain.R")
 #
 # Render PDF report.
 #
-quarto::quarto_render(here::here("docs", "VaesSubgroups.qmd"))
+q_doc <- here::here("docs", "VaesSubgroups.qmd")
+quarto::quarto_render(q_doc, output_format = "pdf")
+quarto::quarto_render(q_doc, output_format = "html")
 
 # Not usually needed.  
 # quarto::quarto_render(here::here("docs", "VaesSubgroups.qmd"), cache_refresh = TRUE)

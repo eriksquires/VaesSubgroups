@@ -1,0 +1,3978 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.34">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Erik Squires">
+<meta name="dcterms.date" content="2025-09-28">
+
+<title>Analysis of Potential Subgroups in Vaes ME/CFS Patient Clusters</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="VaesSubgroups_files/libs/clipboard/clipboard.min.js"></script>
+<script src="VaesSubgroups_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="VaesSubgroups_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="VaesSubgroups_files/libs/quarto-html/popper.min.js"></script>
+<script src="VaesSubgroups_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="VaesSubgroups_files/libs/quarto-html/anchor.min.js"></script>
+<link href="VaesSubgroups_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="VaesSubgroups_files/libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="VaesSubgroups_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="VaesSubgroups_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="VaesSubgroups_files/libs/bootstrap/bootstrap-815e46ea27ce3b57c51d5d5b6a5f6380.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract">Abstract</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#sec-symptoms" id="toc-sec-symptoms" class="nav-link" data-scroll-target="#sec-symptoms"><span class="header-section-number">2</span> Symptom Domains Relative to PEM</a>
+  <ul class="collapse">
+  <li><a href="#sec-similar" id="toc-sec-similar" class="nav-link" data-scroll-target="#sec-similar"><span class="header-section-number">2.1</span> Similarities</a></li>
+  <li><a href="#sec-different" id="toc-sec-different" class="nav-link" data-scroll-target="#sec-different"><span class="header-section-number">2.2</span> Converging Patterns Relative to PEM</a></li>
+  <li><a href="#weak-correlations-relative-to-pem" id="toc-weak-correlations-relative-to-pem" class="nav-link" data-scroll-target="#weak-correlations-relative-to-pem"><span class="header-section-number">2.3</span> Weak Correlations Relative to PEM</a></li>
+  <li><a href="#summary-of-differences" id="toc-summary-of-differences" class="nav-link" data-scroll-target="#summary-of-differences"><span class="header-section-number">2.4</span> Summary of Differences</a></li>
+  </ul></li>
+  <li><a href="#sec-li" id="toc-sec-li" class="nav-link" data-scroll-target="#sec-li"><span class="header-section-number">3</span> Exploring the Low-intensity Subgroup</a></li>
+  <li><a href="#sec-small" id="toc-sec-small" class="nav-link" data-scroll-target="#sec-small"><span class="header-section-number">4</span> Characteristics of the Smallest Clusters</a></li>
+  <li><a href="#sec-discuss" id="toc-sec-discuss" class="nav-link" data-scroll-target="#sec-discuss"><span class="header-section-number">5</span> Discussion</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">6</span> Conclusion</a></li>
+  <li><a href="#appendices" id="toc-appendices" class="nav-link" data-scroll-target="#appendices"><span class="header-section-number">7</span> Appendices</a>
+  <ul class="collapse">
+  <li><a href="#sec-cluster-data" id="toc-sec-cluster-data" class="nav-link" data-scroll-target="#sec-cluster-data">Appendix A: Cluster Summaries</a></li>
+  <li><a href="#sec-stats" id="toc-sec-stats" class="nav-link" data-scroll-target="#sec-stats">Appendix B: Statistical Summaries</a></li>
+  </ul></li>
+  <li><a href="#sec-code" id="toc-sec-code" class="nav-link" data-scroll-target="#sec-code">Code Availability</a></li>
+  <li><a href="#sec-data" id="toc-sec-data" class="nav-link" data-scroll-target="#sec-data">Data Availability</a></li>
+  <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements">Acknowledgements</a></li>
+  <li><a href="#author-contributions" id="toc-author-contributions" class="nav-link" data-scroll-target="#author-contributions">Author Contributions</a></li>
+  <li><a href="#competing-interests" id="toc-competing-interests" class="nav-link" data-scroll-target="#competing-interests">Competing Interests</a></li>
+  <li><a href="#funding" id="toc-funding" class="nav-link" data-scroll-target="#funding">Funding</a></li>
+  <li><a href="#ethics-statement" id="toc-ethics-statement" class="nav-link" data-scroll-target="#ethics-statement">Ethics Statement</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="../VaesSubgroups.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Analysis of Potential Subgroups in Vaes ME/CFS Patient Clusters</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Erik Squires </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 28, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Affiliation: Independent Researcher</p>
+<p>ORCID: 0009-0000-3843-4953</p>
+<p>Email: esquires.research@proton.me</p>
+<section id="abstract" class="level1 unnumbered">
+<h1 class="unnumbered">Abstract</h1>
+<p><strong>Background:</strong> Vaes et al.&nbsp;(2023)<span class="citation" data-cites="vaes2023"><sup><a href="#ref-vaes2023" role="doc-biblioref">1</a></sup></span> identified 13 symptom clusters in a large cohort of ME/CFS patients. Symptom intensity is broadly correlated with post-exertional malaise (PEM) severity, with variation across clusters that seems disorganized. Despite this research, no broadly accepted organizing principle has emerged from this paper or other attempts at phenotyping ME/CFS.</p>
+<p><strong>Objective:</strong> To identify and characterize potential subgroups defined by symptom domain severity relative to PEM within the original Vaes symptom clusters.</p>
+<p><strong>Methods:</strong> We analyzed the Vaes cluster summary data<span class="citation" data-cites="vaes2023_excel_large"><sup><a href="#ref-vaes2023_excel_large" role="doc-biblioref">2</a></sup></span>, calculated geometric means for each symptom domain within each cluster, and plotted these means against PEM severity to identify patterns and subgroups.</p>
+<p><strong>Results:</strong> Our analysis identified two groups of patient clusters with distinct symptom-domain profiles. Anchoring symptom domains to PEM collapses the 13 Vaes clusters into two reproducible families: one characterized by parallel offsets (Autonomic, Neuroendocrine, Other) and one by amplified slopes (Pain, Neurocognitive), with convergence at higher PEM levels after accounting for a single influential cluster. This subgroup’s symptom trends could align with those of fibromyalgia. Further exploration with individual patient data is needed to validate these findings.</p>
+<p><strong>Keywords:</strong> Myalgic Encephalomyelitis, ME/CFS, patient clustering, fibromyalgia, post-exertional malaise, PEM</p>
+<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="introduction" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
+<p>Dr.&nbsp;Anouk W. Vaes and her collaborators at CIRO performed one of the largest systematic surveys of ME/CFS symptom patterns, applying clustering methods to patient-reported outcomes to identify recurring constellations of symptoms<span class="citation" data-cites="vaes2023"><sup><a href="#ref-vaes2023" role="doc-biblioref">1</a></sup></span>. They used symptom surveys based on the DePaul Symptom Questionnaire version 2 (DSQ-2) from 337 patients to identify a total of 45 patient clusters, of which 13 were of size <span class="math inline">\(\geq\)</span> 10 while the remaining were of size <span class="math inline">\(\leq\)</span> 2 and approximately 9.4% of the total cohort. We used the publicly available data of their final 13 clusters for most of the analysis<span class="citation" data-cites="vaes2023_excel_large"><sup><a href="#ref-vaes2023_excel_large" role="doc-biblioref">2</a></sup></span> but we discuss the small clusters in <a href="#sec-small" class="quarto-xref">Section&nbsp;4</a>.</p>
+<p>While Vaes described each cluster, and noted some differences among symptom severity, an overall organizing principle was not proposed. Here we examine whether one might emerge from that dataset.</p>
+<p>Our analysis suggests that the Vaes ME/CFS clusters can be organized into two overarching families defined by their relationship to PEM. This reduces the complexity of the cluster symptom intensities and highlights a subgroup within the Vaes clusters that has not been explicitly recognized in prior work. Once separated and profiled, this subgroup shows amplified PEM per symptom domain, consistent with current research on ME/CFS and fibromyalgia comorbidity. This paper invites further investigation with patient-level symptom data to validate or refute these findings and clarify their clinical and biological relevance.</p>
+<p>Our central contribution is a PEM-referenced decomposition that reduces the Vaes clusters to two linear families (offsets vs.&nbsp;amplification) and explains much of the apparent heterogeneity.</p>
+</section>
+<section id="sec-symptoms" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Symptom Domains Relative to PEM</h1>
+<p>The strong weight of PEM symptoms makes the Vaes dataset tricky to interpret if you only look at raw intensity, so instead we compared overall symptom levels to PEM severity. From this comparison we identified two groups of clusters that maintain their integrity across most symptom domains. This PEM-anchored view is the organizing principle for all results that follow.</p>
+<p>Because these analyses are exploratory and based on cluster-level data, the patterns described below should be interpreted as hypothesis-generating.</p>
+<p>We first examine the areas of most similarity before highlighting how they differ. We add an “all” category to gauge overall symptom severity to the original symptom domains. Our use of the terms “high-intensity” and “low-intensity” does not reproduce the clusters described by Vaes or others but reflects a new organization based on how symptom domains scale with PEM. Vaes used the DePaul symptom groupings which we keep as-is.</p>
+<p><strong>Notes:</strong> The DSQ-2 uses a single symptom for Fatigue. Also, for the “Overall” chart we used the arithmetic mean instead of geometric mean for the Y axis. All other graphs in this study use geometric means exclusively. Shaded bands represent the 95% confidence interval of the linear models when used. While this section focuses on visual inspection, we provide more statistical descriptions in <a href="#sec-stats">Appendix B</a>.</p>
+<section id="sec-similar" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="sec-similar"><span class="header-section-number">2.1</span> Similarities</h2>
+<p>In terms of Fatigue, the two groups overlap completely, as ME/CFS patient clusters are expected to. See <a href="#fig-fatigue" class="quarto-xref">Figure&nbsp;1</a>, below. While the lines have a similar slope and offset we note the R² value is significantly weaker in the low-intensity group (0.54 vs.&nbsp;0.86).</p>
+<div id="fig-fatigue" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="h">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fatigue-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="VaesSubgroups_files/figure-html/fatigue-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fatigue-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Fatigue vs.&nbsp;PEM
+</figcaption>
+</figure>
+</div>
+<p>While Fatigue shows complete overlap in our groups the next charts (<a href="#fig-symptoms" class="quarto-xref">Figure&nbsp;2</a>) show how they stand out. In the first chart (top left) we compare the average of all symptoms to PEM. In this chart one can easily discern two tiers of clusters. One has a higher overall symptom burden at any given PEM level compared to the other and this relationship is where we derive the names for our groups: high and low-intensity.</p>
+<p>Autonomic, Neuroendocrine and Other also follow a similar pattern: Parallel but lower than the high-intensity group.</p>
+<p>We note that the limited range of PEM severity in the low-intensity group (<span class="math inline">\(\approx 2.2\)</span> to 2.9) may have otherwise caused it to remain undetected.</p>
+<div id="fig-symptoms" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="h">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-symptoms-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="VaesSubgroups_files/figure-html/all_symptoms-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-symptoms-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Similar Symptom Domains vs.&nbsp;PEM
+</figcaption>
+</figure>
+</div>
+<p><strong>Groupings:</strong> From visual inspection of the charts above we group clusters C9, C19, C26, C28, C31, C36, C37, C40 as high-intensity, C2, C4, C7, C11, C24 as low-intensity. We’ll keep these groupings for all plots that follow. The high and low groups are approximately 54.5% and 45.5% of the total cohort, respectively. We further discuss our grouping choices in <a href="#sec-loo">Leave-one-out Analysis</a>. We group C36 with the high-intensity clusters, but it is also an outlier for the entire cohort, and discuss this further in <a href="#sec-different" class="quarto-xref">Section&nbsp;2.2</a>.</p>
+<p>The last chart (Other vs.&nbsp;PEM) shows a markedly lower offset and is perhaps the most visibly obvious difference between the two groups. Unfortunately, ‘Other’ only has two symptoms: sensitivity to mold and vibration which might make it a poor candidate for per-patient validation.</p>
+<p>While the groups maintain integrity, the parallelism observed in the charts above does not hold in the next charts and suggests a more complex physiological cause for the differences.</p>
+</section>
+<section id="sec-different" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="sec-different"><span class="header-section-number">2.2</span> Converging Patterns Relative to PEM</h2>
+<p>Pain and Neurocognitive domains show that while the low-intensity group remains offset, as PEM severity increases to 3, the two lines converge. Arguably, this is either increased amplification, or a reduction of differences around C26. This distinct convergence between the two cluster groups does not appear in any of the other symptom domains.</p>
+<div id="fig-pain" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="h">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="VaesSubgroups_files/figure-html/neuro_c_symptoms-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Pain and Neurocognitive vs.&nbsp;PEM
+</figcaption>
+</figure>
+</div>
+<p>Without C36, the cohort outlier, the upper limits of PEM, Neurocognitive and Pain would converge around where C7 (low-intensity) and C26 (high-intensity) meet. Vaes et al.&nbsp;note that the participants in C36 “had the highest symptom burden (i.e.&nbsp;highest frequency and severity of symptoms)”<span class="citation" data-cites="vaes2023"><sup><a href="#ref-vaes2023" role="doc-biblioref">1</a></sup></span> and all of the charts in this study are consistent with that observation.</p>
+</section>
+<section id="weak-correlations-relative-to-pem" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="weak-correlations-relative-to-pem"><span class="header-section-number">2.3</span> Weak Correlations Relative to PEM</h2>
+<p>In all of the previous charts we’ve shown that both groups maintain a strong but distinct relationship to PEM. By contrast, the Immune and Sleep domains show little to no correlation with PEM severity in the low-intensity group. Notably, despite this lack of correlation, sleep disturbance can be pronounced in the low-intensity group.</p>
+<div id="fig-distinct" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="h">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-distinct-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="VaesSubgroups_files/figure-html/immune_symptoms-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-distinct-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Immune and Sleep vs.&nbsp;PEM
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="summary-of-differences" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="summary-of-differences"><span class="header-section-number">2.4</span> Summary of Differences</h2>
+<p><strong>High-intensity:</strong> Has a consistent amplification pattern: as PEM increases, all other symptom domains rise together.</p>
+<p><strong>Low-intensity:</strong> Presents a more selective profile. Pain, and Neurocognitive symptoms start low but converge with the high-intensity group, while Sleep and Immune symptoms show low correlation. Additionally, the low-intensity group is notably nestled in the middle of the overall PEM range which could allow it to hide among the other clusters if not actively searched for.</p>
+<p>We summarize these differences in the table below.</p>
+<div id="tbl-t1" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-pos="h">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-t1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Summary of Group Differences
+</figcaption>
+<div aria-describedby="tbl-t1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 21%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>High group</th>
+<th>Low group</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Overall vs.&nbsp;PEM</td>
+<td>Higher</td>
+<td>Lower - esp.&nbsp;“Other”</td>
+</tr>
+<tr class="even">
+<td>Fatigue</td>
+<td>R² - 0.86</td>
+<td>Weaker R² - 0.54</td>
+</tr>
+<tr class="odd">
+<td>PEM range</td>
+<td><span class="math inline">\(\approx 1.3\)</span> – 3.4</td>
+<td>Narrower <span class="math inline">\(\approx 2.2\)</span> – 2.9</td>
+</tr>
+<tr class="even">
+<td>Neurocognitive</td>
+<td>Tracks PEM</td>
+<td>Elevated amplification</td>
+</tr>
+<tr class="odd">
+<td>Pain</td>
+<td>Tracks PEM</td>
+<td>Elevated amplification</td>
+</tr>
+<tr class="even">
+<td>Immune</td>
+<td>Tracks PEM</td>
+<td>Flat at <span class="math inline">\(\approx 1\)</span></td>
+</tr>
+<tr class="odd">
+<td>Sleep</td>
+<td>Tracks PEM</td>
+<td><span class="math inline">\(\approx 1.4\)</span> – 2.5, but uncorrelated</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p><strong>Symptom Severity:</strong> In terms of overall symptom range the two groups largely overlap. The high-intensity group, by symptom intensity alone, could be considered a superset of the low-intensity group. It is the differing relationships to PEM and the selective amplification of Pain and Neurocognitive symptom domains in the low-intensity group that set the two groups apart. We discuss this further in <a href="#sec-li" class="quarto-xref">Section&nbsp;3</a>, below.</p>
+</section>
+</section>
+<section id="sec-li" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Exploring the Low-intensity Subgroup</h1>
+<p>Based on the trends noted in <a href="#sec-symptoms" class="quarto-xref">Section&nbsp;2</a>, a discussion of whether the low-intensity group could relate to fibromyalgia is warranted. We note that Vaes et al.<span class="citation" data-cites="vaes2023"><sup><a href="#ref-vaes2023" role="doc-biblioref">1</a></sup></span> did not model fibromyalgia diagnoses, nor did they report excluding patients with fibromyalgia from their cohort. We cannot assert that the subgroup is clinically fibromyalgia, only that its domain profile aligns with what would be expected if fibromyalgia were present within this cohort.</p>
+<p>Patterns in the low-intensity group have higher PEM burdens for all symptom domains except Immune and Sleep, which are uncorrelated with PEM. Further, Neurocognitive and Pain regression lines are amplified.</p>
+<p>Vaes et al.<span class="citation" data-cites="vaes2023"><sup><a href="#ref-vaes2023" role="doc-biblioref">1</a></sup></span> recruited participants who self-reported ME/CFS and later mapped them to multiple case definitions, yielding a broad spectrum of clinical presentations:</p>
+<blockquote class="blockquote">
+<p>Almost 90% of the participants fulfilled the Fukuda case definition, compared to 80%, 59% and 39% fulfilling the IOM, CCC and ME-ICC case definitions, respectively. More than a quarter of the participants met the criteria for all four different case definitions, whilst 5% of the participants met none of the abovementioned case definitions,…</p>
+</blockquote>
+<p>This breadth makes mixed phenotypes plausible. Independent evidence also indicates that fibromyalgia frequently co-occurs with ME/CFS<span class="citation" data-cites="fall2024mcam ramirez2022overlap"><sup><a href="#ref-fall2024mcam" role="doc-biblioref">3</a>,<a href="#ref-ramirez2022overlap" role="doc-biblioref">4</a></sup></span>, and comorbidity has been associated with more frequent and severe PEM in ME/CFS patients<span class="citation" data-cites="mcmanimen2017pem"><sup><a href="#ref-mcmanimen2017pem" role="doc-biblioref">5</a></sup></span>, which could explain the subgroup’s right-shift along the PEM axis.</p>
+<p>Because the Vaes analysis used cluster-level summaries and did not model comorbidities, we cannot identify fibromyalgia directly here. Confirmation would require patient-level data we do not have access to.</p>
+</section>
+<section id="sec-small" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Characteristics of the Smallest Clusters</h1>
+<p>Vaes et al.<span class="citation" data-cites="vaes2023"><sup><a href="#ref-vaes2023" role="doc-biblioref">1</a></sup></span> identified 13 large<span class="citation" data-cites="vaes2023_excel_large"><sup><a href="#ref-vaes2023_excel_large" role="doc-biblioref">2</a></sup></span> and 32 small clusters<span class="citation" data-cites="vaes2023_excel_small"><sup><a href="#ref-vaes2023_excel_small" role="doc-biblioref">6</a></sup></span>. These were mostly of size 1, with 4 clusters of size 2 and represent approximately 9.4% of the cohort. We used similar charts to those in <a href="#sec-symptoms" class="quarto-xref">Section&nbsp;2</a> with the addition of the small cluster data. Our goal was to examine if the small clusters could illuminate or challenge our two-group hypothesis.</p>
+<p>We re-use the Neuroendocrine vs.&nbsp;PEM chart we showed above in <a href="#fig-symptoms" class="quarto-xref">Figure&nbsp;2</a> as an example of how per-patient data could alter our findings. In <a href="#fig-smallest" class="quarto-xref">Figure&nbsp;5</a> we overlay the original plot with small clusters. They sit mostly above the high-intensity trend, while several align closely with it. The low-intensity groups however remain apart from the small clusters. Other symptom domains show a variety of differing patterns.</p>
+<div id="fig-smallest" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="h">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-smallest-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="VaesSubgroups_files/figure-html/neuro_e_small_clusters-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-smallest-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: Neuroendocrine vs.&nbsp;PEM with Small Clusters
+</figcaption>
+</figure>
+</div>
+<p>We cannot draw strong conclusions from the small clusters alone, but they illustrate the importance of further research with per-patient analysis which could alter or refute our hypotheses.</p>
+</section>
+<section id="sec-discuss" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Discussion</h1>
+<p>We have shown that the Vaes clusters can be organized into two subgroups defined by symptom domains relative to PEM, and that these subgroups remain consistent across most domains. Grouping them by their relationship to PEM simplifies the original complexity at both the domain and cluster levels. From this perspective, the 13 Vaes clusters can be reduced to two groups of linear models, where membership in one group combined with PEM intensity allows inference of the intensity of other symptom domains. We view this PEM-referenced, two-family reduction (offsets vs.&nbsp;amplification, with C36 sensitivity at the high end) as the main conceptual advance over prior descriptions of the Vaes clusters.</p>
+<p>While these patterns are striking, our analysis is a secondary exploration based on symptom-domain summaries of the Vaes patient data. The small subgroup sizes (eight and five clusters) together with the original clustering approach and our own visualizations may have produced trends that are purely artifacts of layering our visualizations on top. These concerns highlight the need for validation before our findings can be clinically relevant.</p>
+<p>We see challenges in at least three areas: whether the groupings hold when tested with individual patient data; whether symptom-domain analysis can reliably identify the group to which a given patient belongs; and how these subgroups relate—or fail to relate—to fibromyalgia. As an example, Vaes<span class="citation" data-cites="vaes2023"><sup><a href="#ref-vaes2023" role="doc-biblioref">1</a></sup></span> includes cluster-specific summaries of standout symptoms; some of those align with our domain-based charts while others show a different emphasis, demonstrating the challenge of reconciling symptom-level observations with domain-level analyses.</p>
+<p>Despite these limitations, we believe further investigation could clarify whether these axes yield clinically useful patient groupings. A simplified narrative that organizes patients on a few axes could help clinicians and researchers better understand the heterogeneity of ME/CFS.</p>
+</section>
+<section id="conclusion" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Conclusion</h1>
+<p>Our secondary analysis suggests that the 13 clusters identified by Vaes et al.&nbsp;can be organized into two broader structures defined by overall symptom intensity relative to PEM severity. These two groups remain coherent across symptom domains and display distinct, largely linear relationships with PEM. Although exploratory and limited to cluster-level data, these findings offer a reproducible framework for further research, specifically for validating these potential subgroups and exploring their clinical and biological relevance.</p>
+</section>
+<section id="appendices" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Appendices</h1>
+<section id="sec-cluster-data" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="sec-cluster-data">Appendix A: Cluster Summaries</h2>
+<p>We use the Vaes cluster spreadsheets<span class="citation" data-cites="vaes2023_excel_large vaes2023_excel_small"><sup><a href="#ref-vaes2023_excel_large" role="doc-biblioref">2</a>,<a href="#ref-vaes2023_excel_small" role="doc-biblioref">6</a></sup></span> for our data. We use R for significant cleaning and transformation from Excel to CSV. After removing everything but the mean symptom severity we:</p>
+<ul>
+<li>Rename symptom groups to use consistent capitalization and abbreviations</li>
+<li>Group each cluster by symptom domain and calculate geometric means for each symptom domain within each cluster.</li>
+<li>Rotate the table</li>
+<li>Add a new column, “all_mean” which is the arithmetic mean of all symptoms within each cluster.</li>
+</ul>
+<p>We present the final data used below. Values were rounded for formatting. See the <a href="#sec-code">Code Availability</a> section for links to the code used to generate this file.</p>
+<div id="tbl-t3" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-pos="h">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-t3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Large Cluster Summary
+</figcaption>
+<div aria-describedby="tbl-t3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell">
+<div class="cell-output-display">
+<div id="cnnmiophmu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#cnnmiophmu table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#cnnmiophmu thead, #cnnmiophmu tbody, #cnnmiophmu tfoot, #cnnmiophmu tr, #cnnmiophmu td, #cnnmiophmu th {
+  border-style: none;
+}
+
+#cnnmiophmu p {
+  margin: 0;
+  padding: 0;
+}
+
+#cnnmiophmu .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#cnnmiophmu .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#cnnmiophmu .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#cnnmiophmu .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#cnnmiophmu .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#cnnmiophmu .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#cnnmiophmu .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#cnnmiophmu .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#cnnmiophmu .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#cnnmiophmu .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#cnnmiophmu .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#cnnmiophmu .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#cnnmiophmu .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#cnnmiophmu .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#cnnmiophmu .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#cnnmiophmu .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#cnnmiophmu .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#cnnmiophmu .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#cnnmiophmu .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cnnmiophmu .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#cnnmiophmu .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#cnnmiophmu .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#cnnmiophmu .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cnnmiophmu .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#cnnmiophmu .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#cnnmiophmu .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#cnnmiophmu .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cnnmiophmu .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#cnnmiophmu .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#cnnmiophmu .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#cnnmiophmu .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#cnnmiophmu .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#cnnmiophmu .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cnnmiophmu .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#cnnmiophmu .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cnnmiophmu .gt_left {
+  text-align: left;
+}
+
+#cnnmiophmu .gt_center {
+  text-align: center;
+}
+
+#cnnmiophmu .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#cnnmiophmu .gt_font_normal {
+  font-weight: normal;
+}
+
+#cnnmiophmu .gt_font_bold {
+  font-weight: bold;
+}
+
+#cnnmiophmu .gt_font_italic {
+  font-style: italic;
+}
+
+#cnnmiophmu .gt_super {
+  font-size: 65%;
+}
+
+#cnnmiophmu .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#cnnmiophmu .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#cnnmiophmu .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#cnnmiophmu .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#cnnmiophmu .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#cnnmiophmu .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#cnnmiophmu .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#cnnmiophmu .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#cnnmiophmu div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="Cluster" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Cluster</th>
+<th id="All" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">All</th>
+<th id="Auto" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Auto</th>
+<th id="Fatigue" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Fatigue</th>
+<th id="Immune" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Immune</th>
+<th id="NC" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">NC</th>
+<th id="NE" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">NE</th>
+<th id="Other" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Other</th>
+<th id="PEM" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">PEM</th>
+<th id="Pain" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Pain</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Cluster">C2</td>
+<td class="gt_row gt_right" headers="All">1.21</td>
+<td class="gt_row gt_right" headers="Auto">0.76</td>
+<td class="gt_row gt_right" headers="Fatigue">2.79</td>
+<td class="gt_row gt_right" headers="Immune">0.53</td>
+<td class="gt_row gt_right" headers="NC">1.15</td>
+<td class="gt_row gt_right" headers="NE">0.67</td>
+<td class="gt_row gt_right" headers="Other">0.27</td>
+<td class="gt_row gt_right" headers="PEM">2.30</td>
+<td class="gt_row gt_right" headers="Pain">0.95</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Cluster">C4</td>
+<td class="gt_row gt_right" headers="All">1.55</td>
+<td class="gt_row gt_right" headers="Auto">1.24</td>
+<td class="gt_row gt_right" headers="Fatigue">3.13</td>
+<td class="gt_row gt_right" headers="Immune">0.87</td>
+<td class="gt_row gt_right" headers="NC">1.66</td>
+<td class="gt_row gt_right" headers="NE">0.96</td>
+<td class="gt_row gt_right" headers="Other">0.46</td>
+<td class="gt_row gt_right" headers="PEM">2.40</td>
+<td class="gt_row gt_right" headers="Pain">1.19</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Cluster">C7</td>
+<td class="gt_row gt_right" headers="All">1.92</td>
+<td class="gt_row gt_right" headers="Auto">1.48</td>
+<td class="gt_row gt_right" headers="Fatigue">3.20</td>
+<td class="gt_row gt_right" headers="Immune">1.03</td>
+<td class="gt_row gt_right" headers="NC">2.32</td>
+<td class="gt_row gt_right" headers="NE">1.05</td>
+<td class="gt_row gt_right" headers="Other">0.86</td>
+<td class="gt_row gt_right" headers="PEM">2.85</td>
+<td class="gt_row gt_right" headers="Pain">1.94</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Cluster">C9</td>
+<td class="gt_row gt_right" headers="All">2.06</td>
+<td class="gt_row gt_right" headers="Auto">2.16</td>
+<td class="gt_row gt_right" headers="Fatigue">2.85</td>
+<td class="gt_row gt_right" headers="Immune">1.40</td>
+<td class="gt_row gt_right" headers="NC">2.24</td>
+<td class="gt_row gt_right" headers="NE">1.52</td>
+<td class="gt_row gt_right" headers="Other">1.55</td>
+<td class="gt_row gt_right" headers="PEM">2.64</td>
+<td class="gt_row gt_right" headers="Pain">1.71</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Cluster">C11</td>
+<td class="gt_row gt_right" headers="All">1.42</td>
+<td class="gt_row gt_right" headers="Auto">1.02</td>
+<td class="gt_row gt_right" headers="Fatigue">2.94</td>
+<td class="gt_row gt_right" headers="Immune">1.08</td>
+<td class="gt_row gt_right" headers="NC">1.11</td>
+<td class="gt_row gt_right" headers="NE">0.64</td>
+<td class="gt_row gt_right" headers="Other">0.33</td>
+<td class="gt_row gt_right" headers="PEM">2.23</td>
+<td class="gt_row gt_right" headers="Pain">1.00</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Cluster">C19</td>
+<td class="gt_row gt_right" headers="All">1.37</td>
+<td class="gt_row gt_right" headers="Auto">1.12</td>
+<td class="gt_row gt_right" headers="Fatigue">2.53</td>
+<td class="gt_row gt_right" headers="Immune">0.57</td>
+<td class="gt_row gt_right" headers="NC">1.81</td>
+<td class="gt_row gt_right" headers="NE">0.61</td>
+<td class="gt_row gt_right" headers="Other">0.60</td>
+<td class="gt_row gt_right" headers="PEM">1.97</td>
+<td class="gt_row gt_right" headers="Pain">1.06</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Cluster">C24</td>
+<td class="gt_row gt_right" headers="All">1.63</td>
+<td class="gt_row gt_right" headers="Auto">1.44</td>
+<td class="gt_row gt_right" headers="Fatigue">2.95</td>
+<td class="gt_row gt_right" headers="Immune">0.82</td>
+<td class="gt_row gt_right" headers="NC">1.52</td>
+<td class="gt_row gt_right" headers="NE">0.86</td>
+<td class="gt_row gt_right" headers="Other">0.56</td>
+<td class="gt_row gt_right" headers="PEM">2.50</td>
+<td class="gt_row gt_right" headers="Pain">1.53</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Cluster">C26</td>
+<td class="gt_row gt_right" headers="All">2.14</td>
+<td class="gt_row gt_right" headers="Auto">1.87</td>
+<td class="gt_row gt_right" headers="Fatigue">3.28</td>
+<td class="gt_row gt_right" headers="Immune">1.76</td>
+<td class="gt_row gt_right" headers="NC">2.06</td>
+<td class="gt_row gt_right" headers="NE">1.52</td>
+<td class="gt_row gt_right" headers="Other">1.77</td>
+<td class="gt_row gt_right" headers="PEM">2.80</td>
+<td class="gt_row gt_right" headers="Pain">2.34</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Cluster">C28</td>
+<td class="gt_row gt_right" headers="All">1.03</td>
+<td class="gt_row gt_right" headers="Auto">0.83</td>
+<td class="gt_row gt_right" headers="Fatigue">2.50</td>
+<td class="gt_row gt_right" headers="Immune">0.56</td>
+<td class="gt_row gt_right" headers="NC">0.78</td>
+<td class="gt_row gt_right" headers="NE">0.60</td>
+<td class="gt_row gt_right" headers="Other">0.30</td>
+<td class="gt_row gt_right" headers="PEM">1.62</td>
+<td class="gt_row gt_right" headers="Pain">0.88</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Cluster">C31</td>
+<td class="gt_row gt_right" headers="All">1.47</td>
+<td class="gt_row gt_right" headers="Auto">1.31</td>
+<td class="gt_row gt_right" headers="Fatigue">2.73</td>
+<td class="gt_row gt_right" headers="Immune">0.77</td>
+<td class="gt_row gt_right" headers="NC">1.31</td>
+<td class="gt_row gt_right" headers="NE">1.04</td>
+<td class="gt_row gt_right" headers="Other">1.41</td>
+<td class="gt_row gt_right" headers="PEM">2.15</td>
+<td class="gt_row gt_right" headers="Pain">1.54</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Cluster">C36</td>
+<td class="gt_row gt_right" headers="All">2.74</td>
+<td class="gt_row gt_right" headers="Auto">2.59</td>
+<td class="gt_row gt_right" headers="Fatigue">3.50</td>
+<td class="gt_row gt_right" headers="Immune">2.30</td>
+<td class="gt_row gt_right" headers="NC">3.08</td>
+<td class="gt_row gt_right" headers="NE">2.04</td>
+<td class="gt_row gt_right" headers="Other">2.04</td>
+<td class="gt_row gt_right" headers="PEM">3.35</td>
+<td class="gt_row gt_right" headers="Pain">2.73</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Cluster">C37</td>
+<td class="gt_row gt_right" headers="All">0.67</td>
+<td class="gt_row gt_right" headers="Auto">0.41</td>
+<td class="gt_row gt_right" headers="Fatigue">2.39</td>
+<td class="gt_row gt_right" headers="Immune">0.16</td>
+<td class="gt_row gt_right" headers="NC">0.43</td>
+<td class="gt_row gt_right" headers="NE">0.39</td>
+<td class="gt_row gt_right" headers="Other">0.19</td>
+<td class="gt_row gt_right" headers="PEM">1.30</td>
+<td class="gt_row gt_right" headers="Pain">0.51</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Cluster">C40</td>
+<td class="gt_row gt_right" headers="All">1.21</td>
+<td class="gt_row gt_right" headers="Auto">0.74</td>
+<td class="gt_row gt_right" headers="Fatigue">2.80</td>
+<td class="gt_row gt_right" headers="Immune">0.52</td>
+<td class="gt_row gt_right" headers="NC">0.95</td>
+<td class="gt_row gt_right" headers="NE">0.82</td>
+<td class="gt_row gt_right" headers="Other">0.67</td>
+<td class="gt_row gt_right" headers="PEM">1.76</td>
+<td class="gt_row gt_right" headers="Pain">1.19</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</figure>
+</div>
+<div id="tbl-t4" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-pos="h">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-t4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3: Small Cluster Summary
+</figcaption>
+<div aria-describedby="tbl-t4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell">
+<div class="cell-output-display">
+<div id="fkbtxdrcbj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#fkbtxdrcbj table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#fkbtxdrcbj thead, #fkbtxdrcbj tbody, #fkbtxdrcbj tfoot, #fkbtxdrcbj tr, #fkbtxdrcbj td, #fkbtxdrcbj th {
+  border-style: none;
+}
+
+#fkbtxdrcbj p {
+  margin: 0;
+  padding: 0;
+}
+
+#fkbtxdrcbj .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#fkbtxdrcbj .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#fkbtxdrcbj .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#fkbtxdrcbj .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#fkbtxdrcbj .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#fkbtxdrcbj .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#fkbtxdrcbj .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#fkbtxdrcbj .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#fkbtxdrcbj .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#fkbtxdrcbj .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#fkbtxdrcbj .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#fkbtxdrcbj .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#fkbtxdrcbj .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#fkbtxdrcbj .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#fkbtxdrcbj .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#fkbtxdrcbj .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#fkbtxdrcbj .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#fkbtxdrcbj .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#fkbtxdrcbj .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#fkbtxdrcbj .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#fkbtxdrcbj .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#fkbtxdrcbj .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#fkbtxdrcbj .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#fkbtxdrcbj .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#fkbtxdrcbj .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#fkbtxdrcbj .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#fkbtxdrcbj .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#fkbtxdrcbj .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#fkbtxdrcbj .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#fkbtxdrcbj .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#fkbtxdrcbj .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#fkbtxdrcbj .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#fkbtxdrcbj .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#fkbtxdrcbj .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#fkbtxdrcbj .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#fkbtxdrcbj .gt_left {
+  text-align: left;
+}
+
+#fkbtxdrcbj .gt_center {
+  text-align: center;
+}
+
+#fkbtxdrcbj .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#fkbtxdrcbj .gt_font_normal {
+  font-weight: normal;
+}
+
+#fkbtxdrcbj .gt_font_bold {
+  font-weight: bold;
+}
+
+#fkbtxdrcbj .gt_font_italic {
+  font-style: italic;
+}
+
+#fkbtxdrcbj .gt_super {
+  font-size: 65%;
+}
+
+#fkbtxdrcbj .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#fkbtxdrcbj .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#fkbtxdrcbj .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#fkbtxdrcbj .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#fkbtxdrcbj .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#fkbtxdrcbj .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#fkbtxdrcbj .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#fkbtxdrcbj .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#fkbtxdrcbj div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="Cluster" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Cluster</th>
+<th id="All" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">All</th>
+<th id="Auto" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Auto</th>
+<th id="Fatigue" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Fatigue</th>
+<th id="Immune" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Immune</th>
+<th id="NC" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">NC</th>
+<th id="NE" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">NE</th>
+<th id="Other" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Other</th>
+<th id="PEM" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">PEM</th>
+<th id="Pain" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Pain</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Cluster">C1</td>
+<td class="gt_row gt_right" headers="All">1.13</td>
+<td class="gt_row gt_right" headers="Auto">1.26</td>
+<td class="gt_row gt_right" headers="Fatigue">3.0</td>
+<td class="gt_row gt_right" headers="Immune">1.57</td>
+<td class="gt_row gt_right" headers="NC">1.67</td>
+<td class="gt_row gt_right" headers="NE">1.68</td>
+<td class="gt_row gt_right" headers="Other">1.00</td>
+<td class="gt_row gt_right" headers="PEM">2.45</td>
+<td class="gt_row gt_right" headers="Pain">2.21</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Cluster">C3</td>
+<td class="gt_row gt_right" headers="All">1.58</td>
+<td class="gt_row gt_right" headers="Auto">2.00</td>
+<td class="gt_row gt_right" headers="Fatigue">3.0</td>
+<td class="gt_row gt_right" headers="Immune">3.00</td>
+<td class="gt_row gt_right" headers="NC">2.32</td>
+<td class="gt_row gt_right" headers="NE">2.05</td>
+<td class="gt_row gt_right" headers="Other">3.00</td>
+<td class="gt_row gt_right" headers="PEM">2.96</td>
+<td class="gt_row gt_right" headers="Pain">2.05</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Cluster">C5</td>
+<td class="gt_row gt_right" headers="All">1.78</td>
+<td class="gt_row gt_right" headers="Auto">2.55</td>
+<td class="gt_row gt_right" headers="Fatigue">4.0</td>
+<td class="gt_row gt_right" headers="Immune">2.00</td>
+<td class="gt_row gt_right" headers="NC">2.46</td>
+<td class="gt_row gt_right" headers="NE">2.19</td>
+<td class="gt_row gt_right" headers="Other">0.00</td>
+<td class="gt_row gt_right" headers="PEM">3.63</td>
+<td class="gt_row gt_right" headers="Pain">1.82</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Cluster">C6</td>
+<td class="gt_row gt_right" headers="All">2.01</td>
+<td class="gt_row gt_right" headers="Auto">2.52</td>
+<td class="gt_row gt_right" headers="Fatigue">4.0</td>
+<td class="gt_row gt_right" headers="Immune">2.70</td>
+<td class="gt_row gt_right" headers="NC">2.24</td>
+<td class="gt_row gt_right" headers="NE">2.54</td>
+<td class="gt_row gt_right" headers="Other">0.00</td>
+<td class="gt_row gt_right" headers="PEM">2.98</td>
+<td class="gt_row gt_right" headers="Pain">2.14</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Cluster">C8</td>
+<td class="gt_row gt_right" headers="All">2.16</td>
+<td class="gt_row gt_right" headers="Auto">1.95</td>
+<td class="gt_row gt_right" headers="Fatigue">3.0</td>
+<td class="gt_row gt_right" headers="Immune">1.59</td>
+<td class="gt_row gt_right" headers="NC">3.26</td>
+<td class="gt_row gt_right" headers="NE">1.94</td>
+<td class="gt_row gt_right" headers="Other">2.00</td>
+<td class="gt_row gt_right" headers="PEM">2.74</td>
+<td class="gt_row gt_right" headers="Pain">2.33</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Cluster">C10</td>
+<td class="gt_row gt_right" headers="All">1.10</td>
+<td class="gt_row gt_right" headers="Auto">1.91</td>
+<td class="gt_row gt_right" headers="Fatigue">1.0</td>
+<td class="gt_row gt_right" headers="Immune">0.00</td>
+<td class="gt_row gt_right" headers="NC">2.10</td>
+<td class="gt_row gt_right" headers="NE">1.00</td>
+<td class="gt_row gt_right" headers="Other">0.00</td>
+<td class="gt_row gt_right" headers="PEM">1.68</td>
+<td class="gt_row gt_right" headers="Pain">1.64</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Cluster">C12</td>
+<td class="gt_row gt_right" headers="All">1.25</td>
+<td class="gt_row gt_right" headers="Auto">1.68</td>
+<td class="gt_row gt_right" headers="Fatigue">3.0</td>
+<td class="gt_row gt_right" headers="Immune">1.00</td>
+<td class="gt_row gt_right" headers="NC">1.77</td>
+<td class="gt_row gt_right" headers="NE">1.41</td>
+<td class="gt_row gt_right" headers="Other">1.00</td>
+<td class="gt_row gt_right" headers="PEM">2.59</td>
+<td class="gt_row gt_right" headers="Pain">1.51</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Cluster">C13</td>
+<td class="gt_row gt_right" headers="All">1.58</td>
+<td class="gt_row gt_right" headers="Auto">1.74</td>
+<td class="gt_row gt_right" headers="Fatigue">3.0</td>
+<td class="gt_row gt_right" headers="Immune">1.19</td>
+<td class="gt_row gt_right" headers="NC">2.31</td>
+<td class="gt_row gt_right" headers="NE">2.16</td>
+<td class="gt_row gt_right" headers="Other">2.00</td>
+<td class="gt_row gt_right" headers="PEM">2.16</td>
+<td class="gt_row gt_right" headers="Pain">1.74</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Cluster">C14</td>
+<td class="gt_row gt_right" headers="All">1.67</td>
+<td class="gt_row gt_right" headers="Auto">1.22</td>
+<td class="gt_row gt_right" headers="Fatigue">3.0</td>
+<td class="gt_row gt_right" headers="Immune">1.00</td>
+<td class="gt_row gt_right" headers="NC">2.55</td>
+<td class="gt_row gt_right" headers="NE">2.32</td>
+<td class="gt_row gt_right" headers="Other">3.00</td>
+<td class="gt_row gt_right" headers="PEM">2.67</td>
+<td class="gt_row gt_right" headers="Pain">2.00</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Cluster">C15</td>
+<td class="gt_row gt_right" headers="All">1.73</td>
+<td class="gt_row gt_right" headers="Auto">2.25</td>
+<td class="gt_row gt_right" headers="Fatigue">3.0</td>
+<td class="gt_row gt_right" headers="Immune">1.26</td>
+<td class="gt_row gt_right" headers="NC">2.42</td>
+<td class="gt_row gt_right" headers="NE">1.71</td>
+<td class="gt_row gt_right" headers="Other">0.00</td>
+<td class="gt_row gt_right" headers="PEM">2.62</td>
+<td class="gt_row gt_right" headers="Pain">2.21</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Cluster">C16</td>
+<td class="gt_row gt_right" headers="All">1.91</td>
+<td class="gt_row gt_right" headers="Auto">1.29</td>
+<td class="gt_row gt_right" headers="Fatigue">3.0</td>
+<td class="gt_row gt_right" headers="Immune">1.25</td>
+<td class="gt_row gt_right" headers="NC">2.40</td>
+<td class="gt_row gt_right" headers="NE">1.97</td>
+<td class="gt_row gt_right" headers="Other">0.00</td>
+<td class="gt_row gt_right" headers="PEM">2.32</td>
+<td class="gt_row gt_right" headers="Pain">1.96</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Cluster">C17</td>
+<td class="gt_row gt_right" headers="All">2.23</td>
+<td class="gt_row gt_right" headers="Auto">2.29</td>
+<td class="gt_row gt_right" headers="Fatigue">4.0</td>
+<td class="gt_row gt_right" headers="Immune">2.05</td>
+<td class="gt_row gt_right" headers="NC">1.91</td>
+<td class="gt_row gt_right" headers="NE">2.21</td>
+<td class="gt_row gt_right" headers="Other">3.00</td>
+<td class="gt_row gt_right" headers="PEM">3.17</td>
+<td class="gt_row gt_right" headers="Pain">2.29</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Cluster">C18</td>
+<td class="gt_row gt_right" headers="All">2.27</td>
+<td class="gt_row gt_right" headers="Auto">1.80</td>
+<td class="gt_row gt_right" headers="Fatigue">3.5</td>
+<td class="gt_row gt_right" headers="Immune">1.35</td>
+<td class="gt_row gt_right" headers="NC">2.80</td>
+<td class="gt_row gt_right" headers="NE">2.44</td>
+<td class="gt_row gt_right" headers="Other">1.50</td>
+<td class="gt_row gt_right" headers="PEM">3.36</td>
+<td class="gt_row gt_right" headers="Pain">2.13</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Cluster">C20</td>
+<td class="gt_row gt_right" headers="All">1.09</td>
+<td class="gt_row gt_right" headers="Auto">1.75</td>
+<td class="gt_row gt_right" headers="Fatigue">3.0</td>
+<td class="gt_row gt_right" headers="Immune">0.93</td>
+<td class="gt_row gt_right" headers="NC">1.19</td>
+<td class="gt_row gt_right" headers="NE">1.55</td>
+<td class="gt_row gt_right" headers="Other">0.50</td>
+<td class="gt_row gt_right" headers="PEM">2.46</td>
+<td class="gt_row gt_right" headers="Pain">1.80</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Cluster">C21</td>
+<td class="gt_row gt_right" headers="All">1.40</td>
+<td class="gt_row gt_right" headers="Auto">1.62</td>
+<td class="gt_row gt_right" headers="Fatigue">3.0</td>
+<td class="gt_row gt_right" headers="Immune">2.00</td>
+<td class="gt_row gt_right" headers="NC">1.74</td>
+<td class="gt_row gt_right" headers="NE">2.17</td>
+<td class="gt_row gt_right" headers="Other">2.24</td>
+<td class="gt_row gt_right" headers="PEM">2.34</td>
+<td class="gt_row gt_right" headers="Pain">1.47</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Cluster">C22</td>
+<td class="gt_row gt_right" headers="All">1.46</td>
+<td class="gt_row gt_right" headers="Auto">1.81</td>
+<td class="gt_row gt_right" headers="Fatigue">4.0</td>
+<td class="gt_row gt_right" headers="Immune">2.29</td>
+<td class="gt_row gt_right" headers="NC">1.79</td>
+<td class="gt_row gt_right" headers="NE">1.91</td>
+<td class="gt_row gt_right" headers="Other">0.00</td>
+<td class="gt_row gt_right" headers="PEM">2.62</td>
+<td class="gt_row gt_right" headers="Pain">2.10</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Cluster">C23</td>
+<td class="gt_row gt_right" headers="All">1.53</td>
+<td class="gt_row gt_right" headers="Auto">1.88</td>
+<td class="gt_row gt_right" headers="Fatigue">3.0</td>
+<td class="gt_row gt_right" headers="Immune">0.84</td>
+<td class="gt_row gt_right" headers="NC">1.71</td>
+<td class="gt_row gt_right" headers="NE">1.17</td>
+<td class="gt_row gt_right" headers="Other">0.00</td>
+<td class="gt_row gt_right" headers="PEM">1.83</td>
+<td class="gt_row gt_right" headers="Pain">1.72</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Cluster">C25</td>
+<td class="gt_row gt_right" headers="All">1.71</td>
+<td class="gt_row gt_right" headers="Auto">1.46</td>
+<td class="gt_row gt_right" headers="Fatigue">4.0</td>
+<td class="gt_row gt_right" headers="Immune">1.51</td>
+<td class="gt_row gt_right" headers="NC">1.74</td>
+<td class="gt_row gt_right" headers="NE">2.16</td>
+<td class="gt_row gt_right" headers="Other">0.00</td>
+<td class="gt_row gt_right" headers="PEM">3.22</td>
+<td class="gt_row gt_right" headers="Pain">1.93</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Cluster">C27</td>
+<td class="gt_row gt_right" headers="All">2.18</td>
+<td class="gt_row gt_right" headers="Auto">2.43</td>
+<td class="gt_row gt_right" headers="Fatigue">3.0</td>
+<td class="gt_row gt_right" headers="Immune">1.78</td>
+<td class="gt_row gt_right" headers="NC">2.27</td>
+<td class="gt_row gt_right" headers="NE">2.35</td>
+<td class="gt_row gt_right" headers="Other">1.00</td>
+<td class="gt_row gt_right" headers="PEM">1.90</td>
+<td class="gt_row gt_right" headers="Pain">2.49</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Cluster">C29</td>
+<td class="gt_row gt_right" headers="All">1.32</td>
+<td class="gt_row gt_right" headers="Auto">1.52</td>
+<td class="gt_row gt_right" headers="Fatigue">2.0</td>
+<td class="gt_row gt_right" headers="Immune">0.00</td>
+<td class="gt_row gt_right" headers="NC">1.63</td>
+<td class="gt_row gt_right" headers="NE">2.14</td>
+<td class="gt_row gt_right" headers="Other">4.00</td>
+<td class="gt_row gt_right" headers="PEM">2.54</td>
+<td class="gt_row gt_right" headers="Pain">2.33</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Cluster">C30</td>
+<td class="gt_row gt_right" headers="All">1.41</td>
+<td class="gt_row gt_right" headers="Auto">1.43</td>
+<td class="gt_row gt_right" headers="Fatigue">2.0</td>
+<td class="gt_row gt_right" headers="Immune">2.14</td>
+<td class="gt_row gt_right" headers="NC">1.72</td>
+<td class="gt_row gt_right" headers="NE">1.92</td>
+<td class="gt_row gt_right" headers="Other">0.00</td>
+<td class="gt_row gt_right" headers="PEM">1.54</td>
+<td class="gt_row gt_right" headers="Pain">2.03</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Cluster">C32</td>
+<td class="gt_row gt_right" headers="All">1.25</td>
+<td class="gt_row gt_right" headers="Auto">1.12</td>
+<td class="gt_row gt_right" headers="Fatigue">3.0</td>
+<td class="gt_row gt_right" headers="Immune">1.41</td>
+<td class="gt_row gt_right" headers="NC">1.05</td>
+<td class="gt_row gt_right" headers="NE">1.07</td>
+<td class="gt_row gt_right" headers="Other">1.00</td>
+<td class="gt_row gt_right" headers="PEM">1.90</td>
+<td class="gt_row gt_right" headers="Pain">1.49</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Cluster">C33</td>
+<td class="gt_row gt_right" headers="All">1.99</td>
+<td class="gt_row gt_right" headers="Auto">2.19</td>
+<td class="gt_row gt_right" headers="Fatigue">4.0</td>
+<td class="gt_row gt_right" headers="Immune">2.49</td>
+<td class="gt_row gt_right" headers="NC">2.36</td>
+<td class="gt_row gt_right" headers="NE">2.45</td>
+<td class="gt_row gt_right" headers="Other">3.00</td>
+<td class="gt_row gt_right" headers="PEM">2.83</td>
+<td class="gt_row gt_right" headers="Pain">2.29</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Cluster">C34</td>
+<td class="gt_row gt_right" headers="All">1.65</td>
+<td class="gt_row gt_right" headers="Auto">1.94</td>
+<td class="gt_row gt_right" headers="Fatigue">3.0</td>
+<td class="gt_row gt_right" headers="Immune">1.86</td>
+<td class="gt_row gt_right" headers="NC">2.14</td>
+<td class="gt_row gt_right" headers="NE">1.17</td>
+<td class="gt_row gt_right" headers="Other">2.00</td>
+<td class="gt_row gt_right" headers="PEM">2.29</td>
+<td class="gt_row gt_right" headers="Pain">1.94</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Cluster">C35</td>
+<td class="gt_row gt_right" headers="All">2.05</td>
+<td class="gt_row gt_right" headers="Auto">2.17</td>
+<td class="gt_row gt_right" headers="Fatigue">3.0</td>
+<td class="gt_row gt_right" headers="Immune">2.80</td>
+<td class="gt_row gt_right" headers="NC">1.55</td>
+<td class="gt_row gt_right" headers="NE">2.26</td>
+<td class="gt_row gt_right" headers="Other">3.00</td>
+<td class="gt_row gt_right" headers="PEM">2.58</td>
+<td class="gt_row gt_right" headers="Pain">2.11</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Cluster">C38</td>
+<td class="gt_row gt_right" headers="All">0.92</td>
+<td class="gt_row gt_right" headers="Auto">1.25</td>
+<td class="gt_row gt_right" headers="Fatigue">2.0</td>
+<td class="gt_row gt_right" headers="Immune">1.59</td>
+<td class="gt_row gt_right" headers="NC">1.35</td>
+<td class="gt_row gt_right" headers="NE">1.08</td>
+<td class="gt_row gt_right" headers="Other">0.00</td>
+<td class="gt_row gt_right" headers="PEM">1.00</td>
+<td class="gt_row gt_right" headers="Pain">1.81</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Cluster">C39</td>
+<td class="gt_row gt_right" headers="All">1.27</td>
+<td class="gt_row gt_right" headers="Auto">2.00</td>
+<td class="gt_row gt_right" headers="Fatigue">3.0</td>
+<td class="gt_row gt_right" headers="Immune">2.00</td>
+<td class="gt_row gt_right" headers="NC">2.59</td>
+<td class="gt_row gt_right" headers="NE">1.22</td>
+<td class="gt_row gt_right" headers="Other">2.45</td>
+<td class="gt_row gt_right" headers="PEM">2.35</td>
+<td class="gt_row gt_right" headers="Pain">1.86</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Cluster">C41</td>
+<td class="gt_row gt_right" headers="All">1.16</td>
+<td class="gt_row gt_right" headers="Auto">1.57</td>
+<td class="gt_row gt_right" headers="Fatigue">3.0</td>
+<td class="gt_row gt_right" headers="Immune">1.26</td>
+<td class="gt_row gt_right" headers="NC">1.47</td>
+<td class="gt_row gt_right" headers="NE">1.62</td>
+<td class="gt_row gt_right" headers="Other">2.00</td>
+<td class="gt_row gt_right" headers="PEM">2.07</td>
+<td class="gt_row gt_right" headers="Pain">1.82</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Cluster">C42</td>
+<td class="gt_row gt_right" headers="All">1.53</td>
+<td class="gt_row gt_right" headers="Auto">1.93</td>
+<td class="gt_row gt_right" headers="Fatigue">3.0</td>
+<td class="gt_row gt_right" headers="Immune">1.52</td>
+<td class="gt_row gt_right" headers="NC">1.61</td>
+<td class="gt_row gt_right" headers="NE">1.96</td>
+<td class="gt_row gt_right" headers="Other">3.00</td>
+<td class="gt_row gt_right" headers="PEM">2.39</td>
+<td class="gt_row gt_right" headers="Pain">2.48</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Cluster">C43</td>
+<td class="gt_row gt_right" headers="All">1.82</td>
+<td class="gt_row gt_right" headers="Auto">1.97</td>
+<td class="gt_row gt_right" headers="Fatigue">2.0</td>
+<td class="gt_row gt_right" headers="Immune">2.48</td>
+<td class="gt_row gt_right" headers="NC">2.05</td>
+<td class="gt_row gt_right" headers="NE">2.32</td>
+<td class="gt_row gt_right" headers="Other">3.00</td>
+<td class="gt_row gt_right" headers="PEM">2.10</td>
+<td class="gt_row gt_right" headers="Pain">2.14</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Cluster">C44</td>
+<td class="gt_row gt_right" headers="All">2.19</td>
+<td class="gt_row gt_right" headers="Auto">1.94</td>
+<td class="gt_row gt_right" headers="Fatigue">4.0</td>
+<td class="gt_row gt_right" headers="Immune">1.86</td>
+<td class="gt_row gt_right" headers="NC">2.54</td>
+<td class="gt_row gt_right" headers="NE">2.34</td>
+<td class="gt_row gt_right" headers="Other">3.00</td>
+<td class="gt_row gt_right" headers="PEM">3.87</td>
+<td class="gt_row gt_right" headers="Pain">2.36</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Cluster">C45</td>
+<td class="gt_row gt_right" headers="All">2.35</td>
+<td class="gt_row gt_right" headers="Auto">2.83</td>
+<td class="gt_row gt_right" headers="Fatigue">4.0</td>
+<td class="gt_row gt_right" headers="Immune">3.17</td>
+<td class="gt_row gt_right" headers="NC">2.63</td>
+<td class="gt_row gt_right" headers="NE">3.32</td>
+<td class="gt_row gt_right" headers="Other">4.00</td>
+<td class="gt_row gt_right" headers="PEM">3.87</td>
+<td class="gt_row gt_right" headers="Pain">3.12</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</figure>
+</div>
+</section>
+<section id="sec-stats" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="sec-stats">Appendix B: Statistical Summaries</h2>
+<p>In the body of the text, we used visual analysis to identify two subgroups of ME/CFS patient clusters defined by their symptom domain profiles relative to PEM severity. Here we present statistics that may help clarify the data in the plots. Given the exploratory nature of this study and the small number of clusters, these results should be interpreted as descriptive rather than confirmatory.</p>
+<section id="sec-ancova" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="sec-ancova">ANCOVA</h3>
+<p>We performed an analysis of covariance (ANCOVA) to identify the domains which could be most statistically significant and discriminatory. We compare our two groups for each symptom domain. We arrange the results by descending F-statistic and show the p-value rounded to three decimal places.</p>
+<div id="tbl-t6" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-pos="h">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-t6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4: ANCOVA
+</figcaption>
+<div aria-describedby="tbl-t6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell">
+<div class="cell-output-display">
+<div id="mtgqjnkgrt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#mtgqjnkgrt table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#mtgqjnkgrt thead, #mtgqjnkgrt tbody, #mtgqjnkgrt tfoot, #mtgqjnkgrt tr, #mtgqjnkgrt td, #mtgqjnkgrt th {
+  border-style: none;
+}
+
+#mtgqjnkgrt p {
+  margin: 0;
+  padding: 0;
+}
+
+#mtgqjnkgrt .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#mtgqjnkgrt .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#mtgqjnkgrt .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#mtgqjnkgrt .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#mtgqjnkgrt .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#mtgqjnkgrt .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mtgqjnkgrt .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#mtgqjnkgrt .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#mtgqjnkgrt .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#mtgqjnkgrt .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#mtgqjnkgrt .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#mtgqjnkgrt .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#mtgqjnkgrt .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#mtgqjnkgrt .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#mtgqjnkgrt .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#mtgqjnkgrt .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#mtgqjnkgrt .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#mtgqjnkgrt .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#mtgqjnkgrt .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mtgqjnkgrt .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#mtgqjnkgrt .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#mtgqjnkgrt .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#mtgqjnkgrt .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mtgqjnkgrt .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#mtgqjnkgrt .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#mtgqjnkgrt .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mtgqjnkgrt .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mtgqjnkgrt .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#mtgqjnkgrt .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mtgqjnkgrt .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#mtgqjnkgrt .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mtgqjnkgrt .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#mtgqjnkgrt .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mtgqjnkgrt .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#mtgqjnkgrt .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mtgqjnkgrt .gt_left {
+  text-align: left;
+}
+
+#mtgqjnkgrt .gt_center {
+  text-align: center;
+}
+
+#mtgqjnkgrt .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#mtgqjnkgrt .gt_font_normal {
+  font-weight: normal;
+}
+
+#mtgqjnkgrt .gt_font_bold {
+  font-weight: bold;
+}
+
+#mtgqjnkgrt .gt_font_italic {
+  font-style: italic;
+}
+
+#mtgqjnkgrt .gt_super {
+  font-size: 65%;
+}
+
+#mtgqjnkgrt .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#mtgqjnkgrt .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#mtgqjnkgrt .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#mtgqjnkgrt .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#mtgqjnkgrt .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#mtgqjnkgrt .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#mtgqjnkgrt .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#mtgqjnkgrt .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#mtgqjnkgrt div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="Domain" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Domain</th>
+<th id="F-statistic" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">F statistic</th>
+<th id="p-value" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">p-value</th>
+<th id="Significance" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Significance</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Domain">Other</td>
+<td class="gt_row gt_right" headers="F statistic">33.3</td>
+<td class="gt_row gt_left" headers="p-value">&lt; 0.001</td>
+<td class="gt_row gt_right" headers="Significance">***</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Domain">NE</td>
+<td class="gt_row gt_right" headers="F statistic">11.6</td>
+<td class="gt_row gt_left" headers="p-value">0.007</td>
+<td class="gt_row gt_right" headers="Significance">**</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Domain">Fatigue</td>
+<td class="gt_row gt_right" headers="F statistic">5.2</td>
+<td class="gt_row gt_left" headers="p-value">0.046</td>
+<td class="gt_row gt_right" headers="Significance">*</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Domain">Autonomic</td>
+<td class="gt_row gt_right" headers="F statistic">3.8</td>
+<td class="gt_row gt_left" headers="p-value">0.08</td>
+<td class="gt_row gt_right" headers="Significance">.</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Domain">Pain</td>
+<td class="gt_row gt_right" headers="F statistic">3.1</td>
+<td class="gt_row gt_left" headers="p-value">0.108</td>
+<td class="gt_row gt_right" headers="Significance">NA</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Domain">Immune</td>
+<td class="gt_row gt_right" headers="F statistic">1.4</td>
+<td class="gt_row gt_left" headers="p-value">0.268</td>
+<td class="gt_row gt_right" headers="Significance">NA</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Domain">all_mean</td>
+<td class="gt_row gt_right" headers="F statistic">1.0</td>
+<td class="gt_row gt_left" headers="p-value">0.33</td>
+<td class="gt_row gt_right" headers="Significance">NA</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Domain">Sleep</td>
+<td class="gt_row gt_right" headers="F statistic">0.2</td>
+<td class="gt_row gt_left" headers="p-value">0.647</td>
+<td class="gt_row gt_right" headers="Significance">NA</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Domain">NC</td>
+<td class="gt_row gt_right" headers="F statistic">0.0</td>
+<td class="gt_row gt_left" headers="p-value">0.849</td>
+<td class="gt_row gt_right" headers="Significance">NA</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</figure>
+</div>
+<p><a href="#tbl-t6" class="quarto-xref">Table&nbsp;4</a> shows agreement with the charts that Other, Neuroendocrine and Autonomic domains show the most significant offsets between the two groups. The high F-statistic and low p-value for Fatigue, however, do not agree with the regression lines. As we note earlier in <a href="#sec-similar" class="quarto-xref">Section&nbsp;2.1</a>, the lines in <a href="#fig-fatigue" class="quarto-xref">Figure&nbsp;1</a> are nearly identical but R² is significantly weaker in the low-intensity group. The high F-statistic and low p-value in the ANCOVA analysis for fatigue is most likely an artifact of the wide spread and small sample count in the low-intensity group.</p>
+</section>
+<section id="sec-loo" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="sec-loo">Leave-one-out</h3>
+<p>We discovered our two groups by visual analysis, but we can re-identify the set using leave-one-out analysis. In this analysis we go through each domain and examine what happens when we remove one cluster at a time. The goal is to identify which clusters, when removed, improve R² the most.</p>
+<p>We summarize the mean R² differences, in order of greatest improvement, in <a href="#tbl-t5" class="quarto-xref">Table&nbsp;5</a>.</p>
+<div id="tbl-t5" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-pos="h">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-t5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;5: Leave-one-out
+</figcaption>
+<div aria-describedby="tbl-t5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell">
+<div class="cell-output-display">
+<div id="yvbvicmtpe" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#yvbvicmtpe table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#yvbvicmtpe thead, #yvbvicmtpe tbody, #yvbvicmtpe tfoot, #yvbvicmtpe tr, #yvbvicmtpe td, #yvbvicmtpe th {
+  border-style: none;
+}
+
+#yvbvicmtpe p {
+  margin: 0;
+  padding: 0;
+}
+
+#yvbvicmtpe .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#yvbvicmtpe .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#yvbvicmtpe .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#yvbvicmtpe .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#yvbvicmtpe .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#yvbvicmtpe .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#yvbvicmtpe .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#yvbvicmtpe .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#yvbvicmtpe .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#yvbvicmtpe .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#yvbvicmtpe .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#yvbvicmtpe .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#yvbvicmtpe .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#yvbvicmtpe .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#yvbvicmtpe .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#yvbvicmtpe .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#yvbvicmtpe .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#yvbvicmtpe .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#yvbvicmtpe .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#yvbvicmtpe .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#yvbvicmtpe .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#yvbvicmtpe .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#yvbvicmtpe .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#yvbvicmtpe .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#yvbvicmtpe .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#yvbvicmtpe .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#yvbvicmtpe .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#yvbvicmtpe .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#yvbvicmtpe .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#yvbvicmtpe .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#yvbvicmtpe .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#yvbvicmtpe .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#yvbvicmtpe .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#yvbvicmtpe .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#yvbvicmtpe .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#yvbvicmtpe .gt_left {
+  text-align: left;
+}
+
+#yvbvicmtpe .gt_center {
+  text-align: center;
+}
+
+#yvbvicmtpe .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#yvbvicmtpe .gt_font_normal {
+  font-weight: normal;
+}
+
+#yvbvicmtpe .gt_font_bold {
+  font-weight: bold;
+}
+
+#yvbvicmtpe .gt_font_italic {
+  font-style: italic;
+}
+
+#yvbvicmtpe .gt_super {
+  font-size: 65%;
+}
+
+#yvbvicmtpe .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#yvbvicmtpe .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#yvbvicmtpe .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#yvbvicmtpe .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#yvbvicmtpe .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#yvbvicmtpe .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#yvbvicmtpe .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#yvbvicmtpe .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#yvbvicmtpe div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="Cluster" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Cluster</th>
+<th id="Group" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Group</th>
+<th id="Domains-Improved" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Domains Improved</th>
+<th id="Mean-ΔR²" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Mean ΔR²</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Cluster">C2</td>
+<td class="gt_row gt_center" headers="Group">low</td>
+<td class="gt_row gt_right" headers="Domains Improved">9</td>
+<td class="gt_row gt_right" headers="Mean ΔR²">0.0379</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Cluster">C11</td>
+<td class="gt_row gt_center" headers="Group">low</td>
+<td class="gt_row gt_right" headers="Domains Improved">9</td>
+<td class="gt_row gt_right" headers="Mean ΔR²">0.0271</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Cluster">C4</td>
+<td class="gt_row gt_center" headers="Group">low</td>
+<td class="gt_row gt_right" headers="Domains Improved">8</td>
+<td class="gt_row gt_right" headers="Mean ΔR²">0.0191</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Cluster">C31</td>
+<td class="gt_row gt_center" headers="Group">high</td>
+<td class="gt_row gt_right" headers="Domains Improved">7</td>
+<td class="gt_row gt_right" headers="Mean ΔR²">0.0163</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Cluster">C7</td>
+<td class="gt_row gt_center" headers="Group">low</td>
+<td class="gt_row gt_right" headers="Domains Improved">5</td>
+<td class="gt_row gt_right" headers="Mean ΔR²">0.0129</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Cluster">C24</td>
+<td class="gt_row gt_center" headers="Group">low</td>
+<td class="gt_row gt_right" headers="Domains Improved">8</td>
+<td class="gt_row gt_right" headers="Mean ΔR²">0.0126</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</figure>
+</div>
+<p>Of the top 6 clusters only C31 is not part of the low-intensity group. While this does not prove the existence of two subgroups it does support the idea that the members of the low-intensity group are, overall, responsible for most of the R² degradation in the combined group.</p>
+<p>C31 does exhibit variability but it varies around the high-intensity group trend lines, which is why we include it with the high group despite this result.</p>
+</section>
+<section id="sec-r2-group" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="sec-r2-group">R² by Group</h3>
+<p>We compare the coefficient of determination (R²) of the symptom domains in three levels:</p>
+<ul>
+<li>Combined (all clusters)</li>
+<li>High-intensity group</li>
+<li>Low-intensity group</li>
+</ul>
+<div id="tbl-t4" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-pos="h">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-t4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;6: R² by Group
+</figcaption>
+<div aria-describedby="tbl-t4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell">
+<div class="cell-output-display">
+<div id="xmyzewlzhs" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xmyzewlzhs table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#xmyzewlzhs thead, #xmyzewlzhs tbody, #xmyzewlzhs tfoot, #xmyzewlzhs tr, #xmyzewlzhs td, #xmyzewlzhs th {
+  border-style: none;
+}
+
+#xmyzewlzhs p {
+  margin: 0;
+  padding: 0;
+}
+
+#xmyzewlzhs .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#xmyzewlzhs .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#xmyzewlzhs .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#xmyzewlzhs .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#xmyzewlzhs .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xmyzewlzhs .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xmyzewlzhs .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xmyzewlzhs .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#xmyzewlzhs .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#xmyzewlzhs .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#xmyzewlzhs .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#xmyzewlzhs .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#xmyzewlzhs .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#xmyzewlzhs .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#xmyzewlzhs .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#xmyzewlzhs .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#xmyzewlzhs .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#xmyzewlzhs .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#xmyzewlzhs .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xmyzewlzhs .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#xmyzewlzhs .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#xmyzewlzhs .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#xmyzewlzhs .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xmyzewlzhs .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#xmyzewlzhs .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#xmyzewlzhs .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xmyzewlzhs .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xmyzewlzhs .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#xmyzewlzhs .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xmyzewlzhs .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#xmyzewlzhs .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xmyzewlzhs .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#xmyzewlzhs .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xmyzewlzhs .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#xmyzewlzhs .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xmyzewlzhs .gt_left {
+  text-align: left;
+}
+
+#xmyzewlzhs .gt_center {
+  text-align: center;
+}
+
+#xmyzewlzhs .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#xmyzewlzhs .gt_font_normal {
+  font-weight: normal;
+}
+
+#xmyzewlzhs .gt_font_bold {
+  font-weight: bold;
+}
+
+#xmyzewlzhs .gt_font_italic {
+  font-style: italic;
+}
+
+#xmyzewlzhs .gt_super {
+  font-size: 65%;
+}
+
+#xmyzewlzhs .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#xmyzewlzhs .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#xmyzewlzhs .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#xmyzewlzhs .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#xmyzewlzhs .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#xmyzewlzhs .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#xmyzewlzhs .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#xmyzewlzhs .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#xmyzewlzhs div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="Domain" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Domain</th>
+<th id="Combined-R²" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Combined R²</th>
+<th id="High-intensity-R²" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">High-intensity R²</th>
+<th id="Low-intensity-R²" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Low-intensity R²</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Domain">Autonomic</td>
+<td class="gt_row gt_right" headers="Combined R²">0.79</td>
+<td class="gt_row gt_right" headers="High-intensity R²">0.96</td>
+<td class="gt_row gt_right" headers="Low-intensity R²">0.62</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Domain">Fatigue</td>
+<td class="gt_row gt_right" headers="Combined R²">0.84</td>
+<td class="gt_row gt_right" headers="High-intensity R²">0.86</td>
+<td class="gt_row gt_right" headers="Low-intensity R²">0.54</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Domain">Immune</td>
+<td class="gt_row gt_right" headers="Combined R²">0.78</td>
+<td class="gt_row gt_right" headers="High-intensity R²">0.96</td>
+<td class="gt_row gt_right" headers="Low-intensity R²">0.11</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Domain">NC</td>
+<td class="gt_row gt_right" headers="Combined R²">0.85</td>
+<td class="gt_row gt_right" headers="High-intensity R²">0.92</td>
+<td class="gt_row gt_right" headers="Low-intensity R²">0.93</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Domain">NE</td>
+<td class="gt_row gt_right" headers="Combined R²">0.73</td>
+<td class="gt_row gt_right" headers="High-intensity R²">0.95</td>
+<td class="gt_row gt_right" headers="Low-intensity R²">0.75</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Domain">Other</td>
+<td class="gt_row gt_right" headers="Combined R²">0.52</td>
+<td class="gt_row gt_right" headers="High-intensity R²">0.92</td>
+<td class="gt_row gt_right" headers="Low-intensity R²">0.96</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Domain">Pain</td>
+<td class="gt_row gt_right" headers="Combined R²">0.81</td>
+<td class="gt_row gt_right" headers="High-intensity R²">0.95</td>
+<td class="gt_row gt_right" headers="Low-intensity R²">0.95</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Domain">Sleep</td>
+<td class="gt_row gt_right" headers="Combined R²">0.53</td>
+<td class="gt_row gt_right" headers="High-intensity R²">0.82</td>
+<td class="gt_row gt_right" headers="Low-intensity R²">0.05</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Domain">all_mean</td>
+<td class="gt_row gt_right" headers="Combined R²">0.91</td>
+<td class="gt_row gt_right" headers="High-intensity R²">1.00</td>
+<td class="gt_row gt_right" headers="Low-intensity R²">0.84</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</figure>
+</div>
+<p><a href="#tbl-t4" class="quarto-xref">Table&nbsp;6</a> shows that for almost every symptom domain, the high-intensity group has a higher R² than the combined group, which in turn has a higher R² than the low-intensity group. In some cases – such as Neurocognitive, Neuroendocrine, and Other – the combined R² is significantly weaker than either of the subgroups.</p>
+</section>
+</section>
+</section>
+<section id="sec-code" class="level1 unnumbered">
+<h1 class="unnumbered">Code Availability</h1>
+<p>All data manipulation and analysis scripts are available at <a href="https://github.com/eriksquires/VaesSubgroups" class="uri">https://github.com/eriksquires/VaesSubgroups</a></p>
+</section>
+<section id="sec-data" class="level1 unnumbered">
+<h1 class="unnumbered">Data Availability</h1>
+<p>Source data<span class="citation" data-cites="vaes2023_excel_large vaes2023_excel_small"><sup><a href="#ref-vaes2023_excel_large" role="doc-biblioref">2</a>,<a href="#ref-vaes2023_excel_small" role="doc-biblioref">6</a></sup></span> is available from the original Vaes publication<span class="citation" data-cites="vaes2023"><sup><a href="#ref-vaes2023" role="doc-biblioref">1</a></sup></span> at <a href="https://doi.org/10.1186/s12967-023-03946-6" class="uri">https://doi.org/10.1186/s12967-023-03946-6</a>.</p>
+<p>The repository listed in the <a href="#sec-code">Code Availability</a> section includes copies of the Vaes spreadsheets as well as code used to generate all intermediate files.</p>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="acknowledgements" class="level1 unnumbered">
+<h1 class="unnumbered">Acknowledgements</h1>
+<p>This paper could not exist without the foundational work of Dr.&nbsp;Anouk W. Vaes and her colleagues at CIRO, whose clustering study<span class="citation" data-cites="vaes2023"><sup><a href="#ref-vaes2023" role="doc-biblioref">1</a></sup></span> and publicly available cluster summary data<span class="citation" data-cites="vaes2023_excel_large"><sup><a href="#ref-vaes2023_excel_large" role="doc-biblioref">2</a></sup></span> provided the basis for our analysis. We are deeply grateful for their contribution to the field.</p>
+<p>Dr.&nbsp;Vaes had no role in the writing of this paper, and all errors or misinterpretations are the responsibility of the author.</p>
+</section>
+<section id="author-contributions" class="level1 unnumbered">
+<h1 class="unnumbered">Author Contributions</h1>
+<p>Erik K. Squires conceived the study, performed the analysis, and wrote the manuscript. This work presents an original investigative method and resulting framework which were both developed and first reported by the author in this preprint.</p>
+</section>
+<section id="competing-interests" class="level1 unnumbered">
+<h1 class="unnumbered">Competing Interests</h1>
+<p>The author declares no competing interests.</p>
+</section>
+<section id="funding" class="level1 unnumbered">
+<h1 class="unnumbered">Funding</h1>
+<p>This work received no external funding.</p>
+</section>
+<section id="ethics-statement" class="level1 unnumbered">
+<h1 class="unnumbered">Ethics Statement</h1>
+<p>This study reanalyzed publicly available reports and published symptom cluster data (Vaes 2023). No new patient data were collected.</p>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="references" class="level1 unnumbered">
+<h1 class="unnumbered">References</h1>
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-vaes2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Vaes, A. W. <em>et al.</em> <a href="https://doi.org/10.1186/s12967-023-03946-6">Symptom-based clusters in people with ME/CFS: An illustration of clinical variety in a cross-sectional cohort</a>. <em>Journal of Translational Medicine</em> <strong>21</strong>, 112 (2023).</div>
+</div>
+<div id="ref-vaes2023_excel_large" class="csl-entry" role="listitem">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">Vaes, A. W. &amp; collaborators. <a href="https://static-content.springer.com/esm/art%3A10.1186%2Fs12967-023-03946-6/MediaObjects/12967_2023_3946_MOESM3_ESM.xlsx">Supplementary dataset (<span>Excel</span>): Additional file 3: Table S1 : 12967_2023_3946_MOESM3_ESM.xlsx</a>. Journal of Translational Medicine, Springer Nature (2023).</div>
+</div>
+<div id="ref-fall2024mcam" class="csl-entry" role="listitem">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">Fall, E. A. <em>et al.</em> <a href="https://doi.org/10.1186/s12883-024-03872-0">Chronic overlapping pain conditions in people with myalgic encephalomyelitis/chronic fatigue syndrome (ME/CFS): A sample from the multi-site clinical assessment of ME/CFS (MCAM) study</a>. <em>BMC Neurology</em> <strong>24</strong>, (2024).</div>
+</div>
+<div id="ref-ramirez2022overlap" class="csl-entry" role="listitem">
+<div class="csl-left-margin">4. </div><div class="csl-right-inline">Ramı́rez-Morales, R., Bermúdez-Benı́tez, E., Martı́nez-Martı́nez, L.-A. &amp; Martı́nez-Lavı́n, M. <a href="https://doi.org/10.1016/j.autrev.2022.103129">Clinical overlap between fibromyalgia and myalgic encephalomyelitis: A systematic review and meta-analysis</a>. <em>Autoimmunity Reviews</em> <strong>21</strong>, 103129 (2022).</div>
+</div>
+<div id="ref-mcmanimen2017pem" class="csl-entry" role="listitem">
+<div class="csl-left-margin">5. </div><div class="csl-right-inline">McManimen, S. L. &amp; Jason, L. A. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5464757">Post-exertional malaise in patients with ME and CFS with comorbid fibromyalgia</a>. <em>SRL Neurology &amp; Neurosurgery</em> <strong>3</strong>, 22–27 (2017).</div>
+</div>
+<div id="ref-vaes2023_excel_small" class="csl-entry" role="listitem">
+<div class="csl-left-margin">6. </div><div class="csl-right-inline">Vaes, A. W. &amp; collaborators. <a href="https://static-content.springer.com/esm/art%3A10.1186%2Fs12967-023-03946-6/MediaObjects/12967_2023_3946_MOESM4_ESM.xlsx">Supplementary dataset (<span>Excel</span>): Additional file 4: Table S2 : 12967_2023_3946_MOESM4_ESM.xlsx</a>. Journal of Translational Medicine, Springer Nature (2023).</div>
+</div>
+</div>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
