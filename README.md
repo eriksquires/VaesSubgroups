@@ -1,9 +1,8 @@
 # Analysis of Potential Subgroups in Vaes ME/CFS Patient Clusters
 
-The code here is all of the code needed to generate my research paper [which is also online as a preprint](https: /
-/ www.preprints.org / manuscript / 202509.1179). The [latest HTML version is here.](docs/VaesSubgroups.html)
+The code here is all of the code needed to generate my research paper [which is also online as a preprint](https:%20/%20/%20www.preprints.org%20/%20manuscript%20/%20202509.1179). The [latest HTML version is here.](https://eriksquires.github.io/VaesSubgroups/VaesSubgroups.html)
 
-** Instructions: **
+\*\* Instructions: \*\*
 
 1.  Clone this repo.
 2.  Review [dependencies](DEPENDENCIES.md) and install missing packages.
@@ -11,17 +10,13 @@ The code here is all of the code needed to generate my research paper [which is 
 
 # Abstract
 
-** Background: ** Vaes et al. (2023)[@vaes2023] identified 13 symptom clusters in a large cohort of ME /
-CFS patients. Symptom intensity is broadly correlated with post - exertional malaise (PEM) severity, with variation across clusters that seems disorganized. Despite this research, no broadly accepted organizing principle has emerged from this paper or other attempts at phenotyping ME /
-CFS.
+\*\* Background: \*\* Vaes et al. (2023)[@vaes2023] identified 13 symptom clusters in a large cohort of ME / CFS patients. Symptom intensity is broadly correlated with post - exertional malaise (PEM) severity, with variation across clusters that seems disorganized. Despite this research, no broadly accepted organizing principle has emerged from this paper or other attempts at phenotyping ME / CFS.
 
-** Objective: ** To identify and characterize potential subgroups defined by symptom domain severity relative to PEM within the original Vaes symptom clusters.
+\*\* Objective: \*\* To identify and characterize potential subgroups defined by symptom domain severity relative to PEM within the original Vaes symptom clusters.
 
-** Methods: ** We analyzed the Vaes cluster summary data [@vaes2023_excel_large], calculated geometric means for each symptom domain within each cluster, and plotted these means against PEM severity to identify patterns and subgroups.
+\*\* Methods: \*\* We analyzed the Vaes cluster summary data [@vaes2023_excel_large], calculated geometric means for each symptom domain within each cluster, and plotted these means against PEM severity to identify patterns and subgroups.
 
-** Results: ** Our analysis identified two groups of patient clusters with distinct symptom -
-domain profiles. Anchoring symptom domains to PEM collapses the 13 Vaes clusters into two reproducible families:one characterized by parallel offsets (autonomic, neuroendocrine, other) and one by amplified slopes (pain, neurocognitive), with high -
-end convergence after accounting for a single influential cluster. This subgroup's symptom trends could align with those of fibromyalgia. Further exploration with individual patient data is needed to validate these findings.
+\*\* Results: \*\* Our analysis identified two groups of patient clusters with distinct symptom - domain profiles. Anchoring symptom domains to PEM collapses the 13 Vaes clusters into two reproducible families:one characterized by parallel offsets (autonomic, neuroendocrine, other) and one by amplified slopes (pain, neurocognitive), with high - end convergence after accounting for a single influential cluster. This subgroup's symptom trends could align with those of fibromyalgia. Further exploration with individual patient data is needed to validate these findings.
 
 **Keywords:** Myalgic Encephalomyelitis, ME/CFS, patient clustering, fibromyalgia, post-exertional malaise, PEM
 
