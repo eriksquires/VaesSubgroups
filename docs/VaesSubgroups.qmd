@@ -375,7 +375,7 @@ p
 ```
 :::
 
-We cannot draw strong conclusions from the small clusters alone, but they illustrate the importance of further research with per-patient analysis which could alter or refute our hypotheses.
+For this particular domain, the small clusters avoid involvment with the low intensity group, but other domains show a variety of interactions. We cannot draw strong conclusions from the small clusters alone, but they illustrate the importance of further research with per-patient analysis which could alter or refute our hypotheses.
 
 
 \FloatBarrier
