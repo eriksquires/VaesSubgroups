@@ -119,6 +119,7 @@ Email: esquires.research\@proton.me
 
 {{< pagebreak >}}
 
+\renewcommand{\contentsname}{Contents}
 \setcounter{tocdepth}{2}
 \tableofcontents
 
