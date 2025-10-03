@@ -225,8 +225,7 @@ While the groups maintain integrity, the parallelism observed in the charts abov
 
 ## Converging Patterns Relative to PEM {#sec-different}
 
-Pain and Neurocognitive domains show that while the low-intensity group remains offset, as PEM severity increases to 3, the two lines converge. Arguably, this is either increased amplification, or a reduction of differences around C26. This distinct convergence between the two cluster groups does not appear in any of the other symptom domains. 
-
+Pain and Neurocognitive domains show that while the low-intensity group remains offset, as PEM severity increases to 3, the two lines converge. Arguably, this is either increased amplification, or a reduction of differences around C26. This distinct convergence between the two cluster groups does not appear in any of the other symptom domains.
 
 ::: {#fig-pain fig-cap="Pain and Neurocognitive vs. PEM" fig-pos="h"}
 ```{r neuro_c_symptoms, include=TRUE}
@@ -248,8 +247,7 @@ p
 
 \FloatBarrier
 
-Without C36, the cohort outlier, the upper limits of PEM, Neurocognitive and Pain would converge around where C7 (low-intensity) and C26 (high-intensity) meet. Vaes et al. note that the participants in C36 "had the highest symptom burden (i.e. highest frequency and severity of symptoms)"[@vaes2023] and all of the charts in this study are consistent with that observation. 
-
+Without C36, the cohort outlier, the upper limits of PEM, Neurocognitive and Pain would converge around where C7 (low-intensity) and C26 (high-intensity) meet. Vaes et al. note that the participants in C36 "had the highest symptom burden (i.e. highest frequency and severity of symptoms)"[@vaes2023] and all of the charts in this study are consistent with that observation.
 
 ## Weak Correlations Relative to PEM
 
@@ -276,22 +274,22 @@ p
 
 ## Summary of Differences
 
-**High-intensity:** Has a consistent amplification pattern: as PEM increases, all other symptom domains rise together. 
+**High-intensity:** Has a consistent amplification pattern: as PEM increases, all other symptom domains rise together.
 
 **Low-intensity:** Presents a more selective profile. Pain, and Neurocognitive symptoms start low but converge with the high-intensity group, while Sleep and Immune symptoms show low correlation. Additionally, the low-intensity group is notably nestled in the middle of the overall PEM range which could allow it to hide among the other clusters if not actively searched for.
 
 We summarize these differences in the table below.\bigskip
 
 ::: {#tbl-t1 tbl-cap="Summary of Group Differences" tbl-pos="h"}
-| Feature         | High group  | Low group                     |
-|-----------------|-------------|-------------------------------|
-| Overall vs. PEM | Higher      | Lower - esp. "Other"          |
-| Fatigue         | R² - 0.86   | Weaker R² - 0.54              |
+| Feature         | High group          | Low group                             |
+|-----------------|---------------------|---------------------------------------|
+| Overall vs. PEM | Higher              | Lower - esp. "Other"                  |
+| Fatigue         | R² - 0.86           | Weaker R² - 0.54                      |
 | PEM range       | $\approx 1.3$ – 3.4 | Narrower $\approx 2.2$ – 2.9          |
-| Neurocognitive  | Tracks PEM  | Elevated amplification        |
-| Pain            | Tracks PEM  | Elevated amplification        |
-| Immune          | Tracks PEM  | Flat at $\approx 1$                   |
-| Sleep           | Tracks PEM  | $\approx 1.4$ – 2.5, but uncorrelated |
+| Neurocognitive  | Tracks PEM          | Elevated amplification                |
+| Pain            | Tracks PEM          | Elevated amplification                |
+| Immune          | Tracks PEM          | Flat at $\approx 1$                   |
+| Sleep           | Tracks PEM          | $\approx 1.4$ – 2.5, but uncorrelated |
 :::
 
 \bigskip
@@ -302,20 +300,21 @@ We summarize these differences in the table below.\bigskip
 
 Based on the trends noted in @sec-symptoms, a discussion of whether the low-intensity group could relate to fibromyalgia is warranted. We note that Vaes et al. [@vaes2023] did not model fibromyalgia diagnoses, nor did they report excluding patients with fibromyalgia from their cohort. We cannot assert that the subgroup is clinically fibromyalgia, only that its domain profile aligns with what would be expected if fibromyalgia were present within this cohort.
 
-Patterns in the low-intensity group have higher PEM burdens for all symptom domains except Immune and Sleep, which are uncorrelated with PEM. Further, Neurocognitive and Pain regression lines are amplified. 
+Patterns in the low-intensity group have higher PEM burdens for all symptom domains except Immune and Sleep, which are uncorrelated with PEM. Further, Neurocognitive and Pain regression lines are amplified.
 
 Vaes et al. [@vaes2023] recruited participants who self-reported ME/CFS and later mapped them to multiple case definitions, yielding a broad spectrum of clinical presentations:
 
 > Almost 90% of the participants fulfilled the Fukuda case definition, compared to 80%, 59% and 39% fulfilling the IOM, CCC and ME-ICC case definitions, respectively. More than a quarter of the participants met the criteria for all four different case definitions, whilst 5% of the participants met none of the abovementioned case definitions,...
 
-This breadth makes mixed phenotypes plausible. Independent evidence also indicates that fibromyalgia frequently co-occurs with ME/CFS [@fall2024mcam; @ramirez2022overlap], and comorbidity has been associated with more frequent and severe PEM in ME/CFS patients [@mcmanimen2017pem], which could explain the subgroup’s right-shift along the PEM axis. 
+This breadth makes mixed phenotypes plausible. Independent evidence also indicates that fibromyalgia frequently co-occurs with ME/CFS [@fall2024mcam; @ramirez2022overlap], and comorbidity has been associated with more frequent and severe PEM in ME/CFS patients [@mcmanimen2017pem], which could explain the subgroup’s right-shift along the PEM axis.
 
-Because the Vaes analysis used cluster-level summaries and did not model comorbidities, we cannot identify fibromyalgia directly here. Confirmation would require patient-level data we do not have access to. 
+Because the Vaes analysis used cluster-level summaries and did not model comorbidities, we cannot identify fibromyalgia directly here. Confirmation would require patient-level data we do not have access to.
 
 # Characteristics of the Smallest Clusters {#sec-small}
 
 \FloatBarrier
-Vaes et al. [@vaes2023] identified 13 large [@vaes2023_excel_large] and 32 small clusters [@vaes2023_excel_small]. These were mostly of size 1, with 4 clusters of size 2 and represent approximately 9.4% of the cohort. We used similar charts to those in @sec-symptoms with the addition of the small cluster data.  Our goal was to examine if the small clusters could illuminate or challenge our two-group hypothesis.
+
+Vaes et al. [@vaes2023] identified 13 large [@vaes2023_excel_large] and 32 small clusters [@vaes2023_excel_small]. These were mostly of size 1, with 4 clusters of size 2 and represent approximately 9.4% of the cohort. We currently lack per patient symptom scores so we wished to examine if the small clusters could illuminate or challenge our two-group hypothesis. To do this we overlayed the small cluster data on top of the same charts in @sec-symptoms.
 
 We re-use the Neuroendocrine vs. PEM chart we showed above in @fig-symptoms as an example of how per-patient data could alter our findings. In @fig-smallest we overlay the original plot with small clusters. They sit mostly above the high-intensity trend, while several align closely with it. The low-intensity groups however remain apart from the small clusters. Other symptom domains show a variety of differing patterns.
 
@@ -378,15 +377,13 @@ p
 
 For this particular domain, the small clusters avoid involvment with the low intensity group, but other domains show a variety of interactions. We cannot draw strong conclusions from the small clusters alone, but they illustrate the importance of further research with per-patient analysis which could alter or refute our hypotheses.
 
-
 \FloatBarrier
-
 
 # Discussion {#sec-discuss}
 
-We have shown that the Vaes clusters can be organized into two subgroups defined by symptom domains relative to PEM, and that these subgroups remain consistent across most domains. Grouping them by their relationship to PEM simplifies the original complexity at both the domain and cluster levels. From this perspective, the 13 Vaes clusters can be reduced to two groups of linear models, where membership in one group combined with PEM intensity allows inference of the intensity of other symptom domains. We view this PEM-referenced, two-family reduction (offsets vs. amplification, with C36 sensitivity at the high end) as the main conceptual advance over prior descriptions of the Vaes clusters. 
+We have shown that the Vaes clusters can be organized into two subgroups defined by symptom domains relative to PEM, and that these subgroups remain consistent across most domains. Grouping them by their relationship to PEM simplifies the original complexity at both the domain and cluster levels. From this perspective, the 13 Vaes clusters can be reduced to two groups of linear models, where membership in one group combined with PEM intensity allows inference of the intensity of other symptom domains. We view this PEM-referenced, two-family reduction (offsets vs. amplification, with C36 sensitivity at the high end) as the main conceptual advance over prior descriptions of the Vaes clusters.
 
-While these patterns are striking, our analysis is a secondary exploration based on symptom-domain summaries of the Vaes patient data. The small subgroup sizes (eight and five clusters) together with the original clustering approach and our own visualizations may have produced trends that are purely artifacts of layering our visualizations on top. These concerns highlight the need for validation before our findings can be clinically relevant. 
+While these patterns are striking, our analysis is a secondary exploration based on symptom-domain summaries of the Vaes patient data. The small subgroup sizes (eight and five clusters) together with the original clustering approach and our own visualizations may have produced trends that are purely artifacts of layering our visualizations on top. These concerns highlight the need for validation before our findings can be clinically relevant.
 
 We see challenges in at least three areas: whether the groupings hold when tested with individual patient data; whether symptom-domain analysis can reliably identify the group to which a given patient belongs; and how these subgroups relate—or fail to relate—to fibromyalgia. As an example, Vaes[@vaes2023] includes cluster-specific summaries of standout symptoms; some of those align with our domain-based charts while others show a different emphasis, demonstrating the challenge of reconciling symptom-level observations with domain-level analyses.
 
@@ -406,10 +403,10 @@ Our secondary analysis suggests that the 13 clusters identified by Vaes et al. c
 
 We use the Vaes cluster spreadsheets[@vaes2023_excel_large; @vaes2023_excel_small] for our data. We use R for significant cleaning and transformation from Excel to CSV. After removing everything but the mean symptom severity we:
 
-- Rename symptom groups to use consistent capitalization and abbreviations
-- Group each cluster by symptom domain and calculate geometric means for each symptom domain within each cluster.
-- Rotate the table
-- Add a new column, "all_mean" which is the arithmetic mean of all symptoms within each cluster.
+-   Rename symptom groups to use consistent capitalization and abbreviations
+-   Group each cluster by symptom domain and calculate geometric means for each symptom domain within each cluster.
+-   Rotate the table
+-   Add a new column, "all_mean" which is the arithmetic mean of all symptoms within each cluster.
 
 We present the final data used below. Values were rounded for formatting. See the [Code Availability](#sec-code) section for links to the code used to generate this file.
 
@@ -565,10 +562,9 @@ All data manipulation and analysis scripts are available at <https://github.com/
 
 # Data Availability {#sec-data .unnumbered}
 
-Source data[@vaes2023_excel_large; @vaes2023_excel_small] is available from the original Vaes publication[@vaes2023] at <https://doi.org/10.1186/s12967-023-03946-6>. 
+Source data[@vaes2023_excel_large; @vaes2023_excel_small] is available from the original Vaes publication[@vaes2023] at <https://doi.org/10.1186/s12967-023-03946-6>.
 
-The repository listed in the [Code Availability](#sec-code) section includes copies of the Vaes spreadsheets as well as code used to generate all intermediate files. 
-
+The repository listed in the [Code Availability](#sec-code) section includes copies of the Vaes spreadsheets as well as code used to generate all intermediate files.
 
 {{< pagebreak >}}
 

@@ -1,6 +1,6 @@
 # Analysis of Potential Subgroups in Vaes ME/CFS Patient Clusters
 
-The code here is all of the code needed to generate my research paper [which is also online as a preprint](https:%20/%20/%20www.preprints.org%20/%20manuscript%20/%20202509.1179). The [latest HTML version is here.](https://eriksquires.github.io/VaesSubgroups/VaesSubgroups.html)
+The code here is all of the code needed to generate my research paper [which is also online as a preprint](https://www.preprints.org/manuscript/202509.1179). The [latest HTML version is here.](https://eriksquires.github.io/VaesSubgroups/VaesSubgroups.html)
 
 \*\* Instructions: \*\*
 
